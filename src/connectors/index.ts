@@ -17,7 +17,7 @@ const connectorList: {
   // [SOLFLARE_WALLET]: SolflareConnector,
 };
 
-export type ConnectorType = (typeof connectorList)[keyof typeof connectorList];
+export type ConnectorType = typeof connectorList[keyof typeof connectorList];
 
 class ConnectorFactory {
   static instances: {
