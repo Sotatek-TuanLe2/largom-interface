@@ -1,6 +1,6 @@
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { globalStyles } from 'src/themes/styles';
-// import { appButtonStyles } from 'src/components/AppButton';
+import { appButtonStyles } from 'src/components/AppButton';
 // import { appInputStyles } from 'src/components/AppInput';
 // import { appTextareaStyles } from 'src/components/AppTextarea';
 // import { appSwitchStyles } from 'src/components/AppSwitch';
@@ -19,7 +19,7 @@ export default extendTheme({
   styles: globalStyles.styles,
   colors: globalStyles.colors,
   components: {
-    // Button: appButtonStyles,
+    Button: appButtonStyles,
     // Input: appInputStyles,
     // Textarea: appTextareaStyles,
     // Switch: appSwitchStyles,
