@@ -1,0 +1,104 @@
+@import 'src/styles/Icons';
+@import './color-variables.scss';
+@import './mixins.scss';
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Medium.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-BoldItalic.ttf');
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Italic.ttf');
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-MediumItalic.ttf');
+  font-style: italic;
+  font-weight: 400;
+}
+
+iframe {
+  display: none !important;
+}
+
+.text-error {
+  font-weight: 400;
+  color: #ee5d50;
+  font-size: 14px;
+}
+
+.short-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 350px;
+}
+
+.chakra-checkbox__control {
+  border: 1px solid $line !important;
+  border-radius: 4px !important;
+  height: 21px;
+  width: 21px;
+  background-color: inherit !important;
+
+  &[data-checked] {
+    background: $main !important;
+    border: 0 !important;
+  }
+
+  &[data-indeterminate] {
+    background: $main !important;
+    border: 0 !important;
+  }
+
+  &[data-focus] {
+    box-shadow: none !important;
+  }
+
+  svg {
+    color: $title;
+  }
+}
+
+.chakra-checkbox__label {
+  @include text-medium-regular;
+  font-size: 16px !important;
+}
+
+.link {
+  color: $link !important;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
