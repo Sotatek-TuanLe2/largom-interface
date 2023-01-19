@@ -1,12 +1,11 @@
 import { Box } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppButton } from 'src/components';
-import useWallet from 'src/hooks/useWallet';
 import { RootState } from 'src/store';
 import { setOpenModalSignatureRequired } from 'src/store/wallet';
-import { toastError } from 'src/utils/utils-notify';
+import { toastError } from 'src/utils/notify';
 import BaseModal from './BaseModal';
-import { getErrorMessage } from '../utils/utils-helper';
+import { getErrorMessage } from 'src/utils/helpers';
 import React from 'react';
 
 const ModalSignatureRequired = () => {
@@ -17,17 +16,15 @@ const ModalSignatureRequired = () => {
   const { connector, address } = useSelector(
     (state: RootState) => state.wallet,
   );
-  const { linkWallet } = useWallet();
 
   const onLinkWallet = async () => {
     try {
       if (!connector || !address) {
         return;
       }
-      await linkWallet(connector, address);
       dispatch(setOpenModalSignatureRequired(false));
     } catch (error) {
-      toastError({ message: getErrorMessage(error) });
+      toastError(getErrorMessage(error));
     }
   };
 
