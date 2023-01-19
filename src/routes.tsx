@@ -1,5 +1,10 @@
-import { PublicRoute } from './components';
 import React, { FC, useEffect } from 'react';
+import {
+  ModalFinishTransaction,
+  ModalSignatureRequired,
+  ModalSubmittingTransaction,
+  PublicRoute,
+} from './components';
 import {
   BrowserRouter as Router,
   RouteComponentProps,
@@ -41,9 +46,9 @@ const Routes: FC<RouteComponentProps> = () => {
         <PublicRoute path={'/'} component={HomePage} />
       </Switch>
       <>
-        {/* <ModalSignatureRequired />
+        <ModalSignatureRequired />
         <ModalSubmittingTransaction />
-        <ModalFinishTransaction /> */}
+        <ModalFinishTransaction />
       </>
     </>
   );
