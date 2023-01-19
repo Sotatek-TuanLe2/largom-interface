@@ -14,7 +14,6 @@ import { initMetadata } from './store/metadata';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 
-
 /**
  * Main App routes.
  */

@@ -2,11 +2,10 @@ import React, { forwardRef } from 'react';
 import { Button, ButtonProps } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { StyleProps } from '@chakra-ui/system';
+import 'src/styles/components/AppButton.scss';
 
 export interface AppButtonProps extends ButtonProps {
-  variant?:
-    | 'main'
-    | 'outline'
+  variant?: 'main' | 'outline';
 }
 
 const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>(
