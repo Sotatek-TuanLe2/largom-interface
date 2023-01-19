@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import createRoutes from 'src/routes';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'src/store';
+import { ToastContainer } from 'react-toastify';
 
+/* eslint-disable-next-line */
 function App() {
+  const { store } = configureStore();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <React.StrictMode>
+        <BrowserRouter>
+          {createRoutes()}
+          <ToastContainer
+            position="bottom-right"
+            hideProgressBar
+            pauseOnHover
+            closeButton={false}
+            toastStyle={{
+              position: 'relative',
+              overflow: 'visible',
+            }}
+          />
+        </BrowserRouter>
+      </React.StrictMode>
+    </Provider>
   );
 }
 

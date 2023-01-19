@@ -1,6 +1,6 @@
 import config from 'src/config';
 import MetamaskConnector from './MetamaskConnector';
-import WalletConnectConnector from './WalletConnectConnector';
+// import WalletConnectConnector from './WalletConnectConnector';
 
 export const METAMASK_WALLET = 'metamask-connector';
 export const WALLET_CONNECT = 'wallet-connect-connector';
@@ -9,7 +9,7 @@ const connectorList: {
   [key: string]: any;
 } = {
   [METAMASK_WALLET]: MetamaskConnector,
-  [WALLET_CONNECT]: WalletConnectConnector,
+  // [WALLET_CONNECT]: WalletConnectConnector,
   // [WALLET_LINK]: WalletLinkConnector,
   // [TRUST_WALLET]: TrustWalletConnector,
   // [PHANTOM_WALLET]: PhantomConnector,
@@ -29,7 +29,8 @@ class ConnectorFactory {
     if (!Connector) {
       throw new Error(`Invalid connector class: ${Connector}`);
     }
-    const options = config.connectors[connectorId].options[network];
+    const networkConfig = config.networks[network];
+    const options = networkConfig.connectors[connectorId].options;
     const connectorInstance = new Connector(options);
     this.instances[connectorId] = connectorInstance;
     return connectorInstance;
