@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { PublicRoute } from './components';
+import React, { FC, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   RouteComponentProps,
@@ -12,7 +13,6 @@ import { getUser } from './store/user';
 import { initMetadata } from './store/metadata';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
-import { PublicRoute } from './components';
 
 /**
  * Main App routes.
