@@ -4,7 +4,7 @@ import config from 'src/config';
 import BaseConnector from 'src/connectors/BaseConnector';
 import Storage from 'src/utils/storage';
 import { RootState } from '.';
-import { getNetworkConfig, getNetworkProvider } from './network';
+import { getNetworkConfig, getNetworkProvider } from '../utils/network';
 
 interface IWalletState {
   network: string;
