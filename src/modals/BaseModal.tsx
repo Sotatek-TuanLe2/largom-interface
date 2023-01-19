@@ -71,10 +71,7 @@ const BaseModal: FC<BaseModalProps> = ({
 
           <Flex flexDirection={'column'} className={'content-modal'}>
             {title && (
-              <Box
-                className={`modal__title`}
-                {...styleHeader}
-              >
+              <Box className={`modal__title`} {...styleHeader}>
                 {title}
               </Box>
             )}

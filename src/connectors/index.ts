@@ -1,6 +1,6 @@
 import config from 'src/config';
 import MetamaskConnector from './MetamaskConnector';
-// import WalletConnectConnector from './WalletConnectConnector';
+import WalletConnectConnector from './WalletConnectConnector';
 
 export const METAMASK_WALLET = 'metamask-connector';
 export const WALLET_CONNECT = 'wallet-connect-connector';
@@ -9,7 +9,7 @@ const connectorList: {
   [key: string]: any;
 } = {
   [METAMASK_WALLET]: MetamaskConnector,
-  // [WALLET_CONNECT]: WalletConnectConnector,
+  [WALLET_CONNECT]: WalletConnectConnector,
   // [WALLET_LINK]: WalletLinkConnector,
   // [TRUST_WALLET]: TrustWalletConnector,
   // [PHANTOM_WALLET]: PhantomConnector,
@@ -17,7 +17,7 @@ const connectorList: {
   // [SOLFLARE_WALLET]: SolflareConnector,
 };
 
-export type ConnectorType = typeof connectorList[keyof typeof connectorList];
+export type ConnectorType = (typeof connectorList)[keyof typeof connectorList];
 
 class ConnectorFactory {
   static instances: {

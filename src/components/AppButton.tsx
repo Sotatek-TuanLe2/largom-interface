@@ -4,9 +4,7 @@ import { mode } from '@chakra-ui/theme-tools';
 import { StyleProps } from '@chakra-ui/system';
 
 export interface AppButtonProps extends ButtonProps {
-  variant?:
-    | 'main'
-    | 'outline'
+  variant?: 'main' | 'outline';
 }
 
 const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>(
