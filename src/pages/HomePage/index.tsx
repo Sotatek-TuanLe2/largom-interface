@@ -24,6 +24,10 @@ const HomePage = () => {
       Home Page
       <p>
         WebSocket URL Example:
+        <br />
+        +
+        wss://sotadex-be.sotatek.works/socket.io/?authorization=null&EIO=3&transport=websocket
+        <br />+
         wss://bstream.binance.com:9443/stream?streams=abnormaltradingnotices
       </p>
       <AppInput value={input} onChange={onChangeWebSocketURL} />
