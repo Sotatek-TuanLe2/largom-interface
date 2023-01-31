@@ -7,27 +7,11 @@ import { ToastContainer } from 'react-toastify';
 import theme from 'src/themes';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { I18nextProvider } from 'react-i18next';
+import { initI18n } from 'src/utils/i18n';
 import i18next from 'i18next';
-import common_en from './translations/en.json';
-import common_vn from './translations/vn.json';
-import Storage from './utils/storage';
 
-const language = Storage.getLanguage();
-
-i18next
-  .init({
-    interpolation: { escapeValue: false }, // React already does escaping
-    lng: language, // language to use
-    resources: {
-      en: {
-        common: common_en, // 'common' is our custom namespace
-      },
-      vn: {
-        common: common_vn,
-      },
-    },
-  })
-  .then();
+// initiate multi-language
+initI18n().then();
 
 /* eslint-disable-next-line */
 function App() {

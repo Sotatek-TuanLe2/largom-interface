@@ -1,5 +1,3 @@
 {
-  "welcome": {
-    "title": "Xin chào {{name}}"
-  }
+  "welcome.title": "Xin chào {{name}}"
 }

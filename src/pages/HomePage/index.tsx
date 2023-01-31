@@ -2,16 +2,13 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
-import { useTranslation } from 'react-i18next';
-import Storage from 'src/utils/storage';
+import useLanguage from 'src/hooks/useLanguage';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('');
   const [webSocketURL, setWebSocketURL] = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const { connectionStatus, latestMessage } = useWebSocket(webSocketURL);
-
-  const { t, i18n } = useTranslation('common');
 
   useEffect(() => {
     if (latestMessage) {
@@ -23,15 +20,16 @@ const HomePage = () => {
     setInput(e.target.value);
   };
 
+  const { formatMessage, changeLanguage } = useLanguage();
+
   return (
-    <div>
-      {t('welcome.title', { name: 'Largom' })}
+    <>
+      {formatMessage('welcome.title', { name: 'Largom' })}
       Home Page
       <AppButton
         variant="main"
         onClick={() => {
-          Storage.setLanguage('en');
-          i18n.changeLanguage('en');
+          changeLanguage('en');
         }}
       >
         EN
@@ -39,8 +37,7 @@ const HomePage = () => {
       <AppButton
         variant="main"
         onClick={() => {
-          Storage.setLanguage('vn');
-          i18n.changeLanguage('vn');
+          changeLanguage('vn');
         }}
       >
         VN
@@ -67,7 +64,7 @@ const HomePage = () => {
           <br />
         </>
       ))}
-    </div>
+    </>
   );
 };
 
