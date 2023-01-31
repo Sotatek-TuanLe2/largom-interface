@@ -7,11 +7,11 @@ import { ToastContainer } from 'react-toastify';
 import theme from 'src/themes';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { I18nextProvider } from 'react-i18next';
-import { initI18n } from 'src/utils/i18n';
+import { initMultiLanguages } from 'src/utils/languages';
 import i18next from 'i18next';
 
 // initiate multi-language
-initI18n().then();
+initMultiLanguages().then();
 
 /* eslint-disable-next-line */
 function App() {

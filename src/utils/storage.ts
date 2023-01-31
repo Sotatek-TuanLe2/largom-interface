@@ -18,7 +18,7 @@ type StorageInterface = {
 
 const defaultPreferences: StorageInterface = {
   network: config.defaultNetwork,
-  language: 'en'
+  language: 'en',
 };
 
 function getStorage(): StorageInterface {
