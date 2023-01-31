@@ -11,3 +11,5 @@ export enum WS_CONNECTION_STATUS {
   CLOSED = 'Closed',
   UNINSTANTIATED = 'Uninstantiated',
 }
+
+export const I18_NAMESPACE = 'common'; // 'common' is our custom namespace

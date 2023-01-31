@@ -13,10 +13,12 @@ type StorageInterface = {
   connectorId?: string;
   account?: string;
   expireTime?: number;
+  language: string;
 };
 
 const defaultPreferences: StorageInterface = {
   network: config.defaultNetwork,
+  language: 'en',
 };
 
 function getStorage(): StorageInterface {
@@ -73,6 +75,11 @@ class Storage {
     return account || '';
   }
 
+  static getLanguage(): string | undefined {
+    const { language } = getStorage();
+    return language || 'en';
+  }
+
   static setAccessToken(accessToken: string, expireTime: number) {
     const preferences = getStorage();
     preferences.accessToken = accessToken;
@@ -107,6 +114,12 @@ class Storage {
   static setAccountAddress(account: string) {
     const preferences = getStorage();
     preferences.account = account;
+    setStorage(PREFERENCES, preferences);
+  }
+
+  static setLanguage(language: string) {
+    const preferences = getStorage();
+    preferences.language = language;
     setStorage(PREFERENCES, preferences);
   }
 

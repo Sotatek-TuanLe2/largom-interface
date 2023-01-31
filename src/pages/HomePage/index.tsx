@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
+import useLanguage from 'src/hooks/useLanguage';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('');
@@ -19,9 +20,28 @@ const HomePage = () => {
     setInput(e.target.value);
   };
 
+  const { formatMessage, changeLanguage } = useLanguage();
+
   return (
-    <div>
+    <>
+      {formatMessage('welcome.title', { name: 'Largom' })}
       Home Page
+      <AppButton
+        variant="main"
+        onClick={() => {
+          changeLanguage('en');
+        }}
+      >
+        EN
+      </AppButton>
+      <AppButton
+        variant="main"
+        onClick={() => {
+          changeLanguage('vn');
+        }}
+      >
+        VN
+      </AppButton>
       <p>
         WebSocket URL Example:
         <br />
@@ -44,7 +64,7 @@ const HomePage = () => {
           <br />
         </>
       ))}
-    </div>
+    </>
   );
 };
 
