@@ -23,6 +23,7 @@ export const globalStyles = {
     },
     border: {
       100: '#272D52',
+      200: '#9295A6',
     },
     yellow: {
       100: '#FFB547',
@@ -109,6 +110,7 @@ export const globalStyles = {
     },
     card: {
       100: '#101530',
+      200: '#21232F',
     },
   },
   styles: {

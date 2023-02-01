@@ -1,14 +1,24 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
 import useLanguage from 'src/hooks/useLanguage';
+import { createValidator } from 'src/utils/validator';
+import { Box, Text } from '@chakra-ui/react';
+import { PhoneIcon } from '@chakra-ui/icons';
+import AppTextarea from 'src/components/AppTextArea';
 
 const HomePage = () => {
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useState<string>('ewqewq');
   const [webSocketURL, setWebSocketURL] = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const { connectionStatus, latestMessage } = useWebSocket(webSocketURL);
+
+  const validator = useRef(
+    createValidator({
+      element: (message: string) => <Text color={'red.100'}>{message}</Text>,
+    }),
+  );
 
   useEffect(() => {
     if (latestMessage) {
@@ -50,7 +60,18 @@ const HomePage = () => {
         <br />+
         wss://bstream.binance.com:9443/stream?streams=abnormaltradingnotices
       </p>
-      <AppInput value={input} onChange={onChangeWebSocketURL} />
+      <AppInput
+        value={input}
+        onChange={onChangeWebSocketURL}
+        validate={{
+          name: `webSocket`,
+          validator: validator.current,
+          rule: 'required',
+        }}
+        startAdornment={<PhoneIcon color="gray.300" />}
+        endAdornment={<Box>USDT</Box>}
+        label={'dasdasd'}
+      />
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run
       </AppButton>
