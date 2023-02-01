@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 import Storage from './utils/storage';
 import { getUser } from './store/user';
 import { initMetadata } from './store/metadata';
-import HomePage from './pages/HomePage';
+import Trading from './pages/Trading';
 import LoginPage from './pages/LoginPage';
 
 /**
@@ -43,7 +43,7 @@ const Routes: FC<RouteComponentProps> = () => {
     <>
       <Switch>
         <PublicRoute path={'/login'} component={LoginPage} />
-        <PublicRoute path={'/'} component={HomePage} />
+        <PublicRoute path={'/'} component={Trading} />
       </Switch>
       <>
         <ModalSignatureRequired />
