@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
-import { useWebSocket } from 'src/hooks';
+import { useTranslate, useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
-import useLanguage from 'src/hooks/useLanguage';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('');
@@ -20,11 +19,11 @@ const HomePage = () => {
     setInput(e.target.value);
   };
 
-  const { formatMessage, changeLanguage } = useLanguage();
+  const { t, changeLanguage } = useTranslate();
 
   return (
     <>
-      {formatMessage('welcome.title', { name: 'Largom' })}
+      {t('welcome.title', { name: 'Largom' })}
       Home Page
       <AppButton
         variant="main"
