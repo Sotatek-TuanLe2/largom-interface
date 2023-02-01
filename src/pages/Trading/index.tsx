@@ -1,15 +1,19 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
-import { useWebSocket } from 'src/hooks';
-import 'src/styles/pages/HomePage.scss';
-import useLanguage from 'src/hooks/useLanguage';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { PhoneIcon } from '@chakra-ui/icons';
 import { Box } from '@chakra-ui/react';
+import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
+import { useTranslate, useWebSocket } from 'src/hooks';
+import rf from 'src/services/RequestFactory';
+import 'src/styles/pages/HomePage.scss';
+import { createValidator } from 'src/utils/validator';
 
 const HomePage = () => {
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useState<string>('socket.io');
   const [webSocketURL, setWebSocketURL] = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const { connectionStatus, latestMessage } = useWebSocket(webSocketURL);
+
+  const validator = useRef(createValidator());
 
   useEffect(() => {
     if (latestMessage) {
@@ -21,12 +25,20 @@ const HomePage = () => {
     setInput(e.target.value);
   };
 
-  const { formatMessage, changeLanguage } = useLanguage();
+  const { t, changeLanguage } = useTranslate();
+
+  const getMockAPI = async () => {
+    const res = await rf.getRequest('TradingRequest').getCandleChartData();
+    console.log('getMockAPI-res', res);
+  };
+
+  useEffect(() => {
+    getMockAPI();
+  }, []);
 
   return (
     <>
-      {formatMessage('welcome.title', { name: 'Largom' })}
-      Home Page
+      {t('welcome.title', { name: 'Largom' })}
       <AppButton
         variant="main"
         onClick={() => {
@@ -51,7 +63,18 @@ const HomePage = () => {
         <br />+
         wss://bstream.binance.com:9443/stream?streams=abnormaltradingnotices
       </p>
-      <AppInput value={input} onChange={onChangeWebSocketURL} />
+      <AppInput
+        value={input}
+        onChange={onChangeWebSocketURL}
+        validate={{
+          name: `webSocket`,
+          validator: validator.current,
+          rule: 'required',
+        }}
+        startAdornment={<PhoneIcon color="gray.300" />}
+        endAdornment={<Box>USDT</Box>}
+        label="Input"
+      />
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run
       </AppButton>
@@ -67,7 +90,7 @@ const HomePage = () => {
       ))}
 
       <Box width={'340px'}>
-        <AppTableOrderBook type='BUY' />
+        <AppTableOrderBook type="BUY" />
       </Box>
     </>
   );

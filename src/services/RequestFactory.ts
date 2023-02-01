@@ -1,8 +1,11 @@
 import AuthRequest from './AuthRequest';
 import UserRequest from './UserRequest';
+import TradingRequest from './TradingRequest';
+
 const requestMap = {
   AuthRequest,
   UserRequest,
+  TradingRequest,
 };
 
 const instances = {};

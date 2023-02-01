@@ -48,7 +48,9 @@ const AppTableOrderBook: FC<IAppTableOrderBook> = ({ type }) => {
   };
 
   return (
-    <Box className={`orderbook-list ${type === TYPE_TRADE.SELL ? 'sell' : 'buy'}`}>
+    <Box
+      className={`orderbook-list ${type === TYPE_TRADE.SELL ? 'sell' : 'buy'}`}
+    >
       <Box className="orderbook-tbheader">
         <Box textAlign="left">Price(USDT)</Box>
         <Box textAlign="left">Amount(BTC)</Box>

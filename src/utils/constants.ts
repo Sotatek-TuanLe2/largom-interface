@@ -14,6 +14,8 @@ export enum WS_CONNECTION_STATUS {
 
 export const I18_NAMESPACE = 'common'; // 'common' is our custom namespace
 
+export const MOCK_API_PORT = 9000;
+
 export const TYPE_TRADE = {
   SELL: 'SELL',
   BUY: 'BUY',
