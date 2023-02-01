@@ -1,8 +1,9 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { AppButton, AppInput } from 'src/components';
+import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
 import { useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
 import useLanguage from 'src/hooks/useLanguage';
+import { Box } from '@chakra-ui/react';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('');
@@ -64,6 +65,10 @@ const HomePage = () => {
           <br />
         </>
       ))}
+
+      <Box width={'340px'}>
+        <AppTableOrderBook type='BUY' />
+      </Box>
     </>
   );
 };

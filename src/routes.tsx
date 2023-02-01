@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import {
-  ModalFinishTransaction,
-  ModalSignatureRequired,
-  ModalSubmittingTransaction,
+  // ModalFinishTransaction,
+  // ModalSignatureRequired,
+  // ModalSubmittingTransaction,
   PublicRoute,
 } from './components';
 import {
@@ -46,9 +46,9 @@ const Routes: FC<RouteComponentProps> = () => {
         <PublicRoute path={'/'} component={HomePage} />
       </Switch>
       <>
-        <ModalSignatureRequired />
-        <ModalSubmittingTransaction />
-        <ModalFinishTransaction />
+        {/*<ModalSignatureRequired />*/}
+        {/*<ModalSubmittingTransaction />*/}
+        {/*<ModalFinishTransaction />*/}
       </>
     </>
   );

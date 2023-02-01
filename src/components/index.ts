@@ -5,3 +5,4 @@ export { default as AppInput } from './AppInput';
 export { default as ModalFinishTransaction } from './Modals/ModalFinishTransaction';
 export { default as ModalSignatureRequired } from './Modals/ModalSignatureRequired';
 export { default as ModalSubmittingTransaction } from './Modals/ModalSubmittingTransaction';
+export { default as AppTableOrderBook } from './AppTableOrderBook';
