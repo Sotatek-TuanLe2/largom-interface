@@ -3,6 +3,7 @@ import { Box, Text } from '@chakra-ui/react';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useTranslate, useWebSocket } from 'src/hooks';
+import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
 import { createValidator } from 'src/utils/validator';
 
@@ -29,6 +30,15 @@ const HomePage = () => {
   };
 
   const { t, changeLanguage } = useTranslate();
+
+  const getMockAPI = async () => {
+    const res = await rf.getRequest('TradingRequest').getCandleChartData();
+    console.log('getMockAPI-res', res);
+  };
+
+  useEffect(() => {
+    getMockAPI();
+  }, []);
 
   return (
     <>
