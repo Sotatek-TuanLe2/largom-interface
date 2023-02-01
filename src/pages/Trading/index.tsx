@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
-import { useWebSocket } from 'src/hooks';
+import { useTranslate, useWebSocket } from 'src/hooks';
 import 'src/styles/pages/HomePage.scss';
-import useLanguage from 'src/hooks/useLanguage';
 import { Box } from '@chakra-ui/react';
 
 const HomePage = () => {
@@ -21,11 +20,11 @@ const HomePage = () => {
     setInput(e.target.value);
   };
 
-  const { formatMessage, changeLanguage } = useLanguage();
+  const { t, changeLanguage } = useTranslate();
 
   return (
     <>
-      {formatMessage('welcome.title', { name: 'Largom' })}
+      {t('welcome.title', { name: 'Largom' })}
       Home Page
       <AppButton
         variant="main"
@@ -65,9 +64,8 @@ const HomePage = () => {
           <br />
         </>
       ))}
-
       <Box width={'340px'}>
-        <AppTableOrderBook type='BUY' />
+        <AppTableOrderBook type="BUY" />
       </Box>
     </>
   );

@@ -1,22 +1,16 @@
-import { TFunctionDetailedResult } from 'i18next';
+import { i18n, TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { I18_NAMESPACE } from 'src/utils/constants';
 import Storage from '../utils/storage';
 
 type ReturnType = {
-  formatMessage: (
-    key: string,
-    options?: any,
-  ) => TFunctionDetailedResult<object>;
+  t: TFunction;
+  i18n: i18n;
   changeLanguage: (language: string) => void;
 };
 
-const useLanguage = (): ReturnType => {
-  const { t: translate, i18n } = useTranslation(I18_NAMESPACE);
-
-  const formatMessage = (key: string, options?: any) => {
-    return translate(key, options);
-  };
+const useTranslate = (): ReturnType => {
+  const { t, i18n } = useTranslation(I18_NAMESPACE);
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language).then(() => {
@@ -25,9 +19,10 @@ const useLanguage = (): ReturnType => {
   };
 
   return {
-    formatMessage,
+    t,
+    i18n,
     changeLanguage,
   };
 };
 
-export default useLanguage;
+export default useTranslate;
