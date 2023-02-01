@@ -74,7 +74,6 @@ const HomePage = () => {
         startAdornment={<PhoneIcon color="gray.300" />}
         endAdornment={<Box>USDT</Box>}
         label="Input"
-        variant="main"
       />
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run

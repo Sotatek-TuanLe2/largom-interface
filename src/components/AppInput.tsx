@@ -35,7 +35,7 @@ interface AppInputProps extends InputProps {
 const AppInput = forwardRef(
   (
     {
-      variant = 'filled',
+      variant = 'main',
       size = 'lg',
       readOnly,
       startAdornment,
