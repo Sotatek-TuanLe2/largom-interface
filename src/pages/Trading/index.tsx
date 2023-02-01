@@ -1,7 +1,7 @@
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { PhoneIcon } from '@chakra-ui/icons';
 import { Box } from '@chakra-ui/react';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { AppButton, AppInput } from 'src/components';
+import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
 import { useTranslate, useWebSocket } from 'src/hooks';
 import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
@@ -88,6 +88,10 @@ const HomePage = () => {
           <br />
         </>
       ))}
+      <Box width={'340px'}>
+        <AppTableOrderBook type="BUY" />
+        <AppTableOrderBook type="SELL" showHeader={false} />
+      </Box>
     </>
   );
 };
