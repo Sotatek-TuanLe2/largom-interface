@@ -88,7 +88,6 @@ const HomePage = () => {
           <br />
         </>
       ))}
-
       <Box width={'340px'}>
         <AppTableOrderBook type="BUY" />
       </Box>
