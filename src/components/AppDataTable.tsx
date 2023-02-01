@@ -9,6 +9,7 @@ import {
   ReactNode,
   useMemo,
 } from 'react';
+import { BeatLoader } from 'react-spinners';
 import { isMobile } from 'react-device-detect';
 import { debounce } from 'lodash';
 import AppPagination from './AppPagination';
@@ -169,7 +170,7 @@ const AppDataTable = forwardRef(
             isLoading={isLoadingMore}
             isDisabled={isLoadingMore}
           >
-            See more
+            {isLoadingMore ? <BeatLoader color="white" size={8} /> : 'See more'}
           </AppButton>
         </div>
       ) : null;
