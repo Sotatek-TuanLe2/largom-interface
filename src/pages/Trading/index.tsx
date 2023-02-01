@@ -1,5 +1,5 @@
 import { PhoneIcon } from '@chakra-ui/icons';
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useTranslate, useWebSocket } from 'src/hooks';
@@ -39,7 +39,6 @@ const HomePage = () => {
   return (
     <>
       {t('welcome.title', { name: 'Largom' })}
-      Home Page
       <AppButton
         variant="main"
         onClick={() => {
@@ -74,7 +73,8 @@ const HomePage = () => {
         }}
         startAdornment={<PhoneIcon color="gray.300" />}
         endAdornment={<Box>USDT</Box>}
-        label={'dasdasd'}
+        label="Input"
+        variant="main"
       />
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run

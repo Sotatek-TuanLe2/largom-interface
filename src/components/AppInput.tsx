@@ -3,7 +3,6 @@ import {
   InputProps,
   InputGroup,
   InputRightElement,
-  Box,
   InputLeftElement,
   FormLabel,
   FormControl,
@@ -49,6 +48,8 @@ const AppInput = forwardRef(
     }: AppInputProps,
     ref,
   ) => {
+    const forceRender = useForceUpdate();
+
     useEffect(() => {
       if (validate)
         validate.validator.element = (message: string) => (
@@ -56,11 +57,12 @@ const AppInput = forwardRef(
         );
     }, [validate]);
 
-    const forceRender = useForceUpdate();
     const onBlur = () => {
       validate?.validator.showMessageFor(validate.name);
       forceRender();
     };
+
+    const ableToShowErrorMessage = validate && !hiddenErrorText && !readOnly;
 
     return (
       <FormControl isRequired={isRequired}>
@@ -88,17 +90,13 @@ const AppInput = forwardRef(
             <InputRightElement right={'14px'} children={<>{endAdornment}</>} />
           )}
         </InputGroup>
-        <>
-          {!hiddenErrorText &&
-            validate &&
-            !readOnly &&
-            validate.validator.message(
-              validate.name,
-              props.value,
-              validate.rule,
-              validate.options,
-            )}
-        </>
+        {ableToShowErrorMessage &&
+          validate.validator.message(
+            validate.name,
+            props.value,
+            validate.rule,
+            validate.options,
+          )}
       </FormControl>
     );
   },

@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   FormControl,
   FormLabel,
   StyleProps,
+  Text,
   Textarea,
   TextareaProps,
 } from '@chakra-ui/react';
@@ -32,21 +33,30 @@ const AppTextarea: FC<AppTextareaProps> = ({
   ...props
 }) => {
   const forceRender = useForceUpdate();
+
+  useEffect(() => {
+    if (validate)
+      validate.validator.element = (message: string) => (
+        <Text color={'red.100'}>{message}</Text>
+      );
+  }, [validate]);
+
   const onBlur = () => {
     validate?.validator.showMessageFor(validate.name);
     forceRender();
   };
+
+  const ableToShowErrorMessage = validate && !hiddenErrorText;
+
   return (
     <FormControl isRequired={props?.isRequired}>
-      {' '}
       {!!label && (
         <FormLabel mb={0} color="border.200">
           {label}
         </FormLabel>
       )}
       <Textarea variant={variant} onBlur={onBlur} {...props} />
-      {!hiddenErrorText &&
-        validate &&
+      {ableToShowErrorMessage &&
         validate.validator.message(
           validate.name,
           props.value,
