@@ -8,16 +8,12 @@ import 'src/styles/pages/HomePage.scss';
 import { createValidator } from 'src/utils/validator';
 
 const HomePage = () => {
-  const [input, setInput] = useState<string>('ewqewq');
+  const [input, setInput] = useState<string>('socket.io');
   const [webSocketURL, setWebSocketURL] = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const { connectionStatus, latestMessage } = useWebSocket(webSocketURL);
 
-  const validator = useRef(
-    createValidator({
-      element: (message: string) => <Text color={'red.100'}>{message}</Text>,
-    }),
-  );
+  const validator = useRef(createValidator());
 
   useEffect(() => {
     if (latestMessage) {

@@ -7,10 +7,11 @@ import {
   InputLeftElement,
   FormLabel,
   FormControl,
+  Text,
 } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { StyleProps, forwardRef } from '@chakra-ui/system';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import { useForceUpdate } from 'src/hooks';
 
@@ -48,6 +49,13 @@ const AppInput = forwardRef(
     }: AppInputProps,
     ref,
   ) => {
+    useEffect(() => {
+      if (validate)
+        validate.validator.element = (message: string) => (
+          <Text color={'red.100'}>{message}</Text>
+        );
+    }, [validate]);
+
     const forceRender = useForceUpdate();
     const onBlur = () => {
       validate?.validator.showMessageFor(validate.name);
@@ -76,7 +84,9 @@ const AppInput = forwardRef(
             onBlur={onBlur}
             paddingInline={props?.paddingInline}
           />
-          {endAdornment && <InputRightElement children={<>{endAdornment}</>} />}
+          {endAdornment && (
+            <InputRightElement right={'14px'} children={<>{endAdornment}</>} />
+          )}
         </InputGroup>
         <>
           {!hiddenErrorText &&
