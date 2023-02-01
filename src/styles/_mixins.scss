@@ -141,8 +141,8 @@
 
 @mixin heading-4 {
   font-weight: 700;
-  font-size: 30px;
-  line-height: 38px;
+  font-size: 34px;
+  line-height: 42px;
 }
 
 @mixin heading-5 {
@@ -169,16 +169,82 @@
   line-height: 24px;
 }
 
+@mixin display-bold-large {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+@mixin display-bold-medium {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@mixin display-bold-small {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+@mixin display-bold-tiny {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 26px;
+}
+
+@mixin display-regular-large {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+@mixin display-regular-medium {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@mixin display-regular-small {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+@mixin display-regular-tiny {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 26px;
+}
+
+@mixin text-large-medium {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+}
+
 @mixin text-medium-medium {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
 }
 
+@mixin text-small-medium {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin text-tiny-medium {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
 @mixin text-large-regular {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 @mixin text-medium-regular {
@@ -208,19 +274,19 @@
 @mixin text-medium-bold {
   font-weight: 700;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 @mixin text-small-bold {
   font-weight: 700;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 20px;
 }
 
 @mixin text-tiny-bold {
   font-weight: 700;
   font-size: 12px;
-  line-height: 26px;
+  line-height: 16px;
 }
 
 @mixin animate($animation, $duration, $method, $times) {
