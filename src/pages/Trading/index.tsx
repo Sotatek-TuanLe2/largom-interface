@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { AppButton, AppInput } from 'src/components';
 import { useTranslate, useWebSocket } from 'src/hooks';
+import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
 
 const HomePage = () => {
@@ -20,6 +21,15 @@ const HomePage = () => {
   };
 
   const { t, changeLanguage } = useTranslate();
+
+  const getMockAPI = async () => {
+    const res = await rf.getRequest('TradingRequest').getCandleChartData();
+    console.log('getMockAPI-res', res);
+  };
+
+  useEffect(() => {
+    getMockAPI();
+  }, []);
 
   return (
     <>
