@@ -5,6 +5,7 @@ import { TYPE_TRADE } from 'src/utils/constants';
 
 interface IAppTableOrderBook {
   type: 'SELL' | 'BUY';
+  showHeader?: boolean;
 }
 
 interface IOrderBook {
@@ -36,8 +37,9 @@ const data = [
   },
 ];
 
-const AppTableOrderBook: FC<IAppTableOrderBook> = ({ type }) => {
-  const [orderActive, setOrderActive] = useState<any>(null);
+const AppTableOrderBook: FC<IAppTableOrderBook> = (props) => {
+  const { type, showHeader = true } = props;
+  const [orderActive, setOrderActive] = useState<number | null>(null);
 
   const isOrderActive = (orderIndex: number) => {
     if (orderActive === null) return false;
@@ -51,11 +53,13 @@ const AppTableOrderBook: FC<IAppTableOrderBook> = ({ type }) => {
     <Box
       className={`orderbook-list ${type === TYPE_TRADE.SELL ? 'sell' : 'buy'}`}
     >
-      <Box className="orderbook-tbheader">
-        <Box textAlign="left">Price(USDT)</Box>
-        <Box textAlign="left">Amount(BTC)</Box>
-        <Box textAlign="right">Total</Box>
-      </Box>
+      {showHeader && (
+        <Box className="orderbook-tbheader">
+          <Box textAlign="left">Price(USDT)</Box>
+          <Box textAlign="left">Amount(BTC)</Box>
+          <Box textAlign="right">Total</Box>
+        </Box>
+      )}
       {data.map((item: IOrderBook, index) => {
         return (
           <Box

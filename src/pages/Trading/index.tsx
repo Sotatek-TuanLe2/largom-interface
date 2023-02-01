@@ -90,6 +90,7 @@ const HomePage = () => {
       ))}
       <Box width={'340px'}>
         <AppTableOrderBook type="BUY" />
+        <AppTableOrderBook type="SELL" showHeader={false} />
       </Box>
     </>
   );
