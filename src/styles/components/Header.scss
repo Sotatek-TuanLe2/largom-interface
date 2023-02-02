@@ -3,6 +3,7 @@
 
 .container-page {
   justify-content: center;
+
   & > div {
     width: 1440px;
   }
@@ -32,6 +33,7 @@
 
   &__menu {
     @include text-small-regular;
+
     align-items: center;
     margin-right: 20px;
     cursor: pointer;
