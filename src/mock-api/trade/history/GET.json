@@ -1,0 +1,61 @@
+[
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Ethereum",
+    "side": "Buy",
+    "price": 240,
+    "executed": 7.831,
+    "fee": 0.005686842,
+    "role": "Taker",
+    "total": 0
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "BSC",
+    "side": "Sell",
+    "avarage": 242.8,
+    "price": "Market",
+    "executed": 17.169,
+    "fee": 0.01286616,
+    "role": "Taker",
+    "total": 6070
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Avalanche",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 25.0,
+    "fee": 0,
+    "role": "Taker",
+    "total": 0
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Solana",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 7.831,
+    "fee": 0.00022472,
+    "role": "Taker",
+    "total": 0
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Polygon",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 7.831,
+    "fee": 0.00586842,
+    "role": "Taker",
+    "total": 0
+  }
+]
