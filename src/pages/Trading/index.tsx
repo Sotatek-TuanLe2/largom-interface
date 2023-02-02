@@ -6,6 +6,7 @@ import { useTranslate, useWebSocket } from 'src/hooks';
 import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
 import { createValidator } from 'src/utils/validator';
+import AppDataTable from 'src/components/AppDataTable';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('socket.io');
@@ -29,7 +30,7 @@ const HomePage = () => {
 
   const getMockAPI = async () => {
     const res = await rf.getRequest('TradingRequest').getCandleChartData();
-    console.log('getMockAPI-res', res);
+    return res;
   };
 
   useEffect(() => {
@@ -78,6 +79,10 @@ const HomePage = () => {
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run
       </AppButton>
+      <AppDataTable
+        fetchData={getMockAPI}
+        renderBody={(data) => <>{console.log('data render body', data)}</>}
+      />
       <p>Web Socket: {webSocketURL}</p>
       <p>Connection status: {connectionStatus}</p>
       <p>Last Message: {latestMessage}</p>
