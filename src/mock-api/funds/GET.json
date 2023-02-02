@@ -1,0 +1,42 @@
+[
+  {
+    "coin": "BUSD",
+    "network": "Ethereum",
+    "total_balance": 42639.8599,
+    "available_balance": 42639.8599,
+    "in_order": 0,
+    "btc_value": 1.85614721
+  },
+  {
+    "coin": "ADA",
+    "network": "BSC",
+    "total_balance": 8638.38179205,
+    "available_balance": 8638.38179205,
+    "in_order": 0,
+    "btc_value": 0.14296522
+  },
+  {
+    "coin": "HIVE",
+    "network": "Avalance",
+    "total_balance": 7451.59,
+    "available_balance": 7451.59,
+    "in_order": 0,
+    "btc_value": 0.12168446
+  },
+  {
+    "coin": "XRP",
+    "network": "Solana",
+    "total_balance": 3940.948905,
+    "available_balance": 3940.948905,
+    "in_order": 0,
+    "btc_value": 0.06873015
+  },
+  {
+    "coin": "VITE",
+    "network": "Polygon",
+    "total_balance": 66325.38179205,
+    "available_balance": 66325.38179205,
+    "in_order": 0,
+    "btc_value": 0.06765238
+  }
+]
