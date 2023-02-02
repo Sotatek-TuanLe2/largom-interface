@@ -24,6 +24,7 @@ export const globalStyles = {
     border: {
       100: '#272D52',
       200: '#9295A6',
+      300: '#282A38',
     },
     yellow: {
       100: '#FFB547',
