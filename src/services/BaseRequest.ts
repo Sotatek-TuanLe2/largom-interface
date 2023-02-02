@@ -3,6 +3,7 @@ import axios from 'axios';
 import Storage from 'src/utils/storage';
 import { setAuthorizationToRequest } from 'src/utils/authenticate';
 import { AppBroadcast } from 'src/utils/broadcast';
+import { MOCK_API_PORT } from 'src/utils/constants';
 
 export default class BaseRequest {
   protected accessToken = '';
@@ -15,6 +16,9 @@ export default class BaseRequest {
   }
 
   getUrlPrefix() {
+    if (process.env.REACT_APP_MOCK_API) {
+      return `http://localhost:${MOCK_API_PORT}/api`;
+    }
     return config.api.baseUrlApi;
   }
 
