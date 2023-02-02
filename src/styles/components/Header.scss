@@ -1,0 +1,76 @@
+@import '../color-variables.scss';
+@import '../_mixins.scss';
+
+.container-page {
+  justify-content: center;
+  &>div {
+    width: 1440px;
+  }
+}
+
+.header {
+  background-color: $Card;
+  height: 80px;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 4px;
+
+  &__content {
+    align-items: center;
+    justify-content: space-between;
+    width: 1440px;
+    padding: 0 40px;
+
+    &--right {
+      align-items: center;
+    }
+  }
+
+  &__menus {
+    margin-left: 54px;
+  }
+
+  &__menu {
+    @include text-small-regular;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    color: $Paragraph1;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    svg {
+      margin-left: 5px;
+    }
+
+    &.active,
+    &:hover {
+      color: $Title;
+      @include text-small-medium;
+
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__icon-download,
+  &__icon-language {
+    cursor: pointer;
+    color: $Paragraph1;
+
+    &:hover {
+      color: $Title;
+    }
+  }
+
+  &__icon-download {
+    margin: 0 20px;
+  }
+
+  button {
+    font-family: 'Inter', sans-serif;
+  }
+}
