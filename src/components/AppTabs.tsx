@@ -7,7 +7,7 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 import React, { FC, ReactNode } from 'react';
-import 'src/styles/components/AppTabs.scss'
+import 'src/styles/components/AppTabs.scss';
 
 interface IAppTabs {
   defaultTab?: number;
@@ -37,7 +37,9 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
 
       <TabPanels>
         {tabs.map((tab: ITabs) => {
-          return <TabPanel className="app-tab__content-tab">{tab.content}</TabPanel>;
+          return (
+            <TabPanel className="app-tab__content-tab">{tab.content}</TabPanel>
+          );
         })}
       </TabPanels>
     </Tabs>
