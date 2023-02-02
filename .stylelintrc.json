@@ -1,0 +1,10 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "import-notation": "string",
+    "color-function-notation": "legacy",
+    "no-descending-specificity": null,
+    "selector-class-pattern": null
+  }
+}
