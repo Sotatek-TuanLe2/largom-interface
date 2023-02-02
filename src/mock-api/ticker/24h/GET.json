@@ -1,0 +1,29 @@
+[
+  {
+    "symbol": "BTCUSD",
+    "priceChange": "0",
+    "priceChangePercent": "0",
+    "lastPrice": "17274.41",
+    "lastPriceChange": "0",
+    "highPrice": "17274.41",
+    "lowPrice": "17274.41",
+    "volume": "0",
+    "quoteVolume": "0",
+    "indexPrice": null,
+    "oraclePrice": null,
+    "fundingRate": "0.001250"
+  },
+  {
+    "symbol": "ETHUSD",
+    "priceChange": "0",
+    "priceChangePercent": "0",
+    "lastPrice": "1294.91",
+    "highPrice": "1294.91",
+    "lowPrice": "1294.91",
+    "volume": "0",
+    "quoteVolume": "0",
+    "indexPrice": null,
+    "oraclePrice": null,
+    "fundingRate": "0.001250"
+  }
+]

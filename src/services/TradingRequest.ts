@@ -10,4 +10,9 @@ export default class TradingRequest extends BaseRequest {
     const url = '/trade/history';
     return this.get(url);
   }
+
+  getMarketTrades() {
+    const url = '/trade';
+    return this.get(url);
+  }
 }
