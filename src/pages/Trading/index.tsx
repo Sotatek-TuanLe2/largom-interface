@@ -7,6 +7,7 @@ import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
 import { createValidator } from 'src/utils/validator';
 import AppDataTable from 'src/components/AppDataTable';
+import AppInputRange from 'src/components/AppInputRange';
 
 const HomePage = () => {
   const [input, setInput] = useState<string>('socket.io');
@@ -79,10 +80,8 @@ const HomePage = () => {
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run
       </AppButton>
-      <AppDataTable
-        fetchData={getMockAPI}
-        renderBody={(data) => <>{console.log('data render body', data)}</>}
-      />
+      <AppDataTable fetchData={getMockAPI} renderBody={() => <div></div>} />
+      <AppInputRange countDistance={10} />
       <p>Web Socket: {webSocketURL}</p>
       <p>Connection status: {connectionStatus}</p>
       <p>Last Message: {latestMessage}</p>
