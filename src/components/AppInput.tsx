@@ -3,14 +3,14 @@ import {
   InputProps,
   InputGroup,
   InputRightElement,
-  Box,
   InputLeftElement,
   FormLabel,
   FormControl,
+  Text,
 } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { StyleProps, forwardRef } from '@chakra-ui/system';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import { useForceUpdate } from 'src/hooks';
 
@@ -35,7 +35,7 @@ interface AppInputProps extends InputProps {
 const AppInput = forwardRef(
   (
     {
-      variant = 'filled',
+      variant = 'main',
       size = 'lg',
       readOnly,
       startAdornment,
@@ -49,10 +49,20 @@ const AppInput = forwardRef(
     ref,
   ) => {
     const forceRender = useForceUpdate();
+
+    useEffect(() => {
+      if (validate)
+        validate.validator.element = (message: string) => (
+          <Text color={'red.100'}>{message}</Text>
+        );
+    }, [validate]);
+
     const onBlur = () => {
       validate?.validator.showMessageFor(validate.name);
       forceRender();
     };
+
+    const ableToShowErrorMessage = validate && !hiddenErrorText && !readOnly;
 
     return (
       <FormControl isRequired={isRequired}>
@@ -76,19 +86,17 @@ const AppInput = forwardRef(
             onBlur={onBlur}
             paddingInline={props?.paddingInline}
           />
-          {endAdornment && <InputRightElement children={<>{endAdornment}</>} />}
+          {endAdornment && (
+            <InputRightElement right={'14px'} children={<>{endAdornment}</>} />
+          )}
         </InputGroup>
-        <>
-          {!hiddenErrorText &&
-            validate &&
-            !readOnly &&
-            validate.validator.message(
-              validate.name,
-              props.value,
-              validate.rule,
-              validate.options,
-            )}
-        </>
+        {ableToShowErrorMessage &&
+          validate.validator.message(
+            validate.name,
+            props.value,
+            validate.rule,
+            validate.options,
+          )}
       </FormControl>
     );
   },

@@ -1,22 +1,19 @@
-import { PhoneIcon } from '@chakra-ui/icons';
-import { Box, Text } from '@chakra-ui/react';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { AppButton, AppInput } from 'src/components';
+import { PhoneIcon } from '@chakra-ui/icons';
+import { Box } from '@chakra-ui/react';
+import { AppButton, AppInput, AppTableOrderBook } from 'src/components';
 import { useTranslate, useWebSocket } from 'src/hooks';
+import rf from 'src/services/RequestFactory';
 import 'src/styles/pages/HomePage.scss';
 import { createValidator } from 'src/utils/validator';
 
 const HomePage = () => {
-  const [input, setInput] = useState<string>('ewqewq');
+  const [input, setInput] = useState<string>('socket.io');
   const [webSocketURL, setWebSocketURL] = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const { connectionStatus, latestMessage } = useWebSocket(webSocketURL);
 
-  const validator = useRef(
-    createValidator({
-      element: (message: string) => <Text color={'red.100'}>{message}</Text>,
-    }),
-  );
+  const validator = useRef(createValidator());
 
   useEffect(() => {
     if (latestMessage) {
@@ -30,10 +27,18 @@ const HomePage = () => {
 
   const { t, changeLanguage } = useTranslate();
 
+  const getMockAPI = async () => {
+    const res = await rf.getRequest('TradingRequest').getCandleChartData();
+    console.log('getMockAPI-res', res);
+  };
+
+  useEffect(() => {
+    getMockAPI();
+  }, []);
+
   return (
     <>
       {t('welcome.title', { name: 'Largom' })}
-      Home Page
       <AppButton
         variant="main"
         onClick={() => {
@@ -68,7 +73,7 @@ const HomePage = () => {
         }}
         startAdornment={<PhoneIcon color="gray.300" />}
         endAdornment={<Box>USDT</Box>}
-        label={'dasdasd'}
+        label="Input"
       />
       <AppButton variant="main" onClick={() => setWebSocketURL(input)}>
         Run
@@ -83,6 +88,10 @@ const HomePage = () => {
           <br />
         </>
       ))}
+      <Box width={'340px'}>
+        <AppTableOrderBook type="BUY" />
+        <AppTableOrderBook type="SELL" showHeader={false} />
+      </Box>
     </>
   );
 };
