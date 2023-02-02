@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .decor-slider,
   .decor-slider-active {
     width: 6px;
@@ -27,10 +28,12 @@
 
 .slider-mark-active {
   background: $Title;
+
   .decor-slider-active {
     background: $Main;
   }
 }
+
 .decor-slider-thumb {
   width: 8px;
   height: 8px;
