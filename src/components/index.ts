@@ -6,3 +6,4 @@ export { default as ModalSubmittingTransaction } from './Modals/ModalSubmittingT
 export { default as AppButton } from './AppButton';
 export { default as AppInput } from './AppInput';
 export { default as AppTableOrderBook } from './AppTableOrderBook';
+export { default as AppTabs } from './AppTabs';
