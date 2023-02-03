@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import PartStatistics from './parts/PartStatistics';
 import PartOrderBook from './parts/PartOrderBook';
+import CandlestickChart from 'src/components/Charts';
 
 const TradingPage = () => {
   return (
@@ -13,10 +14,12 @@ const TradingPage = () => {
           <PartStatistics />
           <Flex width={'100%'}>
             <PartOrderBook />
-            <Box className="trading-page__chart" />
+            <Box className="trading-page__chart">
+              <CandlestickChart containerId="tv_chart_container" />
+            </Box>
           </Flex>
         </Box>
-        <Box className="trading-page__content-right" />
+        <Box className="trading-page__content-right"></Box>
       </Flex>
     </BasePage>
   );

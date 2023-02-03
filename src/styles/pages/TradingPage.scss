@@ -11,6 +11,10 @@
   &__content-left {
     width: calc(100% - 360px);
   }
+  &__chart {
+    flex: 1;
+    margin: 4px 0 0 4px;
+  }
 }
 
 .statistics {
