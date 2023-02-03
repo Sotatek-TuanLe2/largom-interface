@@ -40,6 +40,11 @@
       height: 48px;
       padding: 0 24px;
     }
+
+    .app-select__menu {
+      top: 30px;
+    }
+
   }
 
   &__menu {
@@ -55,12 +60,6 @@
     overflow-y: auto;
   }
 
-  &.large {
-    .app-select__menu {
-      top: 30px;
-    }
-  }
-
   &__menu-item {
     @include text-tiny-regular;
 
@@ -70,7 +69,7 @@
     color: $Paragraph1;
 
     &:hover {
-      background-color: rgba(18, 19, 24, 0.5);
+      background-color: rgba(18, 19, 24, 50%);
     }
 
     &.selected {
