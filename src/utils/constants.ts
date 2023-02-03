@@ -18,9 +18,15 @@ export const I18_NAMESPACE = 'common'; // 'common' is our custom namespace
 
 export const MOCK_API_PORT = 9000;
 
-export const TYPE_TRADE = {
+export const TYPE_TRADE: { [key: string]: string } = {
   SELL: 'SELL',
   BUY: 'BUY',
+};
+
+export const TRADE_OPTIONS = {
+  LIMIT: 'LIMIT',
+  MARKET: 'MARKET',
+  STOP_LIMIT: 'STOP_LIMIT'
 };
 
 export const NETWORKS: {

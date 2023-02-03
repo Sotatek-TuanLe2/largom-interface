@@ -253,6 +253,10 @@
     color: $Paragraph1;
   }
 
+  &__btn-buy, &__btn-sell {
+    font-size: 14px !important;
+  }
+
   &__btn-buy {
     background-color: $Green !important;
   }

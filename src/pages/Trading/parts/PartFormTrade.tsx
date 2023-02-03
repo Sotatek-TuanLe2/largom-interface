@@ -8,6 +8,7 @@ import {
   AppInputRange,
   AppButton,
 } from 'src/components';
+import { TYPE_TRADE, TRADE_OPTIONS } from 'src/utils/constants';
 
 interface IDataFormTrade {
   stop: string;
@@ -22,7 +23,7 @@ interface IToken {
 }
 
 interface IFromTrade {
-  type: 'SELL' | 'BUY';
+  type: string;
   tokenOut?: IToken;
   tokenIn?: IToken;
   typeTrade: string;
@@ -58,7 +59,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
   const [dataForm, setDataForm] = useState<IDataFormTrade>(initialForm);
 
   const _renderField = () => {
-    if (typeTrade === 'limit') {
+    if (typeTrade === TRADE_OPTIONS.LIMIT) {
       return (
         <Box>
           <Box className="form-trade__field">
@@ -81,7 +82,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
       );
     }
 
-    if (typeTrade === 'market') {
+    if (typeTrade === TRADE_OPTIONS.MARKET) {
       return (
         <Box>
           <Box className="form-trade__field">
@@ -163,7 +164,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
           size="medium"
           options={networks}
           value={dataForm.network}
-          onChange={(network) => {
+          onChange={(network: string) => {
             setDataForm({
               ...dataForm,
               network,
@@ -176,9 +177,11 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
 
       <AppButton
         width="100%"
-        className={`form-trade__btn-${type === 'BUY' ? 'buy' : 'sell'}`}
+        className={`form-trade__btn-${
+          type === TYPE_TRADE.BUY ? 'buy' : 'sell'
+        }`}
       >
-        {type === 'BUY' ? 'Buy ' : 'Sell '}
+        {type === TYPE_TRADE.BUY ? 'Buy ' : 'Sell '}
         {tokenOut?.symbol}
       </AppButton>
     </Box>
@@ -204,7 +207,7 @@ const PartFormTrade = () => {
             <Box className="value">-- {tokenIn.symbol}</Box>
           </Flex>
           <FromTrade
-            type="BUY"
+            type={TYPE_TRADE.BUY}
             tokenOut={tokenOut}
             tokenIn={tokenIn}
             typeTrade={type}
@@ -217,7 +220,7 @@ const PartFormTrade = () => {
             <Box className="value">-- {tokenOut.symbol}</Box>
           </Flex>
           <FromTrade
-            type="SELL"
+            type={TYPE_TRADE.SELL}
             tokenOut={tokenOut}
             tokenIn={tokenIn}
             typeTrade={type}
@@ -228,17 +231,17 @@ const PartFormTrade = () => {
   };
   const tabs = [
     {
-      id: 'limit',
+      id: TRADE_OPTIONS.LIMIT,
       name: 'Limit',
       content: <Box>{_renderFrom()}</Box>,
     },
     {
-      id: 'market',
+      id: TRADE_OPTIONS.MARKET,
       name: 'Market',
       content: <Box>{_renderFrom()}</Box>,
     },
     {
-      id: 'stopLimit',
+      id: TRADE_OPTIONS.STOP_LIMIT,
       name: 'Stop-limit',
       content: <Box>{_renderFrom()}</Box>,
     },
