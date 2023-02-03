@@ -71,15 +71,15 @@
         "auctionProxy": "0xd8CC13D4dd3F40c693b4f844C8609d6231731728",
         "auctionVault": "0x351A93E819f29897b964c82370e86138E86f0f10"
       },
-      "icon": "/icons/eth.png",
-      "disableIcon": "/images/ethereum-disabled.png",
+      "icon": "icon-ethereum",
+      "disableIcon": "icon-ethereum",
       "currency": "ETH",
       "connectors": {
         "metamask-connector": {
           "id": "metamask-connector",
           "name": "MetaMask",
-          "icon": "/icons/metamask.png",
-          "disableIcon": "/images/metamask-disabled.svg",
+          "icon": "icon-metamask",
+          "disableIcon": "icon-metamask",
           "description": "Easy-to-use browser extension.",
           "href": null,
           "mobile": true,
@@ -95,9 +95,9 @@
         "wallet-connect-connector": {
           "id": "wallet-connect-connector",
           "name": "WalletConnect",
-          "icon": "/icons/wallet_connect.png",
+          "icon": "icon-wallet-connect",
           "description": "Connect to Trust Wallet, Rainbow Wallet and more...",
-          "disableIcon": "/images/wallet-connect-disabled.svg",
+          "disableIcon": "icon-wallet-connect",
           "href": null,
           "mobile": true,
           "options": {
@@ -181,15 +181,15 @@
         "auctionProxy": "0x9f2B6F70299EBa7b7894f928fe2cB3f3Bea3DCa7",
         "auctionVault": "0x6c6031B1359042a5d1272F90B497248637E4Fd12"
       },
-      "icon": "/icons/bnb.png",
-      "disableIcon": "/images/binance-disabled.png",
+      "icon": "icon-bsc",
+      "disableIcon": "icon-bsc",
       "currency": "BNB",
       "connectors": {
         "metamask-connector": {
           "id": "metamask-connector",
           "name": "MetaMask",
-          "icon": "/icons/metamask.png",
-          "disableIcon": "/images/metamask-disabled.svg",
+          "icon": "icon-metamask",
+          "disableIcon": "icon-metamask",
           "description": "Easy-to-use browser extension.",
           "href": null,
           "mobile": true,
@@ -205,9 +205,9 @@
         "wallet-connect-connector": {
           "id": "wallet-connect-connector",
           "name": "WalletConnect",
-          "icon": "/icons/wallet_connect.png",
+          "icon": "icon-wallet-connect",
           "description": "Connect to Trust Wallet, Rainbow Wallet and more...",
-          "disableIcon": "/images/wallet-connect-disabled.svg",
+          "disableIcon": "icon-wallet-connect",
           "href": null,
           "mobile": true,
           "options": {
@@ -223,9 +223,9 @@
         "bsc-connector": {
           "id": "bsc-connector",
           "name": "BSC Wallet",
-          "icon": "/icons/bsc.png",
+          "icon": "icon-wallet-bsc",
           "description": "Connect to Trust Wallet, Rainbow Wallet and more...",
-          "disableIcon": "/images/injected-binance-disabled.svg",
+          "disableIcon": "icon-wallet-bsc",
           "href": null,
           "options": {},
           "extensionLink": {
@@ -256,8 +256,8 @@
         "auctionProxy": "0xD9a51C88E4588A026a7FFEd53ea61bc6a372a093",
         "auctionVault": "0x41095a849Aa05F416C4295bDd5Fc748A17eDAA67"
       },
-      "icon": "/icons/polygon.png",
-      "disableIcon": "/images/polygon-matic-disabled.svg",
+      "icon": "icon-polygon",
+      "disableIcon": "icon-polygon",
       "currency": "MATIC",
       "nativeCurrency": {
         "name": "MATIC",
@@ -306,8 +306,8 @@
         "metamask-connector": {
           "id": "metamask-connector",
           "name": "MetaMask",
-          "icon": "/icons/metamask.png",
-          "disableIcon": "/images/metamask-disabled.svg",
+          "icon": "icon-metamask",
+          "disableIcon": "icon-metamask",
           "description": "Easy-to-use browser extension.",
           "href": null,
           "mobile": true,
@@ -323,9 +323,9 @@
         "wallet-connect-connector": {
           "id": "wallet-connect-connector",
           "name": "WalletConnect",
-          "icon": "/icons/wallet_connect.png",
+          "icon": "icon-wallet-connect",
           "description": "Connect to Trust Wallet, Rainbow Wallet and more...",
-          "disableIcon": "/images/wallet-connect-disabled.svg",
+          "disableIcon": "icon-wallet-connect",
           "href": null,
           "options": {
             "rpc": {
@@ -356,8 +356,8 @@
         "auctionProxy": "0x9C969Ab199247f926aC03AF7dbebdFda3647E0E8",
         "auctionVault": "0x6Be870871442C460AED70e51d43DF2e5C8C12e40"
       },
-      "icon": "/icons/avax.png",
-      "disableIcon": "/images/AVAX.svg",
+      "icon": "icon-avax",
+      "disableIcon": "icon-avax",
       "currency": "AVAX",
       "nativeCurrency": {
         "name": "AVAX",
@@ -406,8 +406,8 @@
         "metamask-connector": {
           "id": "metamask-connector",
           "name": "MetaMask",
-          "icon": "/icons/metamask.png",
-          "disableIcon": "/images/metamask-disabled.svg",
+          "icon": "icon-metamask",
+          "disableIcon": "icon-metamask",
           "description": "Easy-to-use browser extension.",
           "href": null,
           "mobile": true,
@@ -434,8 +434,8 @@
         "icon": "/images/explorer-solana.png",
         "url": "https://explorer.solana.com/"
       },
-      "icon": "/images/Solana.svg",
-      "disableIcon": "/images/Solana.svg",
+      "icon": "icon-solana",
+      "disableIcon": "icon-solana",
       "currency": "SOL",
       "nativeCurrency": {
         "name": "SOL",
