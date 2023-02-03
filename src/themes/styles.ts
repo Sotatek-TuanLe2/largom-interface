@@ -118,8 +118,8 @@ export const globalStyles = {
     global: (props: StyleFunctionProps) => ({
       body: {
         overflowX: 'hidden',
-        bg: mode('bg.100', 'bg.100')(props),
-        fontFamily: 'DM Sans',
+        bg: mode('black', 'black')(props),
+        fontFamily: 'Inter',
         letterSpacing: '0.2px',
         fontWeight: 500,
         color: 'white',
@@ -128,7 +128,7 @@ export const globalStyles = {
         color: 'gray.700',
       },
       html: {
-        fontFamily: 'DM Sans',
+        fontFamily: 'Inter',
       },
       '*::placeholder': {
         color: mode('gray.400', 'whiteAlpha.400')(props),

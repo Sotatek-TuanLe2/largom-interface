@@ -2,22 +2,6 @@
 @import '../_mixins.scss';
 
 .orderbook-list {
-  .orderbook-tbheader {
-    @include text-tiny-regular;
-
-    padding: 0 20px 6px;
-    text-transform: capitalize;
-    color: $Paragraph2;
-    border: 0;
-    display: flex;
-    font-family: 'Inter', sans-serif;
-
-    div {
-      flex: 1 1 0;
-      justify-content: flex-start;
-    }
-  }
-
   .orderbook-progress {
     @include text-tiny-regular;
 
@@ -25,11 +9,10 @@
     padding: 1px 0;
     color: $Paragraph1;
     position: relative;
-    font-family: 'Inter', sans-serif;
 
     .row-content {
       display: flex;
-      padding: 0 20px;
+      padding: 0 20px 0 0;
 
       div {
         flex: 1 1 0;
@@ -40,7 +23,7 @@
     .progress-bar {
       position: absolute;
       right: 0;
-      top: 1.5px;
+      top: -0.5px;
       opacity: 0.1;
       height: 16px;
     }
@@ -126,5 +109,20 @@
       border-color: $Paragraph1;
       cursor: pointer;
     }
+  }
+}
+
+.orderbook-tbheader {
+  @include text-tiny-regular;
+
+  padding: 0 20px 6px 0;
+  text-transform: capitalize;
+  color: $Paragraph2;
+  border: 0;
+  display: flex;
+
+  div {
+    flex: 1 1 0;
+    justify-content: flex-start;
   }
 }

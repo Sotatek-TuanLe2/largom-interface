@@ -7,3 +7,5 @@ export { default as AppButton } from './AppButton';
 export { default as AppInput } from './AppInput';
 export { default as AppTableOrderBook } from './AppTableOrderBook';
 export { default as AppTabs } from './AppTabs';
+export { default as Header } from './layouts/Header';
+export { default as BasePage } from './layouts/BasePage';

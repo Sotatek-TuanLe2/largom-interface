@@ -4,8 +4,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import { TYPE_TRADE } from 'src/utils/constants';
 
 interface IAppTableOrderBook {
-  type: 'SELL' | 'BUY';
-  showHeader?: boolean;
+  type: string;
 }
 
 interface IOrderBook {
@@ -35,10 +34,70 @@ const data = [
     amount: 0.10906,
     total: 251854766,
   },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
+  {
+    price: 23093.23,
+    amount: 0.10906,
+    total: 251854766,
+  },
 ];
 
 const AppTableOrderBook: FC<IAppTableOrderBook> = (props) => {
-  const { type, showHeader = true } = props;
+  const { type = TYPE_TRADE.SELL } = props;
   const [orderActive, setOrderActive] = useState<number | null>(null);
 
   const isOrderActive = (orderIndex: number) => {
@@ -53,13 +112,6 @@ const AppTableOrderBook: FC<IAppTableOrderBook> = (props) => {
     <Box
       className={`orderbook-list ${type === TYPE_TRADE.SELL ? 'sell' : 'buy'}`}
     >
-      {showHeader && (
-        <Box className="orderbook-tbheader">
-          <Box textAlign="left">Price(USDT)</Box>
-          <Box textAlign="left">Amount(BTC)</Box>
-          <Box textAlign="right">Total</Box>
-        </Box>
-      )}
       {data.map((item: IOrderBook, index) => {
         return (
           <Box
