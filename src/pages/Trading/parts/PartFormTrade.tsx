@@ -1,13 +1,20 @@
 import 'src/styles/pages/TradingPage.scss';
 import React, { useState, FC } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { AppTabs, AppInput, AppInputRange, AppButton } from 'src/components';
+import {
+  AppTabs,
+  AppInput,
+  AppSelect,
+  AppInputRange,
+  AppButton,
+} from 'src/components';
 
 interface IDataFormTrade {
   stop: string;
   limit: string;
   price?: string;
   amount?: string;
+  network: string;
 }
 
 interface IToken {
@@ -21,12 +28,31 @@ interface IFromTrade {
   typeTrade: string;
 }
 
+const networks = [
+  {
+    label: 'Ethereum',
+    value: 'Ethereum',
+    icon: 'icon-ethereum',
+  },
+  {
+    label: 'Bsc',
+    value: 'Bsc',
+    icon: 'icon-bsc',
+  },
+  {
+    label: 'Polygon',
+    value: 'Polygon',
+    icon: 'icon-polygon',
+  },
+];
+
 const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
   const initialForm = {
     stop: '',
     limit: '',
     price: '',
     amount: '',
+    network: networks[0].value,
   };
 
   const [dataForm, setDataForm] = useState<IDataFormTrade>(initialForm);
@@ -128,6 +154,21 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
           endAdornment={
             <Box className="form-trade__currency">{tokenOut?.symbol}</Box>
           }
+        />
+      </Box>
+
+      <Box className="form-trade__field" zIndex={999}>
+        <Box className="label">Network</Box>
+        <AppSelect
+          size="medium"
+          options={networks}
+          value={dataForm.network}
+          onChange={(network) => {
+            setDataForm({
+              ...dataForm,
+              network,
+            });
+          }}
         />
       </Box>
 

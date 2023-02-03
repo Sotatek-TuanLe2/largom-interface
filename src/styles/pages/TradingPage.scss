@@ -240,6 +240,13 @@
 
   &__field {
     margin-bottom: 12px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph1;
+      margin-bottom: 4px;
+    }
   }
 
   &__currency {
