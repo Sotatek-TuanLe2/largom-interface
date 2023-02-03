@@ -1,0 +1,42 @@
+@import '../color-variables.scss';
+@import '../mixins.scss';
+
+.slider-mark,
+.slider-mark-active {
+  border-radius: 999px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .decor-slider,
+  .decor-slider-active {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+  }
+}
+
+.slider-mark {
+  background: $Border;
+
+  .decor-slider {
+    background: $Card;
+  }
+}
+
+.slider-mark-active {
+  background: $Title;
+
+  .decor-slider-active {
+    background: $Main;
+  }
+}
+
+.decor-slider-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: $Main;
+}

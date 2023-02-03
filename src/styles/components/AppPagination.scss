@@ -1,0 +1,51 @@
+@import '../color-variables.scss';
+@import '../mixins.scss';
+
+.app-pagination {
+  list-style-type: none;
+  display: flex;
+  margin: 25px 40px 0;
+
+  @include tablet {
+    margin: 15px 20px 10px;
+  }
+
+  li {
+    @include text-small-regular;
+
+    border: 1px solid $Card;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    color: $Paragraph2;
+
+    a {
+      padding: 0 5px;
+      min-width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.selected {
+      background: $Card;
+      color: $Paragraph2;
+    }
+
+    &:hover {
+      background: $Card;
+      color: $Paragraph2;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+
+      a {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

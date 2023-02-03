@@ -4,6 +4,7 @@
 .orderbook-list {
   .orderbook-progress {
     @include text-tiny-regular;
+
     border: 0;
     padding: 1px 0;
     color: $Paragraph1;
@@ -43,7 +44,7 @@
       color: $Title;
       min-width: 150px;
 
-      &:after {
+      &::after {
         content: '';
         width: 0;
         height: 0;
@@ -70,6 +71,7 @@
     .orderbook-progress {
       border-top: 1px dashed;
       border-color: transparent;
+
       .row-content {
         div:first-child {
           color: $Red;
@@ -112,6 +114,7 @@
 
 .orderbook-tbheader {
   @include text-tiny-regular;
+
   padding: 0 20px 6px 0;
   text-transform: capitalize;
   color: $Paragraph2;

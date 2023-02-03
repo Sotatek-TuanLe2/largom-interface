@@ -9,7 +9,11 @@ import React from 'react';
 import { AppButton } from 'src/components';
 import 'src/styles/components/Header.scss';
 
-const menus = [
+const menus: {
+  name: string;
+  children?: any[];
+  link?: string;
+}[] = [
   {
     name: 'Buy Crypto',
     children: [],

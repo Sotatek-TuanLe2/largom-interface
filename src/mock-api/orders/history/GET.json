@@ -1,0 +1,71 @@
+[
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Ethereum",
+    "type": "Limit",
+    "side": "Buy",
+    "price": 240,
+    "executed": 0,
+    "amount": 0.28,
+    "filled": 0,
+    "total": 0,
+    "conditions": ""
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "BSC",
+    "type": "Market",
+    "side": "Sell",
+    "avarage": 242.8,
+    "price": "Market",
+    "executed": 25.0,
+    "amount": 0.126,
+    "filled": 0,
+    "total": 6070,
+    "conditions": ""
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Avalanche",
+    "type": "Limit",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 0,
+    "amount": 24,
+    "filled": 0,
+    "total": 0,
+    "conditions": ""
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Solana",
+    "type": "Limit",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 0,
+    "amount": 2.5,
+    "filled": 0,
+    "total": 0,
+    "conditions": ""
+  },
+  {
+    "date": "1675307410",
+    "pair": "BNB/BUSD",
+    "network": "Polygon",
+    "type": "Limit",
+    "side": "Buy",
+    "avarage": 0,
+    "price": 240,
+    "executed": 0,
+    "amount": 0.28,
+    "filled": 0.17,
+    "total": 0,
+    "conditions": ""
+  }
+]

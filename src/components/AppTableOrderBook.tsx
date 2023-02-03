@@ -97,7 +97,7 @@ const data = [
 ];
 
 const AppTableOrderBook: FC<IAppTableOrderBook> = (props) => {
-  const { type = 'SELL' } = props;
+  const { type = TYPE_TRADE.SELL } = props;
   const [orderActive, setOrderActive] = useState<number | null>(null);
 
   const isOrderActive = (orderIndex: number) => {
