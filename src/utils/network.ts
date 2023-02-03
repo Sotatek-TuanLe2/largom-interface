@@ -55,6 +55,14 @@ export const getNetworkProvider = (network = ''): FallbackProvider => {
   return new FallbackProvider(providers, 1);
 };
 
+export const getLogoNetwork = (networkId: string | undefined): string => {
+  const networkConfig = getNetworkConfig(networkId);
+  if (!networkConfig) {
+    return '';
+  }
+  return networkConfig.icon || '';
+};
+
 export const switchNetwork = async (
   network: string,
   provider: JsonRpcProvider | null | undefined,
