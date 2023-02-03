@@ -7,7 +7,10 @@ interface IStatics {
   value: number;
 }
 
-const statics = [
+const statics: {
+  label: string;
+  value: number;
+}[] = [
   {
     label: '24h High',
     value: 2143959,
