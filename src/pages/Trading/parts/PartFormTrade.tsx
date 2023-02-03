@@ -32,17 +32,17 @@ const networks = [
   {
     label: 'Ethereum',
     value: 'Ethereum',
-    icon: 'icon-ethereum',
+    icon: 'icon-rounded-ethereum',
   },
   {
     label: 'Bsc',
     value: 'Bsc',
-    icon: 'icon-bsc',
+    icon: 'icon-rounded-bsc',
   },
   {
     label: 'Polygon',
     value: 'Polygon',
-    icon: 'icon-polygon',
+    icon: 'icon-rounded-polygon',
   },
 ];
 
