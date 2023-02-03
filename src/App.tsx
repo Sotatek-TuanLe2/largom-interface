@@ -9,6 +9,7 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { I18nextProvider } from 'react-i18next';
 import { initMultiLanguages } from 'src/utils/languages';
 import i18next from 'i18next';
+import 'src/styles/global.scss';
 
 // initiate multi-language
 initMultiLanguages().then();
