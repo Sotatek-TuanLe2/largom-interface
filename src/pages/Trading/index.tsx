@@ -5,6 +5,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import PartStatistics from './parts/PartStatistics';
 import PartOrderBook from './parts/PartOrderBook';
 import PartTrades from './parts/PartTrades';
+import PartFormTrade from './parts/PartFormTrade';
 
 const TradingPage = () => {
   return (
@@ -14,7 +15,9 @@ const TradingPage = () => {
           <PartStatistics />
           <Flex width={'100%'}>
             <PartOrderBook />
-            <Box className="trading-page__chart" />
+            <Box className="trading-page__content-center">
+              <PartFormTrade />
+            </Box>
           </Flex>
         </Box>
         <Box className="trading-page__content-right">

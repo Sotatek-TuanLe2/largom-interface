@@ -61,7 +61,7 @@ const PartOrderBook = () => {
   };
 
   return (
-    <Box>
+    <Box zIndex={999}>
       <Box className="order-book">
         <Box className="order-book__title">Order Book</Box>
 

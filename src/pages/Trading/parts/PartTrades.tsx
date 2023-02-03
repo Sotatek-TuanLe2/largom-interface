@@ -24,9 +24,9 @@ const TableTrades: FC<ITableTrades> = ({ data }) => {
       </Box>
 
       <Box>
-        {data.map((item: IDataTrades) => {
+        {data.map((item: IDataTrades, index: number) => {
           return (
-            <Box className="table-trades__content">
+            <Box className="table-trades__content" key={index}>
               <Box textAlign="left" className="price up">
                 {item.price}
               </Box>
@@ -47,22 +47,22 @@ const PartTrades = () => {
     {
       price: 23232323,
       amount: 23434343,
-      time: 234343432343
+      time: 234343432343,
     },
     {
       price: 23232323,
       amount: 23434343,
-      time: 234343432343
+      time: 234343432343,
     },
     {
       price: 23232323,
       amount: 23434343,
-      time: 234343432343
+      time: 234343432343,
     },
     {
       price: 23232323,
       amount: 23434343,
-      time: 234343432343
+      time: 234343432343,
     },
   ];
 
@@ -84,10 +84,12 @@ const PartTrades = () => {
 
   const tabs = [
     {
+      id: 'marketTrades',
       name: 'Market Trades',
       content: <Box>{_renderMarketTrades()}</Box>,
     },
     {
+      id: 'myTrades',
       name: 'My Trades',
       content: <Box>{_renderMyTrades()}</Box>,
     },

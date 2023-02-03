@@ -11,6 +11,10 @@
   &__content-left {
     width: calc(100% - 360px);
   }
+
+  &__content-center {
+    width: 100%;
+  }
 }
 
 .statistics {
@@ -161,12 +165,14 @@
   background-color: $Card;
   padding: 16px 40px 16px 20px;
   margin-left: 4px;
+  height: 500px;
 
   .table-trades {
     margin-top: 10px;
 
     &__header {
       @include text-tiny-regular;
+
       text-transform: capitalize;
       color: $Paragraph2;
       display: flex;
@@ -180,6 +186,7 @@
 
     &__content {
       @include text-tiny-regular;
+
       text-transform: capitalize;
       color: $Paragraph1;
       display: flex;
@@ -202,7 +209,50 @@
       div {
         flex: 1 1 0;
         justify-content: flex-start;
+        cursor: pointer;
       }
     }
+  }
+}
+
+.form-trade {
+  background-color: $Card;
+  padding: 16px 20px 20px 20px;
+  margin-left: 4px;
+
+  &__current-value {
+    margin-bottom: 12px;
+    margin-top: 18px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph2;
+      margin-right: 10px;
+    }
+
+    .value {
+      @include text-tiny-regular;
+
+      color: $Title;
+    }
+  }
+
+  &__field {
+    margin-bottom: 12px;
+  }
+
+  &__currency {
+    @include text-tiny-regular;
+
+    color: $Paragraph1;
+  }
+
+  &__btn-buy {
+    background-color: $Green !important;
+  }
+
+  &__btn-sell {
+    background-color: $Red !important;
   }
 }
