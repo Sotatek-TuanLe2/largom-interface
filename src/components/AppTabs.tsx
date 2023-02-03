@@ -15,7 +15,7 @@ interface IAppTabs {
 }
 
 interface ITabs {
-  name: string;
+  name: ReactNode;
   content: ReactNode;
 }
 
@@ -29,16 +29,22 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
     >
       <TabList>
         <Flex>
-          {tabs.map((tab: ITabs) => {
-            return <Tab className="app-tab__name-tab">{tab.name}</Tab>;
+          {tabs.map((tab: ITabs, id: number) => {
+            return (
+              <Tab className="app-tab__name-tab" key={`${id}_tab-name`}>
+                {tab.name}
+              </Tab>
+            );
           })}
         </Flex>
       </TabList>
 
       <TabPanels>
-        {tabs.map((tab: ITabs) => {
+        {tabs.map((tab: ITabs, id: number) => {
           return (
-            <TabPanel className="app-tab__content-tab">{tab.content}</TabPanel>
+            <TabPanel className="app-tab__content-tab" key={`${id}_tab-panels`}>
+              {tab.content}
+            </TabPanel>
           );
         })}
       </TabPanels>

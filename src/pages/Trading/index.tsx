@@ -4,20 +4,28 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import PartStatistics from './parts/PartStatistics';
 import PartOrderBook from './parts/PartOrderBook';
+import PartOrderHistory from './parts/PartOrderHistory';
 
 const TradingPage = () => {
   return (
     <BasePage>
-      <Flex className="trading-page">
-        <Box className="trading-page__content-left">
-          <PartStatistics />
-          <Flex width={'100%'}>
-            <PartOrderBook />
-            <Box className="trading-page__chart" />
+      <>
+        <Flex className="trading-page" direction={'column'}>
+          <Flex>
+            <Box className="trading-page__content-left">
+              <PartStatistics />
+              <Flex width={'100%'}>
+                <PartOrderBook />
+                <Box className="trading-page__chart" />
+              </Flex>
+            </Box>
+            <Box className="trading-page__content-right" />
           </Flex>
-        </Box>
-        <Box className="trading-page__content-right" />
-      </Flex>
+          <Box>
+            <PartOrderHistory />
+          </Box>
+        </Flex>
+      </>
     </BasePage>
   );
 };

@@ -38,7 +38,7 @@ interface DataTableProps {
   requestParams?: RequestParams; // if requestParams are not passed, only fetchs API in didMount
   limit?: number;
   wrapperClassName?: string;
-  fetchData: (requestParams: RequestParams) => Promise<IResponseType>;
+  fetchData: (requestParams: RequestParams) => Promise<any[]>;
   renderBody: (tableData: any[]) => ReactNode;
   renderHeader?: () => ReactNode;
   renderNoData?: () => ReactNode;
@@ -109,17 +109,17 @@ const AppDataTable = forwardRef(
     ) => {
       const setLoading = isLoadMore ? setIsLoadingMore : setIsLoading;
       setLoading(true);
-      const response: IResponseType | any[] = await fetchData({
+      const response: any[] = await fetchData({
         ...params,
         ...tablePagination,
       });
       setLoading(false);
-      if (response && response.docs) {
+      if (response) {
         setTableData((prevState) =>
-          isLoadMore ? [...prevState, ...response.docs] : response.docs,
+          isLoadMore ? [...prevState, ...response] : response,
         );
         setPagination({ ...tablePagination });
-        setTotalPages(response.totalPages);
+        // setTotalPages(response?.totalPages);
       } else setTableData([]);
     };
 
