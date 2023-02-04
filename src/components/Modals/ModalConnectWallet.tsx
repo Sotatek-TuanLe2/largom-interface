@@ -6,7 +6,7 @@ import config from 'src/config';
 import { METAMASK_WALLET } from 'src/connectors';
 import { isMobile } from 'react-device-detect';
 import { NETWORKS } from 'src/utils/constants';
-import { getErrorMessage } from 'src/utils/chart';
+import { getErrorMessage } from 'src/utils/helpers';
 import Storage from 'src/utils/storage';
 import { switchNetwork } from 'src/utils/network';
 import { toastError } from 'src/utils/notify';

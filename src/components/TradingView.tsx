@@ -19,7 +19,7 @@ import {
   getInterval,
   getIntervalString,
   round,
-} from 'src/helpers/chart';
+} from 'src/utils/chart';
 // import { SocketEvent } from 'src/socket/SocketEvent';
 import { Candle, Instrument } from 'src/types';
 import { SYMBOL_TYPE, THEME_MODE } from 'src/utils/constants';

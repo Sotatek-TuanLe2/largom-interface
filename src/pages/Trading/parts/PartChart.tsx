@@ -47,19 +47,12 @@ const PartChart: React.FC<Props> = (props) => {
       <AppTabs
         tabs={[
           {
-            name: (
-              <Flex h={'48px'} alignItems="center" pl={'4px'}>
-                Trading View
-              </Flex>
-            ),
+            name: 'Trading View',
+
             content: _renderTradingViewChart(),
           },
           {
-            name: (
-              <Flex h={'48px'} alignItems="center">
-                Depth
-              </Flex>
-            ),
+            name: 'Depth',
             content: '',
           },
         ]}
