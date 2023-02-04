@@ -12,7 +12,6 @@ import {
   TradingTerminalWidgetOptions,
   widget,
 } from 'src/charting_library/charting_library.min';
-import { Candle, Instrument } from 'src/common/interfaces';
 import {
   createEmptyCandleIfNeeded,
   DEFAULT_TRADING_VIEW_INTERVAL,
@@ -22,8 +21,8 @@ import {
   round,
 } from 'src/helpers/chart';
 // import { SocketEvent } from 'src/socket/SocketEvent';
-import { SYMBOL_TYPE, THEME_MODE } from 'src/common/constant';
-import rf from 'src/services/RequestFactory';
+import { Candle, Instrument } from 'src/types';
+import { SYMBOL_TYPE, THEME_MODE } from 'src/utils/constants';
 
 interface obj {
   [key: string]: boolean | number | string;
@@ -42,6 +41,7 @@ interface Props {
   className?: string;
   setFullScreen: (flag: boolean) => void;
   height?: number;
+  fetchData: () => any;
 }
 
 const configurationData = {
@@ -83,7 +83,6 @@ const getBackgroundColor = (theme: string): string => {
 };
 
 const TradingView: React.FC<Props> = (props) => {
-  console.log('props', props);
   const listDisable = [
     'header_symbol_search',
     'header_undo_redo',
@@ -163,19 +162,18 @@ const TradingView: React.FC<Props> = (props) => {
     onResult: HistoryCallback,
   ) => {
     const intervalInSeconds = getInterval(resolution) * 60;
-    const startTime = round(from, intervalInSeconds) * 1000;
-    const endTime = round(to, intervalInSeconds) * 1000;
+    // const startTime = round(from, intervalInSeconds) * 1000;
+    // const endTime = round(to, intervalInSeconds) * 1000;
 
     try {
-      const params = {
-        from: startTime,
-        to: endTime,
-        resolution: resolution,
-      };
-      const candleUrl = `candle/${instrument.symbol}/candles`;
+      // const params = {
+      //   from: startTime,
+      //   to: endTime,
+      //   resolution: resolution,
+      // };
+      // const candleUrl = `candle/${instrument.symbol}/candles`;
 
-      const data = await rf.getRequest('TradingRequest').getCandleChartData();
-      console.log('data', data);
+      const data: any = await props.fetchData();
       if (data.length === 0) {
         onResult([], {
           noData: true,
@@ -310,10 +308,8 @@ const TradingView: React.FC<Props> = (props) => {
       container_id: props.containerId,
     };
     const chart = new widget(widgetOptions);
-    console.log('chart', chart);
     setTradingViewChart(chart);
     chart.onChartReady(() => {
-      console.log('chart onready');
       setChartReady(true);
       chart.chart().setResolution(getIntervalString(interval), () => {});
       chart.applyOverrides({ 'paneProperties.topMargin': 15 });

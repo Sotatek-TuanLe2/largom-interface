@@ -5,7 +5,7 @@ import { RootState } from 'src/store';
 import { setOpenModalSignatureRequired } from 'src/store/wallet';
 import { toastError } from 'src/utils/notify';
 import BaseModal from './BaseModal';
-import { getErrorMessage } from 'src/utils/helpers';
+import { getErrorMessage } from 'src/utils/chart';
 import React from 'react';
 
 const ModalSignatureRequired = () => {

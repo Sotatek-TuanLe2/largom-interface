@@ -1,5 +1,5 @@
 import { Timezone } from 'src/charting_library/charting_library.min';
-import { Candle, ITrade } from 'src/common/interfaces';
+import { Candle, ITrade } from 'src/types';
 
 export const DEFAULT_TRADING_VIEW_INTERVAL = '60';
 

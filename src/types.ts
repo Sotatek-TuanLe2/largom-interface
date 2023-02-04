@@ -1,4 +1,4 @@
-import { THEME_MODE } from '../constant';
+import { THEME_MODE } from './utils/constants';
 
 export interface ITrade {
   id?: number;

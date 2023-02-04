@@ -15,13 +15,16 @@ interface IAppTabs {
 }
 
 interface ITabs {
-  name: string;
+  name: ReactNode;
   content: ReactNode;
 }
 
 const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
   return (
     <Tabs
+      h={'full'}
+      display="flex"
+      flexDirection={'column'}
       variant={'unstyled'}
       colorScheme="transparent"
       defaultIndex={defaultTab}
@@ -35,10 +38,12 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
         </Flex>
       </TabList>
 
-      <TabPanels>
+      <TabPanels flex={1}>
         {tabs.map((tab: ITabs) => {
           return (
-            <TabPanel className="app-tab__content-tab">{tab.content}</TabPanel>
+            <TabPanel h={'full'} className="app-tab__content-tab">
+              {tab.content}
+            </TabPanel>
           );
         })}
       </TabPanels>
