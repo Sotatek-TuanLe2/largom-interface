@@ -6,8 +6,8 @@ import {
   ArrowDownIcon,
 } from 'src/assets/icons';
 import React from 'react';
-import { AppButton } from 'src/components';
 import 'src/styles/components/Header.scss';
+import AppConnectWalletButton from '../AppConnectWalletButton';
 
 const menus: {
   name: string;
@@ -67,7 +67,7 @@ const Header = () => {
         </Flex>
 
         <Flex className="header__content--right">
-          <AppButton>Connect Wallet</AppButton>
+          <AppConnectWalletButton>Connect Wallet</AppConnectWalletButton>
           <Box className="header__icon-download">
             <DownloadIcon />
           </Box>
