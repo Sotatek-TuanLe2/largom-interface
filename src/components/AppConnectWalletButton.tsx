@@ -1,6 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React, { forwardRef } from 'react';
-import { ArrowDownIcon } from 'src/assets/icons';
 import useWallet from 'src/hooks/useWallet';
 import { formatWeiNumber } from 'src/utils/format';
 import { getLogoNetwork, getNetworkConfig } from 'src/utils/network';

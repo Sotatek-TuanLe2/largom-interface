@@ -9,6 +9,8 @@ import {
   AppButton,
 } from 'src/components';
 import { TYPE_TRADE, TRADE_OPTIONS } from 'src/utils/constants';
+import useWallet from 'src/hooks/useWallet';
+import AppConnectWalletButton from '../../../components/AppConnectWalletButton';
 
 interface IDataFormTrade {
   stop: string;
@@ -55,6 +57,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
     amount: '',
     network: networks[0].value,
   };
+  const { wallet } = useWallet();
 
   const [dataForm, setDataForm] = useState<IDataFormTrade>(initialForm);
 
@@ -138,6 +141,28 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
     );
   };
 
+  const _renderButton = () => {
+    if (!wallet) {
+      return (
+        <AppConnectWalletButton width="100%" variant={'outline'}>
+          Connect Wallet
+        </AppConnectWalletButton>
+      );
+    }
+
+    return (
+      <AppButton
+        width="100%"
+        className={`form-trade__btn-${
+          type === TYPE_TRADE.BUY ? 'buy' : 'sell'
+        }`}
+      >
+        {type === TYPE_TRADE.BUY ? 'Buy ' : 'Sell '}
+        {tokenOut?.symbol}
+      </AppButton>
+    );
+  };
+
   return (
     <Box>
       {_renderField()}
@@ -158,32 +183,25 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
         />
       </Box>
 
-      <Box className="form-trade__field" zIndex={999}>
-        <Box className="label">Network</Box>
-        <AppSelect
-          size="medium"
-          options={networks}
-          value={dataForm.network}
-          onChange={(network: string) => {
-            setDataForm({
-              ...dataForm,
-              network,
-            });
-          }}
-        />
-      </Box>
+      {!!wallet && (
+        <Box className="form-trade__field" zIndex={999}>
+          <Box className="label">Network</Box>
+          <AppSelect
+            size="medium"
+            options={networks}
+            value={dataForm.network}
+            onChange={(network: string) => {
+              setDataForm({
+                ...dataForm,
+                network,
+              });
+            }}
+          />
+        </Box>
+      )}
 
       <AppInputRange />
-
-      <AppButton
-        width="100%"
-        className={`form-trade__btn-${
-          type === TYPE_TRADE.BUY ? 'buy' : 'sell'
-        }`}
-      >
-        {type === TYPE_TRADE.BUY ? 'Buy ' : 'Sell '}
-        {tokenOut?.symbol}
-      </AppButton>
+      {_renderButton()}
     </Box>
   );
 };
