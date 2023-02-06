@@ -67,7 +67,7 @@ const AppInput = forwardRef(
     return (
       <FormControl isRequired={isRequired}>
         {!!label && (
-          <FormLabel mb={0} color="border.200">
+          <FormLabel mb={1} color="border.200" fontSize={'12px'}>
             {label}
           </FormLabel>
         )}
@@ -113,7 +113,7 @@ export const appInputStyles = {
         width: '20px',
         height: '20px',
       },
-      fontSize: '16px',
+      fontSize: '12px',
     },
   },
   variants: {
@@ -121,6 +121,7 @@ export const appInputStyles = {
       field: {
         bg: mode('transparent', 'transparent')(props),
         border: '1px solid',
+        fontSize: '12px',
         color: mode('white', 'white')(props),
         borderColor: mode('line.100', 'line.100')(props),
         _focus: {

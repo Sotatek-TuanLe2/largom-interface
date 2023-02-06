@@ -40,7 +40,7 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
       );
   };
   return (
-    <Box pt={6} pb={2}>
+    <Box pb={2} px={2}>
       <Slider
         aria-label="slider-ex-6"
         onChange={(val) => setSliderValue(val)}

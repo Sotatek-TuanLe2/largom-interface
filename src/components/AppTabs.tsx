@@ -12,14 +12,16 @@ import 'src/styles/components/AppTabs.scss';
 interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
+  onChange?: (value: string) => void;
 }
 
-interface ITabs {
+export interface ITabs {
   name: string;
   content: ReactNode;
+  id: string;
 }
 
-const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
+const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
   return (
     <Tabs
       h={'full'}
@@ -33,7 +35,15 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
       <TabList>
         <Flex>
           {tabs.map((tab: ITabs) => {
-            return <Tab className="app-tab__name-tab">{tab.name}</Tab>;
+            return (
+              <Tab
+                key={tab.id}
+                className="app-tab__name-tab"
+                onClick={() => onChange && onChange(tab.id)}
+              >
+                {tab.name}
+              </Tab>
+            );
           })}
         </Flex>
       </TabList>
@@ -41,7 +51,7 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
       <TabPanels flex={1}>
         {tabs.map((tab: ITabs) => {
           return (
-            <TabPanel h={'full'} className="app-tab__content-tab">
+            <TabPanel key={tab.id} h={'full'} className="app-tab__content-tab">
               {tab.content}
             </TabPanel>
           );

@@ -2,8 +2,6 @@
 @import '../_mixins.scss';
 
 .trading-page {
-  font-family: 'Inter', sans-serif;
-
   &__content-right {
     width: 360px;
   }
@@ -11,10 +9,16 @@
   &__content-left {
     width: calc(100% - 360px);
   }
+
+  &__content-center {
+    width: 100%;
+  }
+
   &__chart {
     flex: 1;
     margin: 4px 0 0 4px;
   }
+
   .app-tab {
     &__name-tab {
       &:nth-child(1) {
@@ -173,5 +177,113 @@
       cursor: pointer;
       color: $Main;
     }
+  }
+}
+
+.trades {
+  background-color: $Card;
+  padding: 16px 40px 16px 20px;
+  margin-left: 4px;
+  height: 500px;
+
+  .table-trades {
+    margin-top: 10px;
+
+    &__header {
+      @include text-tiny-regular;
+
+      text-transform: capitalize;
+      color: $Paragraph2;
+      display: flex;
+      margin-bottom: 6px;
+
+      div {
+        flex: 1 1 0;
+        justify-content: flex-start;
+      }
+    }
+
+    &__content {
+      @include text-tiny-regular;
+
+      text-transform: capitalize;
+      color: $Paragraph1;
+      display: flex;
+      margin-bottom: 3px;
+
+      .price {
+        &.up {
+          color: $Green;
+        }
+
+        &.down {
+          color: $Red;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      div {
+        flex: 1 1 0;
+        justify-content: flex-start;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.form-trade {
+  background-color: $Card;
+  padding: 16px 20px 20px;
+  margin-left: 4px;
+
+  &__current-value {
+    margin-bottom: 12px;
+    margin-top: 18px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph2;
+      margin-right: 10px;
+    }
+
+    .value {
+      @include text-tiny-regular;
+
+      color: $Title;
+    }
+  }
+
+  &__field {
+    margin-bottom: 12px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph1;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__currency {
+    @include text-tiny-regular;
+
+    color: $Paragraph1;
+  }
+
+  &__btn-buy,
+  &__btn-sell {
+    font-size: 14px !important;
+  }
+
+  &__btn-buy {
+    background-color: $Green !important;
+  }
+
+  &__btn-sell {
+    background-color: $Red !important;
   }
 }

@@ -47,11 +47,12 @@ const PartChart: React.FC<Props> = (props) => {
       <AppTabs
         tabs={[
           {
+            id: 'trading-view',
             name: 'Trading View',
-
             content: _renderTradingViewChart(),
           },
           {
+            id: 'depth',
             name: 'Depth',
             content: '',
           },
