@@ -54,7 +54,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "id": "629dc9f014a8be7577e1cce0",
@@ -63,7 +63,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -155,7 +155,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 18,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "busd": {
           "id": "629dc9f014a8be7577e1cce4",
@@ -164,7 +164,7 @@
           "name": "BUSD",
           "symbol": "BUSD",
           "decimals": 18,
-          "icon": "/images/BUSD.png"
+          "icon": "icon-busd"
         },
         "usdc": {
           "id": "629dc9f014a8be7577e1cce6",
@@ -173,7 +173,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 18,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -290,7 +290,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "id": "629dc9f114a8be7577e1ccee",
@@ -299,7 +299,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "connectors": {
@@ -390,7 +390,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "id": "629dc9f114a8be7577e1ccf4",
@@ -399,7 +399,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "connectors": {
@@ -459,7 +459,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "id": "62b1988dd137a492fff59536",
@@ -468,7 +468,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "connectors": {
