@@ -10,11 +10,9 @@
   &__content-left {
     width: calc(100% - 360px);
   }
-
   &__content-center {
     width: 100%;
   }
-
   &__chart {
     flex: 1;
     margin: 4px 0 0 4px;
@@ -35,194 +33,27 @@
       }
     }
   }
-}
 
-.statistics {
-  width: 100%;
-  background-color: $Card;
-  padding: 15px 40px;
-  margin-bottom: 4px;
+  .statistics {
+    width: 100%;
+    background-color: $Card;
+    padding: 15px 40px;
+    margin-bottom: 4px;
 
-  &__currency {
-    @include text-large-bold;
-
-    color: $Title;
-    padding: 6px 30px 6px 0;
-    border-right: 1px solid $Border;
-  }
-
-  &__price {
-    margin-left: 30px;
-
-    .price {
-      @include text-small-bold;
-
-      &.up {
-        color: $Green;
-      }
-
-      &.down {
-        color: $Red;
-      }
-    }
-
-    .value {
-      @include text-tiny-medium;
+    &__currency {
+      @include text-large-bold;
 
       color: $Title;
-    }
-  }
-
-  &__static {
-    margin-left: 30px;
-
-    .label {
-      @include text-tiny-regular;
-
-      color: $Paragraph1;
-      margin-bottom: 4px;
+      padding: 6px 30px 6px 0;
+      border-right: 1px solid $Border;
     }
 
-    .value {
-      @include text-tiny-medium;
-
-      color: $Title;
-    }
-
-    &.change {
-      .value {
-        &.up {
-          color: $Green;
-        }
-
-        &.down {
-          color: $Red;
-        }
-      }
-    }
-  }
-}
-
-.order-book {
-  width: 360px;
-  height: 950px;
-  background-color: $Card;
-  padding: 16px 0 16px 40px;
-
-  &__title {
-    @include text-small-bold;
-
-    margin-bottom: 10px;
-  }
-
-  &__filter {
-    margin-bottom: 12px;
-  }
-
-  &__filter-type {
-    border-radius: 4px;
-    margin-right: 6px;
-    padding: 5px;
-    opacity: 0.6;
-    border: 1px solid $Border;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &.active {
-      opacity: 1;
-      border: 1px solid $Main;
-    }
-  }
-
-  &__current-price {
-    padding: 5px 20px 5px 40px;
-    background-color: $Card2;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: -40px;
-
-    .price {
-      @include text-large-medium;
-
-      align-items: center;
-      margin-right: 20px;
-
-      svg {
-        margin-left: 9px;
-      }
-
-      &.up {
-        color: $Green;
-
-        svg {
-          transform: rotate(-180deg);
-        }
-      }
-
-      &.down {
-        color: $Red;
-      }
-    }
-
-    .value {
-      @include text-tiny-regular;
-
-      color: $Paragraph2;
-    }
-
-    .view-more {
-      @include text-tiny-regular;
-
-      cursor: pointer;
-      color: $Main;
-    }
-  }
-}
-
-.trades {
-  background-color: $Card;
-  padding: 16px 0 16px 20px;
-  margin-left: 4px;
-  height: 500px;
-
-  .table-trades {
-    margin-top: 10px;
-
-    &__header {
-      @include text-tiny-regular;
-
-      text-transform: capitalize;
-      color: $Paragraph2;
-      display: flex;
-      margin-bottom: 6px;
-
-      div {
-        flex: 1 1 0;
-        justify-content: flex-start;
-
-        &:last-child {
-          padding-right: 40px;
-        }
-      }
-    }
-
-    &__list {
-      height: 415px;
-      overflow-y: auto;
-    }
-
-    &__content {
-      @include text-tiny-regular;
-
-      text-transform: capitalize;
-      color: $Paragraph1;
-      display: flex;
-      margin-bottom: 3px;
+    &__price {
+      margin-left: 30px;
 
       .price {
+        @include text-small-bold;
+
         &.up {
           color: $Green;
         }
@@ -232,73 +63,328 @@
         }
       }
 
-      &:last-child {
-        margin-bottom: 0;
+      .value {
+        @include text-tiny-medium;
+
+        color: $Title;
+      }
+    }
+
+    &__static {
+      margin-left: 30px;
+
+      .label {
+        @include text-tiny-regular;
+
+        color: $Paragraph1;
+        margin-bottom: 4px;
       }
 
-      div {
-        flex: 1 1 0;
-        justify-content: flex-start;
-        cursor: pointer;
+      .value {
+        @include text-tiny-medium;
 
-        &:last-child {
-          padding-right: 40px;
+        color: $Title;
+      }
+
+      &.change {
+        .value {
+          &.up {
+            color: $Green;
+          }
+
+          &.down {
+            color: $Red;
+          }
         }
       }
     }
   }
-}
 
-.form-trade {
-  background-color: $Card;
-  padding: 16px 20px 20px;
-  margin-left: 4px;
+  .order-book {
+    width: 360px;
+    height: 950px;
+    background-color: $Card;
+    padding: 16px 0 16px 40px;
 
-  &__current-value {
-    margin-bottom: 12px;
-    margin-top: 18px;
+    &__title {
+      @include text-small-bold;
 
-    .label {
-      @include text-tiny-regular;
-
-      color: $Paragraph2;
-      margin-right: 10px;
+      margin-bottom: 10px;
     }
 
-    .value {
-      @include text-tiny-regular;
+    &__filter {
+      margin-bottom: 12px;
+    }
 
-      color: $Title;
+    &__filter-type {
+      border-radius: 4px;
+      margin-right: 6px;
+      padding: 5px;
+      opacity: 0.6;
+      border: 1px solid $Border;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        opacity: 1;
+        border: 1px solid $Main;
+      }
+    }
+
+    &__current-price {
+      padding: 5px 20px 5px 40px;
+      background-color: $Card2;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: -40px;
+
+      .price {
+        @include text-large-medium;
+
+        align-items: center;
+        margin-right: 20px;
+
+        svg {
+          margin-left: 9px;
+        }
+
+        &.up {
+          color: $Green;
+
+          svg {
+            transform: rotate(-180deg);
+          }
+        }
+
+        &.down {
+          color: $Red;
+        }
+      }
+
+      .value {
+        @include text-tiny-regular;
+
+        color: $Paragraph2;
+      }
+
+      .view-more {
+        @include text-tiny-regular;
+
+        cursor: pointer;
+        color: $Main;
+      }
     }
   }
+  .trades {
+    background-color: $Card;
+    padding: 16px 0 16px 20px;
+    margin-left: 4px;
+    height: 500px;
 
-  &__field {
-    margin-bottom: 12px;
+    .table-trades {
+      margin-top: 10px;
 
-    .label {
+      &__header {
+        @include text-tiny-regular;
+
+        text-transform: capitalize;
+        color: $Paragraph2;
+        display: flex;
+        margin-bottom: 6px;
+
+        div {
+          flex: 1 1 0;
+          justify-content: flex-start;
+
+          &:last-child {
+            padding-right: 40px;
+          }
+        }
+      }
+
+      &__list {
+        height: 415px;
+        overflow-y: auto;
+      }
+
+      &__content {
+        @include text-tiny-regular;
+
+        text-transform: capitalize;
+        color: $Paragraph1;
+        display: flex;
+        margin-bottom: 3px;
+
+        .price {
+          &.up {
+            color: $Green;
+          }
+
+          &.down {
+            color: $Red;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        div {
+          flex: 1 1 0;
+          justify-content: flex-start;
+          cursor: pointer;
+
+          &:last-child {
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+  .form-trade {
+    background-color: $Card;
+    padding: 16px 20px 20px;
+    margin-left: 4px;
+
+    &__current-value {
+      margin-bottom: 12px;
+      margin-top: 18px;
+
+      .label {
+        @include text-tiny-regular;
+
+        color: $Paragraph2;
+        margin-right: 10px;
+      }
+
+      .value {
+        @include text-tiny-regular;
+
+        color: $Title;
+      }
+    }
+
+    &__field {
+      margin-bottom: 12px;
+
+      .label {
+        @include text-tiny-regular;
+
+        color: $Paragraph1;
+        margin-bottom: 4px;
+      }
+    }
+
+    &__currency {
       @include text-tiny-regular;
 
       color: $Paragraph1;
-      margin-bottom: 4px;
+    }
+
+    &__btn-buy,
+    &__btn-sell {
+      font-size: 14px !important;
+    }
+
+    &__btn-buy {
+      background-color: $Green !important;
+    }
+
+    &__btn-sell {
+      background-color: $Red !important;
     }
   }
 
-  &__currency {
-    @include text-tiny-regular;
+  .order-wrap {
+    .app-tab {
+      &__name-tab {
+        display: block;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+      }
+    }
 
-    color: $Paragraph1;
-  }
+    background-color: $Card;
+    margin-top: 4px;
+    padding: 0 40px 20px;
+    .hide-pair {
+      @include text-small-regular;
+      color: $Paragraph1;
+    }
+    .row-order {
+      flex-wrap: nowrap;
+      border-bottom: 1px solid $Border;
+    }
+    .header-order {
+      color: $Paragraph2;
+      @include text-tiny-medium;
+      text-align: left;
+      padding: 11px 0;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 2px;
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .cell-open-order {
+      padding: 14px 6px 14px 0;
+      color: $Paragraph1;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include text-small-regular;
+      .price,
+      .amount {
+        max-width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:last-child {
+        display: flex;
+        justify-content: end;
+        padding-right: 0px;
+      }
+      &.sell {
+        color: $Red;
+      }
+      &.buy {
+        color: $Green;
 
-  &__btn-buy,
-  &__btn-sell {
-    font-size: 14px !important;
-  }
+        &__content-center {
+          width: 100%;
+        }
 
-  &__btn-buy {
-    background-color: $Green !important;
-  }
+        &__chart {
+          flex: 1;
+          margin: 4px 0 0 4px;
+        }
 
-  &__btn-sell {
-    background-color: $Red !important;
+        .app-tab {
+          &__name-tab {
+            &:nth-child(1) {
+              height: 48px !important;
+              display: flex;
+              align-items: center;
+              padding-left: 4px !important;
+            }
+            &:nth-child(2) {
+              height: 48px !important;
+              display: flex;
+              align-items: center !important;
+            }
+          }
+        }
+      }
+    }
   }
 }

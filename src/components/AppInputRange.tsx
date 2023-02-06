@@ -67,9 +67,8 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
           textAlign="center"
           bg="main.100"
           color="white"
-          mt="-10"
-          ml="-5"
-          w="12"
+          w="6"
+          className="percent-slider"
         >
           {sliderValue}%
         </SliderMark>

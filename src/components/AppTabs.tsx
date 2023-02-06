@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Tab,
   TabList,
@@ -13,15 +14,20 @@ interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
   onChange?: (value: string) => void;
+  rightElement?: ReactNode;
 }
-
 export interface ITabs {
   name: string;
   content: ReactNode;
   id: string;
 }
 
-const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
+const AppTabs: FC<IAppTabs> = ({
+  defaultTab = 0,
+  tabs,
+  onChange,
+  rightElement,
+}) => {
   return (
     <Tabs
       h={'full'}
@@ -33,18 +39,21 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
       className="app-tab"
     >
       <TabList>
-        <Flex alignItems="center">
-          {tabs.map((tab: ITabs) => {
-            return (
-              <Tab
-                key={tab.id}
-                className="app-tab__name-tab"
-                onClick={() => onChange && onChange(tab.id)}
-              >
-                {tab.name}
-              </Tab>
-            );
-          })}
+        <Flex justifyContent={'space-between'} alignItems="center" w="100%">
+          <Flex>
+            {tabs.map((tab: ITabs) => {
+              return (
+                <Tab
+                  key={tab.id}
+                  className="app-tab__name-tab"
+                  onClick={() => onChange && onChange(tab.id)}
+                >
+                  {tab.name}
+                </Tab>
+              );
+            })}
+          </Flex>
+          <Box>{rightElement ? rightElement : ''}</Box>
         </Flex>
       </TabList>
 
