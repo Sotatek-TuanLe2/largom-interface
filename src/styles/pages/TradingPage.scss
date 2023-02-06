@@ -2,6 +2,7 @@
 @import '../_mixins.scss';
 
 .trading-page {
+  margin-bottom: 40px;
   &__content-right {
     width: 360px;
   }
@@ -104,6 +105,7 @@
 
 .order-book {
   width: 360px;
+  height: 950px;
   background-color: $Card;
   padding: 16px 0 16px 40px;
 
@@ -205,6 +207,11 @@
           padding-right: 40px;
         }
       }
+    }
+
+    &__list {
+      height: 415px;
+      overflow-y: auto;
     }
 
     &__content {
