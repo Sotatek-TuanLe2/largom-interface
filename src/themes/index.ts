@@ -3,6 +3,8 @@ import { globalStyles } from 'src/themes/styles';
 import { appButtonStyles } from 'src/components/AppButton';
 import { appInputStyles } from 'src/components/AppInput';
 import { appTextareaStyles } from 'src/components/AppTextArea';
+import { appCheckboxStyles } from 'src/components/AppCheckbox';
+import { appRadioBtnStyles } from 'src/components/AppRadioBtn';
 // import { appTextareaStyles } from 'src/components/AppTextarea';
 // import { appSwitchStyles } from 'src/components/AppSwitch';
 // import { cardStyles } from 'src/components/AppCard';
@@ -23,6 +25,8 @@ export default extendTheme({
     Button: appButtonStyles,
     Input: appInputStyles,
     Textarea: appTextareaStyles,
+    Checkbox: appCheckboxStyles,
+    Radio: appRadioBtnStyles,
     // Switch: appSwitchStyles,
     // Card: cardStyles,
     // Link: appLinkStyles,

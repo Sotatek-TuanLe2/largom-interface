@@ -1,67 +1,24 @@
-import { Box } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
-import { AppTabs } from 'src/components';
-import AppDataTable from 'src/components/AppDataTable';
-import rf from 'src/services/RequestFactory';
+import React, { useState } from 'react';
+import AppRadioBtn from 'src/components/AppRadioBtn';
 
-interface IOpenOrder {
-  amount: number;
-  conditions: string;
-  date: string;
-  filled: number;
-  network: string;
-  pair: string;
-  price: number;
-  side: string;
-  total: number;
-  type: string;
-}
+const OPTIONS_RADIO = [
+  { value: '1 Day', label: '1 Day' },
+  { value: '1 Week', label: '1 Week' },
+  { value: '1 Month', label: '1 Month' },
+  { value: '3 Months', label: '3 Months' },
+  { value: 'Time', label: 'Time' },
+];
 
 const PartOrderHistory = () => {
-  const [dataOpenOrders, setDataOpenOrders] = useState<IOpenOrder[]>([]);
-
-  const getDataOpenOrders = async () => {
-    const res = await rf.getRequest('OrderRequest').getOpenOrders();
-    return res;
-  };
-
-  useEffect(() => {
-    getDataOpenOrders();
-  }, []);
-
-  const _renderContentOpenOrder = (data: IOpenOrder[]) => {
-    if (!data || !data.length) {
-      return <></>;
-    } else
-      return (
-        <>
-          {data.map((openOrder: IOpenOrder, id: number) => {
-            return <Box key={`${id}`}>{openOrder.amount}</Box>;
-          })}
-        </>
-      );
-  };
-
+  const [valueRadio, setValueRadio] = useState('1 Day');
   return (
-    <Box>
-      <AppTabs
-        tabs={[
-          {
-            name: 'Open order',
-            content: (
-              <AppDataTable
-                renderBody={_renderContentOpenOrder}
-                renderHeader={() => <div>header</div>}
-                fetchData={getDataOpenOrders}
-              />
-            ),
-          },
-          { name: 'Order History', content: 'order history' },
-          { name: 'Trade History', content: 'Trade History' },
-          { name: 'Funds', content: 'Funds' },
-        ]}
+    <div>
+      <AppRadioBtn
+        value={valueRadio}
+        onChange={setValueRadio}
+        options={OPTIONS_RADIO}
       />
-    </Box>
+    </div>
   );
 };
 

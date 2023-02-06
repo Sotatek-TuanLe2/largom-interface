@@ -200,19 +200,19 @@
 }
 
 @mixin display-regular-medium {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 26px;
 }
 
 @mixin display-regular-small {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   line-height: 26px;
 }
 
 @mixin display-regular-tiny {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 12px;
   line-height: 26px;
 }

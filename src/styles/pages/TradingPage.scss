@@ -11,6 +11,62 @@
   &__content-left {
     width: calc(100% - 360px);
   }
+  .order-wrap {
+    background-color: $Card;
+    margin-top: 4px;
+    padding: 0 40px 20px;
+    .hide-pair {
+      @include text-small-regular;
+      color: $Paragraph1;
+    }
+    .row-order {
+      flex-wrap: nowrap;
+      border-bottom: 1px solid $Border;
+    }
+    .header-order {
+      color: $Paragraph2;
+      @include text-tiny-medium;
+      text-align: left;
+      padding: 11px 0;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 2px;
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .cell-open-order {
+      padding: 14px 6px 14px 0;
+      color: $Paragraph1;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include text-small-regular;
+      .price,
+      .amount {
+        max-width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:last-child {
+        display: flex;
+        justify-content: end;
+        padding-right: 0px;
+      }
+      &.sell {
+        color: $Red;
+      }
+      &.buy {
+        color: $Green;
+      }
+    }
+  }
 }
 
 .statistics {

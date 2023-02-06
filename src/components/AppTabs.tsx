@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Tab,
   TabList,
@@ -12,6 +13,7 @@ import 'src/styles/components/AppTabs.scss';
 interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
+  rightElement?: ReactNode;
 }
 
 interface ITabs {
@@ -19,7 +21,7 @@ interface ITabs {
   content: ReactNode;
 }
 
-const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
+const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, rightElement }) => {
   return (
     <Tabs
       variant={'unstyled'}
@@ -28,14 +30,17 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs }) => {
       className="app-tab"
     >
       <TabList>
-        <Flex>
-          {tabs.map((tab: ITabs, id: number) => {
-            return (
-              <Tab className="app-tab__name-tab" key={`${id}_tab-name`}>
-                {tab.name}
-              </Tab>
-            );
-          })}
+        <Flex justifyContent={'space-between'} alignItems="center" w="100%">
+          <Flex>
+            {tabs.map((tab: ITabs, id: number) => {
+              return (
+                <Tab className="app-tab__name-tab" key={`${id}_tab-name`}>
+                  {tab.name}
+                </Tab>
+              );
+            })}
+          </Flex>
+          <Box>{rightElement ? rightElement : ''}</Box>
         </Flex>
       </TabList>
 

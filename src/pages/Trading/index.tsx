@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import PartStatistics from './parts/PartStatistics';
 import PartOrderBook from './parts/PartOrderBook';
-import PartOrderHistory from './parts/PartOrderHistory';
+import PartUserInfoTransaction from './parts/PartUserInfoTransaction';
 
 const TradingPage = () => {
   return (
@@ -22,7 +22,7 @@ const TradingPage = () => {
             <Box className="trading-page__content-right" />
           </Flex>
           <Box>
-            <PartOrderHistory />
+            <PartUserInfoTransaction />
           </Box>
         </Flex>
       </>
