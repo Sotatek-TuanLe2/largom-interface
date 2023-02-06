@@ -9,6 +9,8 @@ import {
   AppButton,
 } from 'src/components';
 import { TYPE_TRADE, TRADE_OPTIONS } from 'src/utils/constants';
+import useWallet from 'src/hooks/useWallet';
+import AppConnectWalletButton from '../../../components/AppConnectWalletButton';
 import { ITabs } from 'src/components/AppTabs';
 
 interface IDataFormTrade {
@@ -60,126 +62,122 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
     amount: '',
     network: networks[0].value,
   };
+  const { wallet } = useWallet();
 
   const [dataForm, setDataForm] = useState<IDataFormTrade>(initialForm);
 
-  const _renderField = () => {
-    if (typeTrade === TRADE_OPTIONS.LIMIT) {
-      return (
-        <Box>
-          <Box className="form-trade__field">
-            <AppInput
-              value={dataForm.price}
-              onChange={(e) => {
-                setDataForm({
-                  ...dataForm,
-                  price: e.target.value,
-                });
-              }}
-              size={'md'}
-              label={'Price'}
-              endAdornment={
-                <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
-              }
-            />
-          </Box>
-        </Box>
-      );
-    }
-
-    if (typeTrade === TRADE_OPTIONS.MARKET) {
-      return (
-        <Box>
-          <Box className="form-trade__field">
-            <AppInput
-              value={'Market'}
-              size={'md'}
-              isDisabled
-              label={'Price'}
-              endAdornment={
-                <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
-              }
-            />
-          </Box>
-        </Box>
-      );
-    }
-    return (
-      <Box>
-        <Box className="form-trade__field">
-          <AppInput
-            value={dataForm.stop}
-            onChange={(e) => {
-              setDataForm({
-                ...dataForm,
-                stop: e.target.value,
-              });
-            }}
-            size={'md'}
-            label={'Stop'}
-            endAdornment={
-              <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
-            }
-          />
-        </Box>
-
-        <Box className="form-trade__field">
-          <AppInput
-            value={dataForm.limit}
-            onChange={(e) => {
-              setDataForm({
-                ...dataForm,
-                limit: e.target.value,
-              });
-            }}
-            size={'md'}
-            label={'Limit'}
-            endAdornment={
-              <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
-            }
-          />
-        </Box>
-      </Box>
-    );
+  const onChangeDataForm = (field: string, value: string) => {
+    setDataForm((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
   };
 
-  return (
-    <Box>
-      {_renderField()}
-      <Box className="form-trade__field">
-        <AppInput
-          value={dataForm.amount}
-          onChange={(e) => {
-            setDataForm({
-              ...dataForm,
-              amount: e.target.value,
-            });
-          }}
-          size={'md'}
-          label={'Amount'}
-          endAdornment={
-            <Box className="form-trade__currency">{tokenOut?.symbol}</Box>
-          }
-        />
-      </Box>
+  const _renderFields = () => {
+    switch (typeTrade) {
+      case TRADE_OPTIONS.LIMIT:
+        return (
+          <Box>
+            <Box className="form-trade__field">
+              <AppInput
+                value={dataForm.price}
+                onChange={(e) => onChangeDataForm('price', e.target.value)}
+                size={'md'}
+                label={'Price'}
+                endAdornment={
+                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                }
+              />
+            </Box>
+          </Box>
+        );
+      case TRADE_OPTIONS.MARKET:
+        return (
+          <Box>
+            <Box className="form-trade__field">
+              <AppInput
+                value={'Market'}
+                size={'md'}
+                isDisabled
+                label={'Price'}
+                endAdornment={
+                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                }
+              />
+            </Box>
+          </Box>
+        );
+      default:
+        return (
+          <Box>
+            <Box className="form-trade__field">
+              <AppInput
+                value={dataForm.stop}
+                onChange={(e) => onChangeDataForm('stop', e.target.value)}
+                size={'md'}
+                label={'Stop'}
+                endAdornment={
+                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                }
+              />
+            </Box>
+            <Box className="form-trade__field">
+              <AppInput
+                value={dataForm.limit}
+                onChange={(e) => onChangeDataForm('limit', e.target.value)}
+                size={'md'}
+                label={'Limit'}
+                endAdornment={
+                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                }
+              />
+            </Box>
+          </Box>
+        );
+    }
+  };
 
+  const _renderAmountField = () => (
+    <Box className="form-trade__field">
+      <AppInput
+        value={dataForm.amount}
+        onChange={(e) => onChangeDataForm('amount', e.target.value)}
+        size={'md'}
+        label={'Amount'}
+        endAdornment={
+          <Box className="form-trade__currency">{tokenOut?.symbol}</Box>
+        }
+      />
+    </Box>
+  );
+
+  const _renderNetworkSelect = () => {
+    if (!wallet) {
+      return null;
+    }
+    return (
       <Box className="form-trade__field" zIndex={999}>
         <Box className="label">Network</Box>
         <AppSelect
           size="medium"
           options={networks}
           value={dataForm.network}
-          onChange={(network: string) => {
-            setDataForm({
-              ...dataForm,
-              network,
-            });
-          }}
+          onChange={(network: string) => onChangeDataForm('network', network)}
         />
       </Box>
+    );
+  };
 
-      <AppInputRange />
+  const _renderButton = () => {
+    if (!wallet) {
+      return (
+        <AppConnectWalletButton width="100%" variant={'outline'}>
+          Connect Wallet
+        </AppConnectWalletButton>
+      );
+    }
 
+    return (
       <AppButton
         width="100%"
         className={`form-trade__btn-${
@@ -189,12 +187,22 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
         {type === TYPE_TRADE.BUY ? 'Buy ' : 'Sell '}
         {tokenOut?.symbol}
       </AppButton>
+    );
+  };
+
+  return (
+    <Box>
+      {_renderFields()}
+      {_renderAmountField()}
+      {_renderNetworkSelect()}
+      <AppInputRange />
+      {_renderButton()}
     </Box>
   );
 };
 
 const PartFormTrade = () => {
-  const [type, setType] = useState<string>('limit');
+  const [type, setType] = useState<string>(TRADE_OPTIONS.LIMIT);
 
   const tokenIn = {
     symbol: 'USDT',
@@ -203,7 +211,7 @@ const PartFormTrade = () => {
     symbol: 'BTC',
   };
 
-  const _renderFrom = () => {
+  const _renderForm = () => {
     return (
       <Flex direction={'row'} justifyContent="space-between" wrap={'wrap'}>
         <Box width="49%">
@@ -238,17 +246,17 @@ const PartFormTrade = () => {
     {
       id: TRADE_OPTIONS.LIMIT,
       name: 'Limit',
-      content: <Box>{_renderFrom()}</Box>,
+      content: <Box>{_renderForm()}</Box>,
     },
     {
       id: TRADE_OPTIONS.MARKET,
       name: 'Market',
-      content: <Box>{_renderFrom()}</Box>,
+      content: <Box>{_renderForm()}</Box>,
     },
     {
       id: TRADE_OPTIONS.STOP_LIMIT,
       name: 'Stop-limit',
-      content: <Box>{_renderFrom()}</Box>,
+      content: <Box>{_renderForm()}</Box>,
     },
   ];
 

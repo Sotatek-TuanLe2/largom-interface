@@ -1,7 +1,7 @@
 import 'src/styles/pages/TradingPage.scss';
 import React, { FC, useEffect, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { AppTabs } from 'src/components';
+import { AppTabs, AppScrollBar } from 'src/components';
 import { formatTimestamp } from 'src/utils/format';
 import rf from 'src/services/RequestFactory';
 
@@ -24,7 +24,7 @@ const TableTrades: FC<ITableTrades> = ({ data }) => {
         <Box textAlign="right">Time</Box>
       </Box>
 
-      <Box>
+      <AppScrollBar height={415}>
         {data.map((item: IDataTrades, index: number) => {
           return (
             <Box className="table-trades__content" key={index}>
@@ -38,7 +38,7 @@ const TableTrades: FC<ITableTrades> = ({ data }) => {
             </Box>
           );
         })}
-      </Box>
+      </AppScrollBar>
     </Box>
   );
 };
