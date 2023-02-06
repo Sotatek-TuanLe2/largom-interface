@@ -66,14 +66,14 @@ export const NETWORKS: {
         ? config.networks.POLYGON_TESTNET.id
         : config.networks.POLYGON_MAINNET.id,
   },
-  {
-    logo: 'icon-solana',
-    name: 'Solana',
-    id:
-      process.env.REACT_APP_ENV === 'dev'
-        ? config.networks.SOLANA_DEVNET.id
-        : config.networks.SOLANA_MAINNET.id,
-  },
+  // {
+  //   logo: 'icon-solana',
+  //   name: 'Solana',
+  //   id:
+  //     process.env.REACT_APP_ENV === 'dev'
+  //       ? config.networks.SOLANA_DEVNET.id
+  //       : config.networks.SOLANA_MAINNET.id,
+  // },
 ];
 
 export enum THEME_MODE {
