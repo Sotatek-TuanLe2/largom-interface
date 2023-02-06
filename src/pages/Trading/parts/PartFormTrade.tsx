@@ -189,7 +189,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
 };
 
 const PartFormTrade = () => {
-  const [type, setType] = useState<string>('limit');
+  const [type, setType] = useState<string>(TRADE_OPTIONS.LIMIT);
 
   const tokenIn = {
     symbol: 'USDT',

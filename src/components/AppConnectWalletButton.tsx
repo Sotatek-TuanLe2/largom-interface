@@ -1,5 +1,5 @@
-import { Box } from '@chakra-ui/react';
-import { forwardRef } from 'react';
+import { Box, Flex } from '@chakra-ui/react';
+import React, { forwardRef } from 'react';
 import { ArrowDownIcon } from 'src/assets/icons';
 import useWallet from 'src/hooks/useWallet';
 import { formatWeiNumber } from 'src/utils/format';
@@ -7,6 +7,8 @@ import { getLogoNetwork, getNetworkConfig } from 'src/utils/network';
 import { shortenWalletAddress } from 'src/utils/wallet';
 import AppButton, { AppButtonProps } from './AppButton';
 import ModalConnectWallet from './Modals/ModalConnectWallet';
+import { WalletIcon, ArrowLightIcon } from 'src/assets/icons';
+import 'src/styles/components/AppConnectWalletButton.scss';
 
 interface IAppConnectWalletButton extends AppButtonProps {
   onConnectSuccess?: () => void;
@@ -29,7 +31,7 @@ const AppConnectWalletButton = forwardRef<
   const _renderUnconnectedWallet = () => (
     <AppButton
       ref={ref}
-      size="lg"
+      size="md"
       onClick={onOpenModalConnectWallet}
       {...props}
     >
@@ -42,19 +44,29 @@ const AppConnectWalletButton = forwardRef<
     const chainCurrency = networkConfig?.currency || '';
 
     return (
-      <div>
-        <Box className={getLogoNetwork(wallet?.getNework())} />
-        <span>
-          {`${formatWeiNumber(
-            wallet?.getBalance() || '',
-            networkConfig?.nativeCurrency.decimals,
-          )} ${chainCurrency}`}
-        </span>
-        <span>
-          {wallet?.address ? shortenWalletAddress(wallet?.address) : null}
-        </span>
-        <ArrowDownIcon width={7} onClick={onOpenModalConnectWallet} />
-      </div>
+      <Flex className="wallet__info-account">
+        <Flex className="wallet__balance">
+          <Box className={getLogoNetwork(wallet?.getNework())} />
+          <Box mx={2}>
+            {`${formatWeiNumber(
+              wallet?.getBalance() || '',
+              networkConfig?.nativeCurrency.decimals,
+            )} ${chainCurrency}`}
+          </Box>
+
+          <ArrowLightIcon />
+        </Flex>
+
+        <Flex className="wallet__address">
+          <Box className="wallet__icon-wallet">
+            <WalletIcon />
+          </Box>
+          <Box mr={3.5}>
+            {wallet?.address ? shortenWalletAddress(wallet?.address) : null}
+          </Box>
+          <ArrowLightIcon />
+        </Flex>
+      </Flex>
     );
   };
 

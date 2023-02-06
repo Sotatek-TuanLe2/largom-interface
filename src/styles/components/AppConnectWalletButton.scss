@@ -1,0 +1,37 @@
+@import '../color-variables.scss';
+@import '../_mixins.scss';
+
+.wallet {
+  &__info-account {
+    background: $Card2;
+    border-radius: 31px;
+  }
+
+  &__balance {
+    padding: 8px 13px 8px 8px;
+    @include text-small-medium;
+
+    color: $Paragraph1;
+    align-items: center;
+  }
+
+  &__address {
+    @include text-small-medium;
+
+    padding: 10px 15px;
+    background: $Line;
+    border-radius: 31px;
+    color: $Paragraph1;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $Paragraph2;
+      color: $Title;
+    }
+  }
+
+  &__icon-wallet {
+    margin-right: 10px;
+  }
+}

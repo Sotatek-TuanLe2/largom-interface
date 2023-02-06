@@ -67,7 +67,7 @@ const Header = () => {
         </Flex>
 
         <Flex className="header__content--right">
-          <AppConnectWalletButton>Connect Wallet</AppConnectWalletButton>
+          <AppConnectWalletButton >Connect Wallet</AppConnectWalletButton>
           <Box className="header__icon-download">
             <DownloadIcon />
           </Box>

@@ -102,9 +102,9 @@ export class Wallet implements IWallet {
 export const shortenWalletAddress = (walletAddress: string) => {
   if (!walletAddress) return '';
   return (
-    walletAddress.slice(0, 8) +
+    walletAddress.slice(0, 4) +
     '...' +
-    walletAddress.slice(walletAddress.length - 5, walletAddress.length)
+    walletAddress.slice(walletAddress.length - 3, walletAddress.length)
   );
 };
 
