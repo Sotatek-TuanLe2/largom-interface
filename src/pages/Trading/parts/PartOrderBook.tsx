@@ -1,5 +1,5 @@
 import 'src/styles/pages/TradingPage.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { AppTableOrderBook } from 'src/components';
 import {
@@ -9,9 +9,25 @@ import {
   SellTypeIcon,
 } from 'src/assets/icons';
 import { TYPE_TRADE } from 'src/utils/constants';
+import { IOrderBook } from 'src/components/AppTableOrderBook';
+import rf from 'src/services/RequestFactory';
 
 const PartOrderBook = () => {
   const [type, setType] = useState<string>('');
+  const [buyOrderData, setBuyOrderData] = useState<IOrderBook[]>([]);
+  const [sellOrderData, setSellOrderData] = useState<IOrderBook[]>([]);
+
+  const fetchOrderBook = async () => {
+    const result: { asks: IOrderBook[]; bids: IOrderBook[] } = await rf
+      .getRequest('OrderRequest')
+      .getOrderBook();
+    setBuyOrderData(result.asks);
+    setSellOrderData(result.bids);
+  };
+
+  useEffect(() => {
+    fetchOrderBook();
+  }, []);
 
   const _renderCurrentPrice = () => {
     return (
@@ -33,29 +49,15 @@ const PartOrderBook = () => {
   };
 
   const _renderOrderBook = () => {
-    if (type === TYPE_TRADE.SELL) {
-      return (
-        <Box>
-          <AppTableOrderBook type={TYPE_TRADE.SELL} />
-          {_renderCurrentPrice()}
-        </Box>
-      );
-    }
-
-    if (type === TYPE_TRADE.BUY) {
-      return (
-        <Box>
-          {_renderCurrentPrice()}
-          <AppTableOrderBook type={TYPE_TRADE.BUY} />
-        </Box>
-      );
-    }
-
     return (
       <Box>
-        <AppTableOrderBook type={TYPE_TRADE.SELL} />
+        {type !== TYPE_TRADE.BUY && (
+          <AppTableOrderBook type={TYPE_TRADE.SELL} data={sellOrderData} />
+        )}
         {_renderCurrentPrice()}
-        <AppTableOrderBook type={TYPE_TRADE.BUY} />
+        {type !== TYPE_TRADE.SELL && (
+          <AppTableOrderBook type={TYPE_TRADE.BUY} data={buyOrderData} />
+        )}
       </Box>
     );
   };

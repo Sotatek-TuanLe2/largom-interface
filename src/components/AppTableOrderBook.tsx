@@ -3,101 +3,19 @@ import 'src/styles/components/AppTableOrderBook.scss';
 import { Box, Flex } from '@chakra-ui/react';
 import { TYPE_TRADE } from 'src/utils/constants';
 
-interface IAppTableOrderBook {
-  type: string;
-}
-
-interface IOrderBook {
+export interface IOrderBook {
   price: number;
   amount: number;
   total: number;
 }
 
-const data = [
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-  {
-    price: 23093.23,
-    amount: 0.10906,
-    total: 251854766,
-  },
-];
+interface IAppTableOrderBook {
+  type: string;
+  data: IOrderBook[];
+}
 
 const AppTableOrderBook: FC<IAppTableOrderBook> = (props) => {
-  const { type = TYPE_TRADE.SELL } = props;
+  const { type = TYPE_TRADE.SELL, data } = props;
   const [orderActive, setOrderActive] = useState<number | null>(null);
 
   const isOrderActive = (orderIndex: number) => {
