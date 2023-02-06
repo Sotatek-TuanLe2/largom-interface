@@ -56,7 +56,7 @@ const AppConnectWalletButton = forwardRef<
           <ArrowLightIcon />
         </Flex>
 
-        <Flex className="wallet__address">
+        <Flex className="wallet__address" onClick={onOpenModalConnectWallet}>
           <Box className="wallet__icon-wallet">
             <WalletIcon />
           </Box>
