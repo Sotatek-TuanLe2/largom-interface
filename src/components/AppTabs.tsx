@@ -15,7 +15,7 @@ interface IAppTabs {
 }
 
 interface ITabs {
-  name: ReactNode;
+  name: string;
   content: ReactNode;
 }
 

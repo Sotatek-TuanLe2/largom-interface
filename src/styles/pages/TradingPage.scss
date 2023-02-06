@@ -15,6 +15,21 @@
     flex: 1;
     margin: 4px 0 0 4px;
   }
+  .app-tab {
+    &__name-tab {
+      &:nth-child(1) {
+        height: 48px !important;
+        display: flex;
+        align-items: center;
+        padding-left: 4px !important;
+      }
+      &:nth-child(2) {
+        height: 48px !important;
+        display: flex;
+        align-items: center !important;
+      }
+    }
+  }
 }
 
 .statistics {
