@@ -17,6 +17,7 @@ interface IOpenOrder {
   side: string;
   total: number;
   type: string;
+  networkId: string;
 }
 
 interface ICellOpenOrder {
@@ -131,11 +132,7 @@ const RowOpenOrderTable: React.FC<ICellOpenOrder> = ({ openOrder }) => {
         {openOrder.pair}
       </Box>
       <Box w={'10.29%'} className={`cell-open-order`}>
-        <div
-          className={`${getLogoNetwork(
-            openOrder.network.toUpperCase() + '_TESTNET',
-          )}`}
-        ></div>
+        <div className={`${getLogoNetwork(openOrder.networkId)}`}></div>
         {openOrder.network}
       </Box>
       <Box w={'5.89%'} className="cell-open-order">

@@ -18,7 +18,7 @@ const AppRadioBtn: React.FC<IAppRadioBtn> = ({
 }) => {
   return (
     <RadioGroup onChange={onChange} value={value} {...rest}>
-      <Flex direction="row">
+      <Flex direction="row" gap={'10px'}>
         {options.map((option, id) => (
           <Radio value={option.value} key={`${id}-radio`}>
             {option.label}

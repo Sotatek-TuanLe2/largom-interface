@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import PartStatistics from './parts/PartStatistics';
 import PartOrderBook from './parts/PartOrderBook';
-import PartUserInfoTransaction from './parts/PartUserInfoTransaction';
+import PartUserTradeInfo from './parts/PartUserTradeInfo';
 import PartChart from 'src/pages/Trading/parts/PartChart';
 import PartTrades from './parts/PartTrades';
 import PartFormTrade from './parts/PartFormTrade';
@@ -33,7 +33,7 @@ const TradingPage = () => {
           </Box>
         </Flex>
         <Box>
-          <PartUserInfoTransaction />
+          <PartUserTradeInfo />
         </Box>
       </Flex>
     </BasePage>

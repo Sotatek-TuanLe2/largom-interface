@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import AppRadioBtn from 'src/components/AppRadioBtn';
 
@@ -12,13 +13,15 @@ const OPTIONS_RADIO = [
 const PartOrderHistory = () => {
   const [valueRadio, setValueRadio] = useState('1 Day');
   return (
-    <div>
-      <AppRadioBtn
-        value={valueRadio}
-        onChange={setValueRadio}
-        options={OPTIONS_RADIO}
-      />
-    </div>
+    <Box className="order-history-wrap">
+      <div className="search">
+        <AppRadioBtn
+          value={valueRadio}
+          onChange={setValueRadio}
+          options={OPTIONS_RADIO}
+        />
+      </div>
+    </Box>
   );
 };
 
