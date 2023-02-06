@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDownIcon, DeleteIcon, EditIcon } from 'src/assets/icons';
 import AppDataTable from 'src/components/AppDataTable';
 import rf from 'src/services/RequestFactory';
+import { getLogoNetwork } from 'src/utils/network';
 
 interface IOpenOrder {
   amount: number;
@@ -129,7 +130,12 @@ const RowOpenOrderTable: React.FC<ICellOpenOrder> = ({ openOrder }) => {
       <Box w={'8.09%'} className="cell-open-order">
         {openOrder.pair}
       </Box>
-      <Box w={'10.29%'} className="cell-open-order">
+      <Box w={'10.29%'} className={`cell-open-order`}>
+        <div
+          className={`${getLogoNetwork(
+            openOrder.network.toUpperCase() + '_TESTNET',
+          )}`}
+        ></div>
         {openOrder.network}
       </Box>
       <Box w={'5.89%'} className="cell-open-order">

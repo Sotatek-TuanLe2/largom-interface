@@ -4,7 +4,7 @@ import TradingView from 'src/components/TradingView';
 import 'src/styles/components/Chart.scss';
 import { isMobile } from 'react-device-detect';
 import { AppTabs } from 'src/components';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import rf from 'src/services/RequestFactory';
 
 interface Props {
@@ -18,8 +18,7 @@ const PartChart: React.FC<Props> = (props) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const fetchDataTradingView = async () => {
-    const data = await rf.getRequest('TradingRequest').getCandleChartData();
-    return data;
+    return await rf.getRequest('TradingRequest').getCandleChartData();
   };
 
   const fullScreen = (flag: boolean) => {
@@ -42,22 +41,22 @@ const PartChart: React.FC<Props> = (props) => {
     );
   };
 
+  const tabs = [
+    {
+      id: 'trading-view',
+      name: 'Trading View',
+      content: _renderTradingViewChart(),
+    },
+    {
+      id: 'depth',
+      name: 'Depth',
+      content: '',
+    },
+  ];
+
   return (
     <Box height={'100%'}>
-      <AppTabs
-        tabs={[
-          {
-            id: 'trading-view',
-            name: 'Trading View',
-            content: _renderTradingViewChart(),
-          },
-          {
-            id: 'depth',
-            name: 'Depth',
-            content: '',
-          },
-        ]}
-      />
+      <AppTabs tabs={tabs} />
     </Box>
   );
 };
