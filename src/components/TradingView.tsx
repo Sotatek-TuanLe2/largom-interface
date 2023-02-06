@@ -16,13 +16,13 @@ import {
   createEmptyCandleIfNeeded,
   DEFAULT_TRADING_VIEW_INTERVAL,
   getClientTimezone,
-  getInterval,
-  getIntervalString,
-  round,
+  getResolutionInMinutes,
+  getResolutionString,
 } from 'src/utils/chart';
 // import { SocketEvent } from 'src/socket/SocketEvent';
-import { Candle, Instrument } from 'src/types';
+import { ICandle, IInstrument } from 'src/types';
 import { SYMBOL_TYPE, THEME_MODE } from 'src/utils/constants';
+// import { roundNumberWithBase } from 'src/utils/format';
 
 interface obj {
   [key: string]: boolean | number | string;
@@ -98,7 +98,7 @@ const TradingView: React.FC<Props> = (props) => {
   const tradingViewTheme = (theme.charAt(0).toUpperCase() +
     theme.slice(1)) as ThemeName;
 
-  const instrument: Instrument = {
+  const instrument: IInstrument = {
     baseUnderlying: 'null',
     contractSize: '0.00000100',
     createdAt: '1637032860000',
@@ -136,7 +136,7 @@ const TradingView: React.FC<Props> = (props) => {
     underlyingSymbol: '',
     updatedAt: '1637032860000',
   };
-  const interval = getInterval(DEFAULT_TRADING_VIEW_INTERVAL);
+  const interval = getResolutionInMinutes(DEFAULT_TRADING_VIEW_INTERVAL);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [tradingViewChart, setTradingViewChart] =
@@ -145,10 +145,10 @@ const TradingView: React.FC<Props> = (props) => {
   const [isChartReady, setChartReady] = useState(false);
 
   const intervalInMillisecondsRef = useRef<number>(
-    getInterval(DEFAULT_TRADING_VIEW_INTERVAL) * 60 * 1000,
+    getResolutionInMinutes(DEFAULT_TRADING_VIEW_INTERVAL) * 60 * 1000,
   );
-  const lastCandleRef = useRef<Candle>({} as Candle);
-  const chartRealtimeCallback = useRef<(candle: Candle) => void>(() => {});
+  const lastCandleRef = useRef<ICandle>({} as ICandle);
+  const chartRealtimeCallback = useRef<(candle: ICandle) => void>(() => {});
 
   const onReady = (callback: any) => {
     setTimeout(() => callback(configurationData));
@@ -161,9 +161,9 @@ const TradingView: React.FC<Props> = (props) => {
     to: number,
     onResult: HistoryCallback,
   ) => {
-    const intervalInSeconds = getInterval(resolution) * 60;
-    // const startTime = round(from, intervalInSeconds) * 1000;
-    // const endTime = round(to, intervalInSeconds) * 1000;
+    // const intervalInSeconds = getResolutionInMinutes(resolution) * 60;
+    // const startTime = roundNumberWithBase(from, intervalInSeconds) * 1000;
+    // const endTime = roundNumberWithBase(to, intervalInSeconds) * 1000;
 
     try {
       // const params = {
@@ -311,13 +311,14 @@ const TradingView: React.FC<Props> = (props) => {
     setTradingViewChart(chart);
     chart.onChartReady(() => {
       setChartReady(true);
-      chart.chart().setResolution(getIntervalString(interval), () => {});
+      chart.chart().setResolution(getResolutionString(interval), () => {});
       chart.applyOverrides({ 'paneProperties.topMargin': 15 });
       chart
         .chart()
         .onIntervalChanged()
         .subscribe(null, function (interval) {
-          intervalInMillisecondsRef.current = getInterval(interval) * 60 * 1000;
+          intervalInMillisecondsRef.current =
+            getResolutionInMinutes(interval) * 60 * 1000;
         });
     });
   }, [instrument.symbol]);

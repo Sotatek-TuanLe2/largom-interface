@@ -30,7 +30,7 @@ export interface ITrade {
   liquidity?: string;
 }
 
-export interface Instrument {
+export interface IInstrument {
   id: number;
   symbol: string;
   rootSymbol: string;
@@ -70,12 +70,12 @@ export interface Instrument {
   isFavorite?: boolean;
 }
 
-export interface ThemeState {
+export interface IThemeState {
   themeMode: THEME_MODE;
   mobile: boolean;
 }
 
-export interface Candle {
+export interface ICandle {
   close: number;
   high: number;
   low: number;

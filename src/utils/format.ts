@@ -11,6 +11,10 @@ export const getDecimalPlaces = (decimals: number) => {
   return decimals > 8 ? 8 : decimals;
 };
 
+export const roundNumberWithBase = (n: number, base: number): number => {
+  return Math.floor(n / base) * base;
+};
+
 export const roundNumber = (
   number: number | string | BigNumber,
   roundMode = BigNumber.ROUND_DOWN,
