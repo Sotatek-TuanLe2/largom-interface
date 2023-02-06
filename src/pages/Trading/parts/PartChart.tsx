@@ -56,9 +56,7 @@ const PartChart: React.FC<Props> = (props) => {
 
   return (
     <Box height={'100%'}>
-      <AppTabs
-        tabs={tabs}
-      />
+      <AppTabs tabs={tabs} />
     </Box>
   );
 };
