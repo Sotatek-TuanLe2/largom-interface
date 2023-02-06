@@ -4,6 +4,8 @@
 .eslintrc
 .prettierrc
 
+/src/charting_library
+
 package-lock.json
 package.json
 README.md
