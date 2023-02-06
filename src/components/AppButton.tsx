@@ -56,7 +56,7 @@ export const appButtonStyles = {
   variants: {
     outline: (props: StyleProps) => ({
       borderRadius: '6px',
-      bg: 'none',
+      bg: 'rgba(83, 103, 254, 0.1)',
       color: 'main.100',
       borderWidth: '1px',
       borderColor: 'main.200',
