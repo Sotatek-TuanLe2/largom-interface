@@ -13,17 +13,26 @@ import 'src/styles/components/AppTabs.scss';
 interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
+  onChange?: (value: string) => void;
   rightElement?: ReactNode;
 }
-
-interface ITabs {
-  name: ReactNode;
+export interface ITabs {
+  name: string;
   content: ReactNode;
+  id: string;
 }
 
-const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, rightElement }) => {
+const AppTabs: FC<IAppTabs> = ({
+  defaultTab = 0,
+  tabs,
+  onChange,
+  rightElement,
+}) => {
   return (
     <Tabs
+      h={'full'}
+      display="flex"
+      flexDirection={'column'}
       variant={'unstyled'}
       colorScheme="transparent"
       defaultIndex={defaultTab}
@@ -32,9 +41,13 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, rightElement }) => {
       <TabList>
         <Flex justifyContent={'space-between'} alignItems="center" w="100%">
           <Flex>
-            {tabs.map((tab: ITabs, id: number) => {
+            {tabs.map((tab: ITabs) => {
               return (
-                <Tab className="app-tab__name-tab" key={`${id}_tab-name`}>
+                <Tab
+                  key={tab.id}
+                  className="app-tab__name-tab"
+                  onClick={() => onChange && onChange(tab.id)}
+                >
                   {tab.name}
                 </Tab>
               );
@@ -44,10 +57,10 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, rightElement }) => {
         </Flex>
       </TabList>
 
-      <TabPanels>
-        {tabs.map((tab: ITabs, id: number) => {
+      <TabPanels flex={1}>
+        {tabs.map((tab: ITabs) => {
           return (
-            <TabPanel className="app-tab__content-tab" key={`${id}_tab-panels`}>
+            <TabPanel key={tab.id} h={'full'} className="app-tab__content-tab">
               {tab.content}
             </TabPanel>
           );

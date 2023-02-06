@@ -13,7 +13,6 @@
   background-color: $Card;
   height: 80px;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
   margin-bottom: 4px;
 
   &__content {
@@ -70,9 +69,5 @@
 
   &__icon-download {
     margin: 0 20px;
-  }
-
-  button {
-    font-family: 'Inter', sans-serif;
   }
 }

@@ -12,18 +12,21 @@ const PartUserInfoTransaction = () => {
       <AppTabs
         tabs={[
           {
-            name: <Box py={'14px'}>{`Open order(${countOpenOrder})`}</Box>,
+            id: 'Openorder',
+            name: `Open order(${countOpenOrder})`,
             content: <PartOpenOrder setCountOpenOrder={setCountOpenOrder} />,
           },
           {
-            name: <Box py={'14px'}>Order History</Box>,
+            id: 'OrderHistory',
+            name: 'Order History',
             content: <PartOrderHistory />,
           },
           {
-            name: <Box py={'14px'}>Trade History</Box>,
+            id: 'TradeHistory',
+            name: 'Trade History',
             content: 'Trade History',
           },
-          { name: <Box py={'14px'}>Funds</Box>, content: 'Funds' },
+          { id: 'Fund', name: 'Funds', content: 'Funds' },
         ]}
         rightElement={
           <div className="hide-pair">
