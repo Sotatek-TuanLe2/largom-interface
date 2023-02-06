@@ -1,8 +1,9 @@
 import 'src/styles/pages/TradingPage.scss';
-import React, { FC } from 'react';
-import { Box } from '@chakra-ui/react';
+import React, { FC, useEffect, useState } from 'react';
+import { Box, Flex } from '@chakra-ui/react';
 import { AppTabs } from 'src/components';
 import { formatTimestamp } from 'src/utils/format';
+import rf from 'src/services/RequestFactory';
 
 interface IDataTrades {
   price: number;
@@ -43,41 +44,54 @@ const TableTrades: FC<ITableTrades> = ({ data }) => {
 };
 
 const PartTrades = () => {
-  const data = [
-    {
-      price: 23232323,
-      amount: 23434343,
-      time: 234343432343,
-    },
-    {
-      price: 23232323,
-      amount: 23434343,
-      time: 234343432343,
-    },
-    {
-      price: 23232323,
-      amount: 23434343,
-      time: 234343432343,
-    },
-    {
-      price: 23232323,
-      amount: 23434343,
-      time: 234343432343,
-    },
-  ];
+  const [marketTradeData, setMarketTradeData] = useState<IDataTrades[]>([]);
+  const [myTradeData, setMyTradeData] = useState<IDataTrades[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const fetchMarketTradeData = async () => {
+    setIsLoading(true);
+    const result: any[] = await rf
+      .getRequest('TradingRequest')
+      .getMarketTrades();
+    setIsLoading(false);
+    const newMarketTradeData: IDataTrades[] = result.map((item) => ({
+      amount: item.quantity,
+      price: item.price,
+      time: item.createdAt,
+    }));
+    setMarketTradeData(newMarketTradeData);
+  };
+
+  useEffect(() => {
+    fetchMarketTradeData();
+  }, []);
+
+  const _renderLoading = () => (
+    <Box>
+      <Flex justifyContent="center" alignItems="center">
+        Loading...
+      </Flex>
+    </Box>
+  );
 
   const _renderMarketTrades = () => {
+    if (isLoading) {
+      return _renderLoading();
+    }
     return (
       <Box>
-        <TableTrades data={data} />
+        <TableTrades data={marketTradeData} />
       </Box>
     );
   };
 
   const _renderMyTrades = () => {
+    if (isLoading) {
+      return _renderLoading();
+    }
     return (
       <Box>
-        <TableTrades data={data} />
+        <TableTrades data={myTradeData} />
       </Box>
     );
   };

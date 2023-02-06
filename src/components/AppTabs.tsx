@@ -15,7 +15,7 @@ interface IAppTabs {
   onChange?: (value: string) => void;
 }
 
-interface ITabs {
+export interface ITabs {
   name: string;
   content: ReactNode;
   id: string;
