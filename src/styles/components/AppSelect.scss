@@ -1,0 +1,83 @@
+@import '../color-variables.scss';
+@import '../mixins.scss';
+
+.app-select {
+  position: relative;
+  z-index: 2;
+
+  &__btn-select {
+    @include text-tiny-regular;
+
+    border: 1px solid $Line;
+    align-items: center;
+    border-radius: 6px;
+    z-index: 2;
+    background-color: $Card;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .icon {
+      margin-right: 10px;
+    }
+  }
+
+  &.small {
+    .app-select__btn-select {
+      height: 32px;
+      padding: 0 14px;
+    }
+  }
+
+  &.medium {
+    .app-select__btn-select {
+      height: 40px;
+      padding: 0 14px;
+    }
+  }
+
+  &.large {
+    .app-select__btn-select {
+      height: 48px;
+      padding: 0 24px;
+    }
+
+    .app-select__menu {
+      top: 30px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    background: $Card2;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    top: 10px;
+    z-index: -1;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  &__menu-item {
+    @include text-tiny-regular;
+
+    cursor: pointer;
+    padding: 8px 18px;
+    align-items: center;
+    color: $Paragraph1;
+
+    &:hover {
+      background-color: rgba(18, 19, 24, 50%);
+    }
+
+    &.selected {
+      background: $Main;
+      color: $Title;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+  }
+}
