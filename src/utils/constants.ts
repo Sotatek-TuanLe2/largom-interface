@@ -26,7 +26,7 @@ export const TYPE_TRADE: { [key: string]: string } = {
 export const TRADE_OPTIONS = {
   LIMIT: 'LIMIT',
   MARKET: 'MARKET',
-  STOP_LIMIT: 'STOP_LIMIT'
+  STOP_LIMIT: 'STOP_LIMIT',
 };
 
 export const NETWORKS: {
@@ -75,3 +75,13 @@ export const NETWORKS: {
         : config.networks.SOLANA_MAINNET.id,
   },
 ];
+
+export enum THEME_MODE {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
+
+export enum SYMBOL_TYPE {
+  stock = 'stock',
+  bitcoin = 'bitcoin',
+}

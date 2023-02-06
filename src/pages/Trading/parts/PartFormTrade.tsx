@@ -11,6 +11,7 @@ import {
 import { TYPE_TRADE, TRADE_OPTIONS } from 'src/utils/constants';
 import useWallet from 'src/hooks/useWallet';
 import AppConnectWalletButton from '../../../components/AppConnectWalletButton';
+import { ITabs } from 'src/components/AppTabs';
 
 interface IDataFormTrade {
   stop: string;
@@ -31,7 +32,11 @@ interface IFromTrade {
   typeTrade: string;
 }
 
-const networks = [
+const networks: {
+  label: string;
+  value: string;
+  icon: string;
+}[] = [
   {
     label: 'Ethereum',
     value: 'Ethereum',
@@ -247,7 +252,7 @@ const PartFormTrade = () => {
       </Flex>
     );
   };
-  const tabs = [
+  const tabs: ITabs[] = [
     {
       id: TRADE_OPTIONS.LIMIT,
       name: 'Limit',

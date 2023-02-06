@@ -19,5 +19,5 @@ export {
   SellTypeIcon,
   BuyTypeIcon,
   WalletIcon,
-  ArrowLightIcon
+  ArrowLightIcon,
 };
