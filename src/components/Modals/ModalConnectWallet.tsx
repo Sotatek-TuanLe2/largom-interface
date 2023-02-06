@@ -4,7 +4,6 @@ import BaseModal from './BaseModal';
 import useWallet from 'src/hooks/useWallet';
 import config from 'src/config';
 import { METAMASK_WALLET } from 'src/connectors';
-import { isMobile } from 'react-device-detect';
 import { NETWORKS } from 'src/utils/constants';
 import { getErrorMessage } from 'src/utils/helpers';
 import Storage from 'src/utils/storage';
@@ -51,7 +50,7 @@ const ModalConnectWallet: FC<IModalConnectWallet> = ({ open, onClose }) => {
       return (
         <Box
           key={id}
-          className={'box-wallet'}
+          className={`box-wallet ${selectedNetwork === id ? 'active' : ''}`}
           onClick={() => onClickNetwork(id)}
         >
           <Box className={logo} />
@@ -84,9 +83,24 @@ const ModalConnectWallet: FC<IModalConnectWallet> = ({ open, onClose }) => {
   };
 
   return (
-    <BaseModal size="xl" title="Choose Wallet" isOpen={open} onClose={onClose}>
-      <Flex justifyContent={'center'}>{_renderNetworks()}</Flex>
-      <Flex justifyContent={'center'}>{_renderWallets()}</Flex>
+    <BaseModal
+      size="xl"
+      title="Connect Wallet"
+      isOpen={open}
+      onClose={onClose}
+      className="modal-connect-wallet"
+    >
+      <Box>
+        <Box className="modal-connect-wallet__title">1. Choose Network</Box>
+        <Flex justifyContent={'center'} flexWrap={'wrap'}>
+          {_renderNetworks()}
+        </Flex>
+      </Box>
+
+      <Box>
+        <Box className="modal-connect-wallet__title">2. Choose Wallet</Box>
+        <Flex justifyContent={'center'}>{_renderWallets()}</Flex>
+      </Box>
     </BaseModal>
   );
 };

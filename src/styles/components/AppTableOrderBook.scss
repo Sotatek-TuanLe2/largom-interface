@@ -2,6 +2,7 @@
 @import '../_mixins.scss';
 
 .orderbook-list {
+  min-height: 380px;
   .orderbook-progress {
     @include text-tiny-regular;
 
