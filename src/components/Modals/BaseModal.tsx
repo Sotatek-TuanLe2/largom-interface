@@ -2,13 +2,11 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalFooter,
   ModalBody,
   Box,
   Flex,
 } from '@chakra-ui/react';
 import React, { FC, ReactNode } from 'react';
-import AppButton from 'src/components/AppButton';
 import { ModalProps, ModalHeaderProps } from '@chakra-ui/modal/src/modal';
 import 'src/styles/components/BaseModal.scss';
 import { CloseIcon } from '@chakra-ui/icons';
@@ -61,7 +59,7 @@ const BaseModal: FC<BaseModalProps> = ({
         closeOnOverlayClick={closeOnOverlayClick}
         autoFocus={false}
       >
-        <ModalOverlay />
+        <ModalOverlay bg='blackAlpha.300'/>
         <ModalContent className={`${className} modal`}>
           {!isHideCloseIcon && (
             <Box className={'modal__btn-close'} onClick={onClose}>
