@@ -24,6 +24,9 @@ export interface ITabs {
 const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
   return (
     <Tabs
+      h={'full'}
+      display="flex"
+      flexDirection={'column'}
       variant={'unstyled'}
       colorScheme="transparent"
       defaultIndex={defaultTab}
@@ -45,10 +48,10 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
         </Flex>
       </TabList>
 
-      <TabPanels>
+      <TabPanels flex={1}>
         {tabs.map((tab: ITabs) => {
           return (
-            <TabPanel key={tab.id} className="app-tab__content-tab">
+            <TabPanel key={tab.id} h={'full'} className="app-tab__content-tab">
               {tab.content}
             </TabPanel>
           );
