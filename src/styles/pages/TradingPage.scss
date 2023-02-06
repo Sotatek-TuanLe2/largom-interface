@@ -17,20 +17,20 @@
   &__chart {
     flex: 1;
     margin: 4px 0 0 4px;
-  }
 
-  .app-tab {
-    &__name-tab {
-      &:nth-child(1) {
-        height: 48px !important;
-        display: flex;
-        align-items: center;
-        padding-left: 4px !important;
-      }
-      &:nth-child(2) {
-        height: 48px !important;
-        display: flex;
-        align-items: center !important;
+    .app-tab {
+      &__name-tab {
+        &:nth-child(1) {
+          height: 48px !important;
+          display: flex;
+          align-items: center;
+          padding-left: 20px !important;
+        }
+        &:nth-child(2) {
+          height: 48px !important;
+          display: flex;
+          align-items: center !important;
+        }
       }
     }
   }
@@ -182,12 +182,13 @@
 
 .trades {
   background-color: $Card;
-  padding: 16px 40px 16px 20px;
+  padding: 16px 0 16px 20px;
   margin-left: 4px;
   height: 500px;
 
   .table-trades {
     margin-top: 10px;
+
 
     &__header {
       @include text-tiny-regular;
@@ -200,6 +201,10 @@
       div {
         flex: 1 1 0;
         justify-content: flex-start;
+
+        &:last-child {
+          padding-right: 40px;
+        }
       }
     }
 
@@ -229,6 +234,10 @@
         flex: 1 1 0;
         justify-content: flex-start;
         cursor: pointer;
+
+        &:last-child {
+          padding-right: 40px;
+        }
       }
     }
   }

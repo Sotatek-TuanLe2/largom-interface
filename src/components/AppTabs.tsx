@@ -33,7 +33,7 @@ const AppTabs: FC<IAppTabs> = ({ defaultTab = 0, tabs, onChange }) => {
       className="app-tab"
     >
       <TabList>
-        <Flex>
+        <Flex alignItems='center'>
           {tabs.map((tab: ITabs) => {
             return (
               <Tab
