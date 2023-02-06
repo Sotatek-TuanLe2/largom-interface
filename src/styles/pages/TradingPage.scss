@@ -210,6 +210,11 @@
       }
     }
 
+    &__list {
+      height: 415px;
+      overflow-y: auto;
+    }
+
     &__content {
       @include text-tiny-regular;
 
