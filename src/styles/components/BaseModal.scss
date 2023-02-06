@@ -76,7 +76,8 @@
       margin-top: 5px;
     }
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
       border: 1px solid $Main;
     }
   }

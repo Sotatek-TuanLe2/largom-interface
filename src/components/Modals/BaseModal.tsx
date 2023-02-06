@@ -59,7 +59,7 @@ const BaseModal: FC<BaseModalProps> = ({
         closeOnOverlayClick={closeOnOverlayClick}
         autoFocus={false}
       >
-        <ModalOverlay bg='blackAlpha.300'/>
+        <ModalOverlay bg="blackAlpha.300" />
         <ModalContent className={`${className} modal`}>
           {!isHideCloseIcon && (
             <Box className={'modal__btn-close'} onClick={onClose}>
