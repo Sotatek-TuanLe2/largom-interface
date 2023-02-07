@@ -6,7 +6,6 @@ import { isMobile } from 'react-device-detect';
 import { AppTabs } from 'src/components';
 import { Box } from '@chakra-ui/react';
 import rf from 'src/services/RequestFactory';
-
 interface Props {
   theme?: ThemeName;
   containerId: string;

@@ -309,6 +309,7 @@
     background-color: $Card;
     margin-top: 4px;
     padding: 0 40px 20px;
+    min-height: 400px;
 
     &__content-tab {
       padding: 70px 0;
@@ -331,6 +332,14 @@
     .row-order {
       flex-wrap: nowrap;
       border-bottom: 1px solid $Border;
+      .arrow-right {
+        transform: rotate(-90deg);
+      }
+    }
+    .row-fund {
+      &:hover {
+        background-color: $Card2;
+      }
     }
 
     .header-order {
