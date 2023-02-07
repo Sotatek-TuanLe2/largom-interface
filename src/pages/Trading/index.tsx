@@ -7,6 +7,7 @@ import PartOrderBook from './parts/PartOrderBook';
 import PartChart from 'src/pages/Trading/parts/PartChart';
 import PartTrades from './parts/PartTrades';
 import PartFormTrade from './parts/PartFormTrade';
+import PartCurrencies from './parts/PartCurrencies';
 
 const TradingPage = () => {
   return (
@@ -27,6 +28,7 @@ const TradingPage = () => {
           </Flex>
         </Box>
         <Box className="trading-page__content-right">
+          <PartCurrencies />
           <PartTrades />
         </Box>
       </Flex>
