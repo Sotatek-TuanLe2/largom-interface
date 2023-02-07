@@ -45,3 +45,36 @@
   font-size: 8px;
   transform: translate(-50%, -22px);
 }
+
+.slider-thumb {
+  &::after {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background-color: white;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    z-index: 102;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: $Main;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    z-index: 103;
+  }
+}
+
+.chakra-slider {
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}

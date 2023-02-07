@@ -10,31 +10,39 @@ import PartTrades from './parts/PartTrades';
 import PartFormTrade from './parts/PartFormTrade';
 
 const TradingPage = () => {
+  const _renderLeftContent = () => (
+    <Box className="trading-page__content-left">
+      <PartStatistics />
+      <Flex width={'100%'}>
+        <PartOrderBook />
+        <Flex
+          className="trading-page__content-center"
+          direction="column"
+          w="full"
+        >
+          <Box className="trading-page__chart">
+            <PartChart containerId="tv_chart_container" />
+          </Box>
+          <Box className="trading-page__form">
+            <PartFormTrade />
+          </Box>
+        </Flex>
+      </Flex>
+    </Box>
+  );
+
+  const _renderRightContent = () => (
+    <Box className="trading-page__content-right">
+      <PartTrades />
+    </Box>
+  );
+
   return (
     <BasePage>
       <Flex className="trading-page" direction={'column'}>
         <Flex>
-          <Box className="trading-page__content-left">
-            <PartStatistics />
-            <Flex width={'100%'}>
-              <PartOrderBook />
-              <Flex
-                className="trading-page__content-center"
-                direction="column"
-                w="full"
-              >
-                <Box className="trading-page__chart">
-                  <PartChart containerId="tv_chart_container" />
-                </Box>
-                <Box className="trading-page__form">
-                  <PartFormTrade />
-                </Box>
-              </Flex>
-            </Flex>
-          </Box>
-          <Box className="trading-page__content-right">
-            <PartTrades />
-          </Box>
+          {_renderLeftContent()}
+          {_renderRightContent()}
         </Flex>
         <Box>
           <PartUserTradeInfo />
