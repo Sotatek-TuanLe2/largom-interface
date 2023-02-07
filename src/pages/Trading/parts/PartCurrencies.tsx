@@ -1,5 +1,5 @@
 import 'src/styles/pages/TradingPage.scss';
-import React, { useState, FC, useEffect } from 'react';
+import React, { useState, FC, useEffect, useCallback } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { AppInput } from 'src/components';
 import {
@@ -86,12 +86,20 @@ const PartCurrencies = () => {
 
     if (category) {
       if (category === 'favorites') {
-        dataFilter = symbols.filter((item) => item.quote === category);
+        dataFilter = dataFilter.filter((item) => item.quote === category);
       } else if (category === 'margin') {
-        dataFilter = symbols.filter((item) => item.isMarginTrade);
+        dataFilter = dataFilter.filter((item) => item.isMarginTrade);
       } else {
-        dataFilter = symbols.filter((item) => item.quote === category);
+        dataFilter = dataFilter.filter((item) => item.quote === category);
       }
+    }
+
+    if (search) {
+      dataFilter = dataFilter.filter(
+        (item) =>
+          item.quote.toLowerCase().includes(search.toLowerCase()) ||
+          item.base.toLowerCase().includes(search.toLowerCase()),
+      );
     }
 
     setDataShow(dataFilter);
@@ -99,7 +107,7 @@ const PartCurrencies = () => {
 
   useEffect(() => {
     getDataShow();
-  }, [category, symbols]);
+  }, [category, symbols, search]);
 
   const onSort = () => {
     if (sortType === 'asc') {
