@@ -1,0 +1,37 @@
+[
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17467.43000000",
+    "quantity": "0.00370000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17495.08000000",
+    "quantity": "0.01080000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17495.08000000",
+    "quantity": "0.00970000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17512.56000000",
+    "quantity": "0.00770000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "19361.39000000",
+    "quantity": "0.00050000",
+    "buyerIsTaker": true,
+    "createdAt": 1673640490000
+  }
+]
