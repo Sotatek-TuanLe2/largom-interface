@@ -8,11 +8,10 @@ import rf from 'src/services/RequestFactory';
 import { getLogoNetwork } from 'src/utils/network';
 import { getClassNameSideCell } from './PartOpenOrder';
 
-interface IOPTION {
+export const OPTIONS_RADIO: {
   value: string;
   label: string;
-}
-export const OPTIONS_RADIO: IOPTION[] = [
+}[] = [
   { value: '1 Day', label: '1 Day' },
   { value: '1 Week', label: '1 Week' },
   { value: '1 Month', label: '1 Month' },
