@@ -1,181 +1,16 @@
 import 'src/styles/pages/TradingPage.scss';
-import React, { useState, FC } from 'react';
+import React, { useState, FC, useEffect } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { AppInput, AppTabs } from 'src/components';
+import { AppInput } from 'src/components';
 import {
   SearchIcon,
   StarIcon,
   ChangeIcon,
   ArrowDownIcon,
 } from 'src/assets/icons';
-
-const data = [
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-  {
-    token: {
-      symbol: 'BTC',
-    },
-    currency: {
-      symbol: 'USDT',
-    },
-    price: 333,
-    change: 4.3,
-    volume: 334343,
-  },
-];
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/store';
+import { ISymbol } from 'src/store/metadata';
 
 const categories: ICategory[] = [
   {
@@ -209,22 +44,6 @@ interface ISortTable {
   isActive: boolean;
 }
 
-interface IToken {
-  symbol: string;
-}
-
-interface ICurrency {
-  symbol: string;
-}
-
-interface ICurrencies {
-  token: IToken;
-  currency: ICurrency;
-  price: number;
-  change: number;
-  volume: number;
-}
-
 interface ICategory {
   name: string;
   id: string;
@@ -256,8 +75,31 @@ const PartCurrencies = () => {
   const [sortType, setSortType] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('');
   const [category, setCategory] = useState<string>('');
-  const [isShowVolumn, setIsShowVolumn] = useState<boolean>(true);
+  const [isShowVolume, setIsShowVolume] = useState<boolean>(true);
   const [favoriteTokens, setFavoriteTokens] = useState<any>([]);
+  const [dataShow, setDataShow] = useState<ISymbol[]>([]);
+
+  const { symbols } = useSelector((state: RootState) => state.metadata);
+
+  const getDataShow = () => {
+    let dataFilter = symbols;
+
+    if (category) {
+      if (category === 'favorites') {
+        dataFilter = symbols.filter((item) => item.quote === category);
+      } else if (category === 'margin') {
+        dataFilter = symbols.filter((item) => item.isMarginTrade);
+      } else {
+        dataFilter = symbols.filter((item) => item.quote === category);
+      }
+    }
+
+    setDataShow(dataFilter);
+  };
+
+  useEffect(() => {
+    getDataShow();
+  }, [category, symbols]);
 
   const onSort = () => {
     if (sortType === 'asc') {
@@ -273,6 +115,7 @@ const PartCurrencies = () => {
     setSortType('asc');
     return;
   };
+
   return (
     <Box className="currencies">
       <Box className="currencies__box-filter">
@@ -339,20 +182,20 @@ const PartCurrencies = () => {
                 alignItems={'center'}
                 onClick={() => {
                   onSort();
-                  setSortBy(isShowVolumn ? 'volume' : 'change');
+                  setSortBy(isShowVolume ? 'volume' : 'change');
                 }}
               >
-                <Box>{isShowVolumn ? 'Volume' : 'Change'}</Box>
+                <Box>{isShowVolume ? 'Volume' : 'Change'}</Box>
 
                 <SortTable
                   value={sortType}
                   isActive={
-                    isShowVolumn ? sortBy === 'volume' : sortBy === 'change'
+                    isShowVolume ? sortBy === 'volume' : sortBy === 'change'
                   }
                 />
                 <Box
                   className="icon-change"
-                  onClick={() => setIsShowVolumn(!isShowVolumn)}
+                  onClick={() => setIsShowVolume(!isShowVolume)}
                 >
                   <ChangeIcon />
                 </Box>
@@ -362,31 +205,35 @@ const PartCurrencies = () => {
         </Box>
 
         <Box className="table-currencies__list">
-          {data.map((item: ICurrencies, index: number) => {
-            return (
-              <Box className="table-currencies__content" key={index}>
-                <Flex textAlign="left" alignItems="center">
-                  <StarIcon />
-                  <Flex mx={1.5}>
-                    <Box className="name-token">{item?.token?.symbol}</Box>/
-                    <Box>{item?.currency?.symbol}</Box>
+          {!!dataShow.length &&
+            dataShow?.map((item: ISymbol, index: number) => {
+              return (
+                <Box className="table-currencies__content" key={index}>
+                  <Flex textAlign="left" alignItems="center">
+                    <Box>
+                      <StarIcon />
+                    </Box>
+
+                    <Flex mx={1.5}>
+                      <Box className="name-token">{item.base}</Box>/
+                      <Box>{item.quote}</Box>
+                    </Flex>
+
+                    <Box className="scope">3x</Box>
                   </Flex>
 
-                  <Box className="scope">3x</Box>
-                </Flex>
+                  <Box textAlign="right">--</Box>
 
-                <Box textAlign="right">{item.price}</Box>
-
-                {isShowVolumn ? (
-                  <Box textAlign="right">{item.volume}</Box>
-                ) : (
-                  <Box textAlign="right" className="change up">
-                    +{item.change}%
-                  </Box>
-                )}
-              </Box>
-            );
-          })}
+                  {isShowVolume ? (
+                    <Box textAlign="right">--</Box>
+                  ) : (
+                    <Box textAlign="right" className="change up">
+                      +--%
+                    </Box>
+                  )}
+                </Box>
+              );
+            })}
         </Box>
       </Box>
     </Box>
