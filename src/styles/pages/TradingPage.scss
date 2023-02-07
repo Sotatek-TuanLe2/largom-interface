@@ -13,12 +13,14 @@
   }
 
   &__content-center {
-    width: 100%;
+    background-color: $Card;
+    padding: 20px;
+    margin-left: 4px;
   }
 
   &__chart {
-    flex: 1;
-    margin: 4px 0 0 4px;
+    padding-bottom: 20px;
+    min-height: 500px;
 
     .app-tab {
       &__name-tab {
@@ -250,10 +252,11 @@
     }
   }
 
-  .form-trade {
+  &__form {
     background-color: $Card;
-    padding: 16px 20px 20px;
+    padding: 20px;
     margin-left: 4px;
+    border-top: 1px solid #282a38;
 
     &__current-value {
       margin-bottom: 12px;
