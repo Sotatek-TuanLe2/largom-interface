@@ -15,4 +15,9 @@ export default class TradingRequest extends BaseRequest {
     const url = '/trade';
     return this.get(url);
   }
+
+  getMyTrades() {
+    const url = '/trade/get-user-trades';
+    return this.get(url);
+  }
 }
