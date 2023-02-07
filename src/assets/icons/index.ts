@@ -6,6 +6,8 @@ import { ReactComponent as ArrowPriceIcon } from './ArrowPriceIcon.svg';
 import { ReactComponent as DefaultTypeIcon } from './DefaultTypeIcon.svg';
 import { ReactComponent as BuyTypeIcon } from './BuyTypeIcon.svg';
 import { ReactComponent as SellTypeIcon } from './SellTypeIcon.svg';
+import { ReactComponent as EditIcon } from './EditIcon.svg';
+import { ReactComponent as DeleteIcon } from './DeleteIcon.svg';
 import { ReactComponent as WalletIcon } from './WalletIcon.svg';
 import { ReactComponent as ArrowLightIcon } from './ArrowLightIcon.svg';
 import { ReactComponent as SearchIcon } from './SearchIcon.svg';
@@ -21,9 +23,11 @@ export {
   DefaultTypeIcon,
   SellTypeIcon,
   BuyTypeIcon,
+  EditIcon,
+  DeleteIcon,
   WalletIcon,
   ArrowLightIcon,
   SearchIcon,
   StarIcon,
-  ChangeIcon
+  ChangeIcon,
 };

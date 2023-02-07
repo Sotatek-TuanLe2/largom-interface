@@ -38,7 +38,7 @@ interface DataTableProps {
   requestParams?: RequestParams; // if requestParams are not passed, only fetchs API in didMount
   limit?: number;
   wrapperClassName?: string;
-  fetchData: (requestParams: RequestParams) => Promise<IResponseType>;
+  fetchData: (requestParams: RequestParams) => Promise<any[]>;
   renderBody: (tableData: any[]) => ReactNode;
   renderHeader?: () => ReactNode;
   renderNoData?: () => ReactNode;
@@ -67,183 +67,174 @@ interface IResponseType {
   docs: any[];
 }
 
-const AppDataTable = forwardRef(
-  (props: DataTableProps, ref: Ref<DataTableRef>) => {
-    const DEFAULT_LIMIT = 20;
-    const DEBOUNCE_TIME = 1000;
-    const CONSTANT = 'CONSTANT';
+const AppDataTable = forwardRef((props: DataTableProps, ref: Ref<any>) => {
+  const DEFAULT_LIMIT = 20;
+  const DEBOUNCE_TIME = 1000;
+  const CONSTANT = 'CONSTANT';
 
-    // make requestParams not change => call at the first load
-    const defaultRequestParams = useMemo(() => ({}), [CONSTANT]);
+  // make requestParams not change => call at the first load
+  const defaultRequestParams = useMemo(() => ({}), [CONSTANT]);
 
-    const {
-      limit = DEFAULT_LIMIT,
-      requestParams = defaultRequestParams,
-      fetchData,
-      renderBody,
-      renderHeader,
-      renderNoData,
-      isNotShowNoData = false,
-      hidePagination = false,
-    } = props;
+  const {
+    limit = DEFAULT_LIMIT,
+    requestParams = defaultRequestParams,
+    fetchData,
+    renderBody,
+    renderHeader,
+    renderNoData,
+    isNotShowNoData = false,
+    hidePagination = false,
+  } = props;
+  const initialPagination: Pagination = { limit, page: 1 };
 
-    const initialPagination: Pagination = { limit, page: 1 };
+  const [tableData, setTableData] = useState<any[]>([]);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [pagination, setPagination] = useState<Pagination>(initialPagination);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
 
-    const [tableData, setTableData] = useState<any[]>([]);
-    const [totalPages, setTotalPages] = useState<number>(0);
-    const [pagination, setPagination] = useState<Pagination>(initialPagination);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+  useImperativeHandle(ref, () => ({
+    tableData,
+    fetchTableData,
+    pagination,
+    isLoadingMore,
+  }));
 
-    useImperativeHandle(ref, () => ({
-      tableData,
-      fetchTableData,
-      pagination,
-      isLoadingMore,
-    }));
+  const fetchTableData = async (
+    params: RequestParams,
+    tablePagination: Pagination,
+    isLoadMore = false,
+  ) => {
+    const setLoading = isLoadMore ? setIsLoadingMore : setIsLoading;
+    setLoading(true);
+    const response: any[] = await fetchData({
+      ...params,
+      ...tablePagination,
+    });
+    setLoading(false);
+    if (response) {
+      setTableData((prevState) =>
+        isLoadMore ? [...prevState, ...response] : response,
+      );
+      setPagination({ ...tablePagination });
+      // setTotalPages(response?.totalPages);
+    } else setTableData([]);
+  };
 
-    const fetchTableData = async (
-      params: RequestParams,
-      tablePagination: Pagination,
-      isLoadMore = false,
-    ) => {
-      const setLoading = isLoadMore ? setIsLoadingMore : setIsLoading;
-      setLoading(true);
-      const response: IResponseType | any[] = await fetchData({
-        ...params,
-        ...tablePagination,
-      });
-      setLoading(false);
-      if (response && response.docs) {
-        setTableData((prevState) =>
-          isLoadMore ? [...prevState, ...response.docs] : response.docs,
-        );
-        setPagination({ ...tablePagination });
-        setTotalPages(response.totalPages);
-      } else setTableData([]);
+  const debounceFetchTablaData = useCallback(
+    debounce(fetchTableData, DEBOUNCE_TIME),
+    [requestParams],
+  );
+
+  useEffect(() => {
+    debounceFetchTablaData(requestParams, { ...pagination, page: 1 });
+    return () => {
+      debounceFetchTablaData.cancel();
     };
+  }, [debounceFetchTablaData]);
 
-    const debounceFetchTablaData = useCallback(
-      debounce(fetchTableData, DEBOUNCE_TIME),
-      [requestParams],
+  const onChangePagination = (event: { selected: number }) => {
+    fetchTableData(requestParams, {
+      ...pagination,
+      page: event.selected + 1,
+    });
+  };
+
+  const onLoadMore = () => {
+    const nextPage = pagination.page + 1;
+    fetchTableData(requestParams, { ...pagination, page: nextPage }, isMobile);
+  };
+
+  const _renderLoading = () => {
+    return (
+      <div style={{ marginTop: '25px', width: '100%', textAlign: 'center' }}>
+        Loading...
+      </div>
     );
+  };
 
-    useEffect(() => {
-      debounceFetchTablaData(requestParams, { ...pagination, page: 1 });
-      return () => {
-        debounceFetchTablaData.cancel();
-      };
-    }, [debounceFetchTablaData]);
+  const _renderLoadMore = () => {
+    return pagination.page < totalPages ? (
+      <div className="load-more">
+        <AppButton
+          size={'sm'}
+          variant="outline"
+          className="btn-load-more"
+          onClick={onLoadMore}
+          isLoading={isLoadingMore}
+          isDisabled={isLoadingMore}
+        >
+          {isLoadingMore ? <BeatLoader color="white" size={8} /> : 'See more'}
+        </AppButton>
+      </div>
+    ) : null;
+  };
+  const _renderPagination = () => {
+    if (hidePagination) return;
+    return (
+      <Flex justifyContent={isMobile ? 'center' : 'flex-end'}>
+        <AppPagination
+          pageCount={totalPages}
+          forcePage={pagination.page - 1}
+          onPageChange={onChangePagination}
+        />
+      </Flex>
+    );
+  };
 
-    const onChangePagination = (event: { selected: number }) => {
-      fetchTableData(requestParams, {
-        ...pagination,
-        page: event.selected + 1,
-      });
-    };
+  const _renderFooter = () => {
+    if (totalPages <= 1 || isLoading || props.loading) {
+      return null;
+    }
+    return isMobile ? _renderLoadMore() : _renderPagination();
+  };
 
-    const onLoadMore = () => {
-      const nextPage = pagination.page + 1;
-      fetchTableData(
-        requestParams,
-        { ...pagination, page: nextPage },
-        isMobile,
-      );
-    };
+  const _renderNoResultOrLoading = () => {
+    if (isLoading || props.loading) {
+      return _renderLoading();
+    }
 
-    const _renderLoading = () => {
-      return (
+    if (!tableData.length && !isNotShowNoData) {
+      return renderNoData ? (
+        renderNoData()
+      ) : (
         <div style={{ marginTop: '25px', width: '100%', textAlign: 'center' }}>
-          Loading...
+          No data...
         </div>
       );
-    };
+    }
+  };
 
-    const _renderLoadMore = () => {
-      return pagination.page < totalPages ? (
-        <div className="load-more">
-          <AppButton
-            size={'sm'}
-            variant="outline"
-            className="btn-load-more"
-            onClick={onLoadMore}
-            isLoading={isLoadingMore}
-            isDisabled={isLoadingMore}
-          >
-            {isLoadingMore ? <BeatLoader color="white" size={8} /> : 'See more'}
-          </AppButton>
-        </div>
-      ) : null;
-    };
-    const _renderPagination = () => {
-      if (hidePagination) return;
-      return (
-        <Flex justifyContent={isMobile ? 'center' : 'flex-end'}>
-          <AppPagination
-            pageCount={totalPages}
-            forcePage={pagination.page - 1}
-            onPageChange={onChangePagination}
-          />
-        </Flex>
-      );
-    };
+  const _renderBody = () => {
+    if (!tableData.length || isLoading || props.loading) {
+      return;
+    }
+    return <>{renderBody(tableData)}</>;
+  };
 
-    const _renderFooter = () => {
-      if (totalPages <= 1 || isLoading || props.loading) {
-        return null;
-      }
-      return isMobile ? _renderLoadMore() : _renderPagination();
-    };
-
-    const _renderNoResultOrLoading = () => {
-      if (isLoading || props.loading) {
-        return _renderLoading();
-      }
-
-      if (!tableData.length && !isNotShowNoData) {
-        return renderNoData ? (
-          renderNoData()
-        ) : (
-          <div
-            style={{ marginTop: '25px', width: '100%', textAlign: 'center' }}
-          >
-            No data...
-          </div>
-        );
-      }
-    };
-
-    const _renderBody = () => {
-      if (!tableData.length || isLoading || props.loading) {
-        return;
-      }
-      return <>{renderBody(tableData)}</>;
-    };
-
-    const _renderTable = () => {
-      return (
-        <>
-          {renderHeader && renderHeader()}
-          {_renderBody()}
-        </>
-      );
-    };
-
+  const _renderTable = () => {
     return (
       <>
-        {isMobile ? (
-          _renderTable()
-        ) : (
-          <TableContainer overflowX="inherit" overflowY="inherit">
-            <Table colorScheme="gray">{_renderTable()}</Table>
-          </TableContainer>
-        )}
-
-        {_renderNoResultOrLoading()}
-        {_renderFooter()}
+        {renderHeader && renderHeader()}
+        {_renderBody()}
       </>
     );
-  },
-);
+  };
+
+  return (
+    <>
+      {isMobile ? (
+        _renderTable()
+      ) : (
+        <TableContainer overflowX="inherit" overflowY="inherit">
+          <Table colorScheme="gray">{_renderTable()}</Table>
+        </TableContainer>
+      )}
+
+      {_renderNoResultOrLoading()}
+      {_renderFooter()}
+    </>
+  );
+});
 
 export default AppDataTable;

@@ -58,27 +58,25 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
           );
         })}
         <SliderMark value={100} {...labelStyles}>
-          <div className="slider-mark">
-            <div className="decor-slider"></div>
-          </div>
+          {_renderSliderMark(100, sliderValue)}
         </SliderMark>
         <SliderMark
           value={sliderValue}
           textAlign="center"
           bg="main.100"
           color="white"
-          mt="-10"
-          ml="-5"
-          w="12"
+          w="6"
+          className="percent-slider"
         >
           {sliderValue}%
         </SliderMark>
-        <SliderTrack background={'border.300'}>
-          <SliderFilledTrack background={'main.100'} />
-        </SliderTrack>
-        <SliderThumb zIndex={101}>
-          <div className="decor-slider-thumb"></div>
-        </SliderThumb>
+        <SliderTrack background={'border.300'} overflow="visible"></SliderTrack>
+        <SliderFilledTrack background={'main.100'} />
+        <div
+          style={{ left: `${sliderValue}%`, position: 'absolute' }}
+          className="slider-thumb"
+        ></div>
+        {/* <SliderThumb zIndex={101} w={'14px'} h="14px"></SliderThumb> */}
       </Slider>
     </Box>
   );

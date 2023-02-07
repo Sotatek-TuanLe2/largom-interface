@@ -1,16 +1,16 @@
-.icon-rounded-bitcoin {
+.icon-rounded-polygon {
   width: 20px;
   height: 20px;
-  background: url('../assets/icons/rounded-networks-sprite.png') -10px -10px;
+  background: url('../assets/icons/rounded-networks-sprite.png') -50px -50px;
 }
 
-.icon-rounded-polygon {
+.icon-rounded-bsc {
   width: 20px;
   height: 20px;
   background: url('../assets/icons/rounded-networks-sprite.png') -50px -10px;
 }
 
-.icon-rounded-bsc {
+.icon-rounded-avax {
   width: 20px;
   height: 20px;
   background: url('../assets/icons/rounded-networks-sprite.png') -10px -50px;
@@ -19,13 +19,13 @@
 .icon-rounded-solana {
   width: 20px;
   height: 20px;
-  background: url('../assets/icons/rounded-networks-sprite.png') -50px -50px;
+  background: url('../assets/icons/rounded-networks-sprite.png') -90px -10px;
 }
 
 .icon-rounded-ethereum {
   width: 20px;
   height: 20px;
-  background: url('../assets/icons/rounded-networks-sprite.png') -90px -10px;
+  background: url('../assets/icons/rounded-networks-sprite.png') -10px -10px;
 }
 
 .icon-ethereum {
@@ -74,4 +74,22 @@
   width: 42px;
   height: 42px;
   background: url('../assets/icons/wallets_sprite.png') -10px -72px;
+}
+
+.icon-busd {
+  width: 20px;
+  height: 20px;
+  background: url('../assets/icons/icon_currency.png') -10px -50px;
+}
+
+.icon-usdt {
+  width: 20px;
+  height: 20px;
+  background: url('../assets/icons/icon_currency.png') -50px -10px;
+}
+
+.icon-usdc {
+  width: 20px;
+  height: 20px;
+  background: url('../assets/icons/icon_currency.png') -10px -10px;
 }

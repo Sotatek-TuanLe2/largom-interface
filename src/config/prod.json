@@ -50,7 +50,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "coingeckoId": "usd-coin",
@@ -58,7 +58,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -162,7 +162,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 18,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "busd": {
           "coingeckoId": "binance-usd",
@@ -178,7 +178,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 18,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -277,7 +277,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "coingeckoId": "usd-coin",
@@ -285,7 +285,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -376,7 +376,7 @@
           "name": "USDT",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "coingeckoId": "usd-coin",
@@ -384,7 +384,7 @@
           "name": "USDC",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "addresses": {
@@ -447,7 +447,7 @@
           "name": "TetherToken",
           "symbol": "USDT",
           "decimals": 6,
-          "icon": "/images/USDT.png"
+          "icon": "icon-usdt"
         },
         "usdc": {
           "coingeckoId": "usd-coin",
@@ -455,7 +455,7 @@
           "name": "USD Coin",
           "symbol": "USDC",
           "decimals": 6,
-          "icon": "/images/USDC.png"
+          "icon": "icon-usdc"
         }
       },
       "connectors": {

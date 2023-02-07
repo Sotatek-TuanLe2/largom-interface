@@ -1,11 +1,14 @@
 .node_modules
 /public
+/build
 
 .eslintrc
 .prettierrc
 
 /src/charting_library
+/src/mock-api
 
+pull_request_template.md
 package-lock.json
 package.json
 README.md
