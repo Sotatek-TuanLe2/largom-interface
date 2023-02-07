@@ -345,6 +345,7 @@
 
       &:last-child {
         text-align: right;
+        justify-content: right;
       }
     }
 
@@ -405,6 +406,16 @@
               align-items: center !important;
             }
           }
+        }
+      }
+    }
+    .order-history-wrap {
+      .search {
+        padding-bottom: 19px;
+        padding-top: 22px;
+        color: $Paragraph1;
+        label {
+          @include text-tiny-regular;
         }
       }
     }

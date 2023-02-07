@@ -28,6 +28,17 @@ interface IPartOpenOrder {
   setCountOpenOrder: (params: number) => void;
 }
 
+export const getClassNameSideCell = (side: string) => {
+  switch (side) {
+    case 'Sell':
+      return 'sell';
+    case 'Buy':
+      return 'buy';
+    default:
+      return 'buy';
+  }
+};
+
 const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
   const tableData = useRef<any>();
   const getDataOpenOrders = async () => {
@@ -113,16 +124,6 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
 };
 
 const RowOpenOrderTable: React.FC<ICellOpenOrder> = ({ openOrder }) => {
-  const getClassNameSideCell = (side: string) => {
-    switch (side) {
-      case 'Sell':
-        return 'sell';
-      case 'Buy':
-        return 'buy';
-      default:
-        return 'buy';
-    }
-  };
   return (
     <Flex justifyContent={'space-between'} className="row-order">
       <Box w={'13.23%'} className="cell-open-order">
