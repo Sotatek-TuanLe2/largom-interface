@@ -78,14 +78,16 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
       case TRADE_OPTIONS.LIMIT:
         return (
           <Box>
-            <Box className="form-trade__field">
+            <Box className="trading-page__form__field">
               <AppInput
                 value={dataForm.price}
                 onChange={(e) => onChangeDataForm('price', e.target.value)}
                 size={'md'}
                 label={'Price'}
                 endAdornment={
-                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                  <Box className="trading-page__form__currency">
+                    {tokenIn?.symbol}
+                  </Box>
                 }
               />
             </Box>
@@ -94,14 +96,16 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
       case TRADE_OPTIONS.MARKET:
         return (
           <Box>
-            <Box className="form-trade__field">
+            <Box className="trading-page__form__field">
               <AppInput
                 value={'Market'}
                 size={'md'}
                 isDisabled
                 label={'Price'}
                 endAdornment={
-                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                  <Box className="trading-page__form__currency">
+                    {tokenIn?.symbol}
+                  </Box>
                 }
               />
             </Box>
@@ -110,25 +114,29 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
       default:
         return (
           <Box>
-            <Box className="form-trade__field">
+            <Box className="trading-page__form__field">
               <AppInput
                 value={dataForm.stop}
                 onChange={(e) => onChangeDataForm('stop', e.target.value)}
                 size={'md'}
                 label={'Stop'}
                 endAdornment={
-                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                  <Box className="trading-page__form__currency">
+                    {tokenIn?.symbol}
+                  </Box>
                 }
               />
             </Box>
-            <Box className="form-trade__field">
+            <Box className="trading-page__form__field">
               <AppInput
                 value={dataForm.limit}
                 onChange={(e) => onChangeDataForm('limit', e.target.value)}
                 size={'md'}
                 label={'Limit'}
                 endAdornment={
-                  <Box className="form-trade__currency">{tokenIn?.symbol}</Box>
+                  <Box className="trading-page__form__currency">
+                    {tokenIn?.symbol}
+                  </Box>
                 }
               />
             </Box>
@@ -138,14 +146,14 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
   };
 
   const _renderAmountField = () => (
-    <Box className="form-trade__field">
+    <Box className="trading-page__form__field">
       <AppInput
         value={dataForm.amount}
         onChange={(e) => onChangeDataForm('amount', e.target.value)}
         size={'md'}
         label={'Amount'}
         endAdornment={
-          <Box className="form-trade__currency">{tokenOut?.symbol}</Box>
+          <Box className="trading-page__form__currency">{tokenOut?.symbol}</Box>
         }
       />
     </Box>
@@ -156,7 +164,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
       return null;
     }
     return (
-      <Box className="form-trade__field" zIndex={999}>
+      <Box className="trading-page__form__field" zIndex={999}>
         <Box className="label">Network</Box>
         <AppSelect
           size="medium"
@@ -180,7 +188,7 @@ const FromTrade: FC<IFromTrade> = ({ type, tokenOut, tokenIn, typeTrade }) => {
     return (
       <AppButton
         width="100%"
-        className={`form-trade__btn-${
+        className={`trading-page__form__btn-${
           type === TYPE_TRADE.BUY ? 'buy' : 'sell'
         }`}
       >
@@ -215,7 +223,7 @@ const PartFormTrade = () => {
     return (
       <Flex direction={'row'} justifyContent="space-between" wrap={'wrap'}>
         <Box width="49%">
-          <Flex className={'form-trade__current-value'}>
+          <Flex className={'trading-page__form__current-value'}>
             <Box className="label">Avbl</Box>
             <Box className="value">-- {tokenIn.symbol}</Box>
           </Flex>
@@ -228,7 +236,7 @@ const PartFormTrade = () => {
         </Box>
 
         <Box width="49%">
-          <Flex className={'form-trade__current-value'}>
+          <Flex className={'trading-page__form__current-value'}>
             <Box className="label">Avbl</Box>
             <Box className="value">-- {tokenOut.symbol}</Box>
           </Flex>
@@ -260,11 +268,7 @@ const PartFormTrade = () => {
     },
   ];
 
-  return (
-    <Box className="form-trade">
-      <AppTabs tabs={tabs} onChange={setType} />
-    </Box>
-  );
+  return <AppTabs tabs={tabs} onChange={setType} />;
 };
 
 export default PartFormTrade;

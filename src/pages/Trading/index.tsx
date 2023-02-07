@@ -18,11 +18,15 @@ const TradingPage = () => {
             <PartStatistics />
             <Flex width={'100%'}>
               <PartOrderBook />
-              <Flex direction="column" w="full">
+              <Flex
+                className="trading-page__content-center"
+                direction="column"
+                w="full"
+              >
                 <Box className="trading-page__chart">
                   <PartChart containerId="tv_chart_container" />
                 </Box>
-                <Box className="trading-page__content-center">
+                <Box className="trading-page__form">
                   <PartFormTrade />
                 </Box>
               </Flex>
