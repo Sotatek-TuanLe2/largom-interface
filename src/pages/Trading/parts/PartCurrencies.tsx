@@ -11,15 +11,21 @@ import {
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/store';
 import { ISymbol } from 'src/store/metadata';
+import { SORTING } from 'src/utils/constants';
+
+const CATEGORY_IDS = {
+  FAVORITES: 'favorites',
+  MARGIN: 'margin',
+};
 
 const categories: ICategory[] = [
   {
     name: 'Favorites',
-    id: 'favorites',
+    id: CATEGORY_IDS.FAVORITES,
   },
   {
     name: 'Margin',
-    id: 'margin',
+    id: CATEGORY_IDS.MARGIN,
   },
   {
     name: 'BUSD',
@@ -54,14 +60,14 @@ const SortTable: FC<ISortTable> = ({ value, isActive }) => {
     <Flex className="filter-table">
       <Box
         className={`filter-table__top ${
-          isActive && value === 'asc' ? 'active' : ''
+          isActive && value === SORTING.ASC ? 'active' : ''
         }`}
       >
         <ArrowDownIcon />
       </Box>
       <Box
         className={`filter-table__bottom ${
-          isActive && value === 'desc' ? 'active' : ''
+          isActive && value === SORTING.DESC ? 'active' : ''
         }`}
       >
         <ArrowDownIcon />
@@ -85,9 +91,9 @@ const PartCurrencies = () => {
     let dataFilter = symbols;
 
     if (category) {
-      if (category === 'favorites') {
+      if (category === CATEGORY_IDS.FAVORITES) {
         dataFilter = symbols.filter((item) => item.quote === category);
-      } else if (category === 'margin') {
+      } else if (category === CATEGORY_IDS.MARGIN) {
         dataFilter = symbols.filter((item) => item.isMarginTrade);
       } else {
         dataFilter = symbols.filter((item) => item.quote === category);
@@ -102,17 +108,17 @@ const PartCurrencies = () => {
   }, [category, symbols]);
 
   const onSort = () => {
-    if (sortType === 'asc') {
-      setSortType('desc');
+    if (sortType === SORTING.ASC) {
+      setSortType(SORTING.DESC);
       return;
     }
 
-    if (sortType === 'desc') {
+    if (sortType === SORTING.DESC) {
       setSortType('');
       return;
     }
 
-    setSortType('asc');
+    setSortType(SORTING.ASC);
     return;
   };
 
