@@ -37,6 +37,7 @@ const AppTabs: FC<IAppTabs> = ({
       colorScheme="transparent"
       defaultIndex={defaultTab}
       className="app-tab"
+      isLazy
     >
       <TabList>
         <Flex justifyContent={'space-between'} alignItems="center" w="100%">

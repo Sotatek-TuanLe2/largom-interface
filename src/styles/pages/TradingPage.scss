@@ -410,11 +410,13 @@
         }
       }
     }
+
     .order-history-wrap {
       .search {
         padding-bottom: 19px;
         padding-top: 22px;
         color: $Paragraph1;
+
         label {
           @include text-tiny-regular;
         }
