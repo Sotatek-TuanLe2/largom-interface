@@ -177,7 +177,34 @@ const data = [
   },
 ];
 
-interface IFilter {
+const categories: ICategory[] = [
+  {
+    name: 'Favorites',
+    id: 'favorites',
+  },
+  {
+    name: 'Margin',
+    id: 'margin',
+  },
+  {
+    name: 'BUSD',
+    id: 'BUSD',
+  },
+  {
+    name: 'USDT',
+    id: 'USDT',
+  },
+  {
+    name: 'BNB',
+    id: 'BNB',
+  },
+  {
+    name: 'BTC',
+    id: 'BTC',
+  },
+];
+
+interface ISortTable {
   value: string;
   isActive: boolean;
 }
@@ -198,7 +225,12 @@ interface ICurrencies {
   volume: number;
 }
 
-const SortTable: FC<IFilter> = ({ value, isActive }) => {
+interface ICategory {
+  name: string;
+  id: string;
+}
+
+const SortTable: FC<ISortTable> = ({ value, isActive }) => {
   return (
     <Flex className="filter-table">
       <Box
@@ -223,6 +255,7 @@ const PartCurrencies = () => {
   const [search, setSearch] = useState<string>('');
   const [sortType, setSortType] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
   const [isShowVolumn, setIsShowVolumn] = useState<boolean>(true);
   const [favoriteTokens, setFavoriteTokens] = useState<any>([]);
 
@@ -256,56 +289,74 @@ const PartCurrencies = () => {
             setSearch(e.target.value.trim());
           }}
         />
+
+        <Flex className="currencies__categories">
+          {categories.map((item: ICategory) => {
+            return (
+              <Box
+                onClick={() => setCategory(item.id)}
+                key={item.id}
+                className={category === item.id ? 'active' : ''}
+              >
+                {item.name}
+              </Box>
+            );
+          })}
+        </Flex>
       </Box>
 
       <Box className="table-currencies">
         <Box className="table-currencies__header">
           <Box textAlign="left">
-            <Flex
-              onClick={() => {
-                onSort();
-                setSortBy('pair');
-              }}
-            >
-              Pair
-              <SortTable value={sortType} isActive={sortBy === 'pair'} />
-            </Flex>
-          </Box>
-          <Box textAlign="right">
-            <Flex
-              justifyContent={'flex-end'}
-              onClick={() => {
-                onSort();
-                setSortBy('price');
-              }}
-            >
-              Price
-              <SortTable value={sortType} isActive={sortBy === 'price'} />
-            </Flex>
-          </Box>
-          <Box textAlign="right">
-            <Flex
-              alignItems={'center'}
-              justifyContent={'flex-end'}
-              onClick={() => {
-                onSort();
-                setSortBy(isShowVolumn ? 'volume' : 'change');
-              }}
-            >
-              <Box>{isShowVolumn ? 'Volume' : 'Change'}</Box>
-
-              <SortTable
-                value={sortType}
-                isActive={
-                  isShowVolumn ? sortBy === 'volume' : sortBy === 'change'
-                }
-              />
-              <Box
-                className="icon-change"
-                onClick={() => setIsShowVolumn(!isShowVolumn)}
+            <Flex>
+              <Flex
+                onClick={() => {
+                  onSort();
+                  setSortBy('pair');
+                }}
               >
-                <ChangeIcon />
-              </Box>
+                Pair
+                <SortTable value={sortType} isActive={sortBy === 'pair'} />
+              </Flex>
+            </Flex>
+          </Box>
+          <Box textAlign="right">
+            <Flex justifyContent={'flex-end'}>
+              <Flex
+                onClick={() => {
+                  onSort();
+                  setSortBy('price');
+                }}
+              >
+                Price
+                <SortTable value={sortType} isActive={sortBy === 'price'} />
+              </Flex>
+            </Flex>
+          </Box>
+          <Box textAlign="right">
+            <Flex justifyContent={'flex-end'}>
+              <Flex
+                alignItems={'center'}
+                onClick={() => {
+                  onSort();
+                  setSortBy(isShowVolumn ? 'volume' : 'change');
+                }}
+              >
+                <Box>{isShowVolumn ? 'Volume' : 'Change'}</Box>
+
+                <SortTable
+                  value={sortType}
+                  isActive={
+                    isShowVolumn ? sortBy === 'volume' : sortBy === 'change'
+                  }
+                />
+                <Box
+                  className="icon-change"
+                  onClick={() => setIsShowVolumn(!isShowVolumn)}
+                >
+                  <ChangeIcon />
+                </Box>
+              </Flex>
             </Flex>
           </Box>
         </Box>
