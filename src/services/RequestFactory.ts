@@ -2,14 +2,14 @@ import AuthRequest from './AuthRequest';
 import UserRequest from './UserRequest';
 import TradingRequest from './TradingRequest';
 import OrderRequest from './OrderRequest';
-import TickerRequest from './TickerRequest';
+import MetadataRequest from './MetadataRequest';
 
 const requestMap = {
   AuthRequest,
   UserRequest,
   TradingRequest,
   OrderRequest,
-  TickerRequest,
+  MetadataRequest,
 };
 
 const instances = {};
