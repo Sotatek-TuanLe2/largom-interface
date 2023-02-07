@@ -2,14 +2,35 @@
   {
     "coin": "BUSD",
     "network": "Ethereum",
+    "networkId": "GOERLI_TESTNET",
     "total_balance": 42639.8599,
     "available_balance": 42639.8599,
     "in_order": 0,
-    "btc_value": 1.85614721
+    "btc_value": 1.85614721,
+    "child": [
+      {
+        "network": "Ethereum",
+        "networkId": "GOERLI_TESTNET",
+        "total_balance": 42639.8599,
+        "available_balance": 42639.8599,
+        "in_order": 0,
+        "btc_value": 1.85614721
+      },
+      {
+        "coin": "BUSD",
+        "network": "Ethereum",
+        "networkId": "GOERLI_TESTNET",
+        "total_balance": 42639.8599,
+        "available_balance": 42639.8599,
+        "in_order": 0,
+        "btc_value": 1.85614721
+      }
+    ]
   },
   {
     "coin": "ADA",
     "network": "BSC",
+    "networkId": "BSC_TESTNET",
     "total_balance": 8638.38179205,
     "available_balance": 8638.38179205,
     "in_order": 0,
@@ -18,6 +39,7 @@
   {
     "coin": "HIVE",
     "network": "Avalance",
+    "networkId": "AVAX_TESTNET",
     "total_balance": 7451.59,
     "available_balance": 7451.59,
     "in_order": 0,
@@ -26,6 +48,7 @@
   {
     "coin": "XRP",
     "network": "Solana",
+    "networkId": "SOLANA_DEVNET",
     "total_balance": 3940.948905,
     "available_balance": 3940.948905,
     "in_order": 0,
@@ -34,6 +57,7 @@
   {
     "coin": "VITE",
     "network": "Polygon",
+    "networkId": "POLYGON_TESTNET",
     "total_balance": 66325.38179205,
     "available_balance": 66325.38179205,
     "in_order": 0,

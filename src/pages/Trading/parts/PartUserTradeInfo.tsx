@@ -6,6 +6,8 @@ import PartOpenOrder from './PartOpenOrder';
 import PartOrderHistory from './PartOrderHistory';
 import { ITabs } from 'src/components/AppTabs';
 import { useWallet } from 'src/hooks';
+import PartTradeHistory from './PartTradeHistory';
+import PartFunds from './PartFunds';
 
 const PartUserTradeInfo = () => {
   const [countOpenOrder, setCountOpenOrder] = useState(0);
@@ -38,14 +40,14 @@ const PartUserTradeInfo = () => {
     {
       id: 'TradeHistory',
       name: 'Trade History',
-      content: _renderTab('Trade History'),
+      content: _renderTab(<PartTradeHistory />),
     },
-    { id: 'Fund', name: 'Funds', content: _renderTab('Funds') },
+    { id: 'Fund', name: 'Funds', content: _renderTab(<PartFunds />) },
   ];
 
   const rightElement = () => (
     <div className="hide-pair">
-      <AppCheckbox label="Hide other pair" />
+      <AppCheckbox label="Hide   pair" />
     </div>
   );
 

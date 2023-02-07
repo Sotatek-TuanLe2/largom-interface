@@ -43,7 +43,6 @@
     "pair": "SXP/BTC",
     "network": "Solana",
     "networkId": "SOLANA_DEVNET",
-
     "type": "Limit",
     "side": "Sell",
     "price": 1.4199,
