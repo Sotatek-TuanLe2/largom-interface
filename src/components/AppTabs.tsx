@@ -7,14 +7,14 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import 'src/styles/components/AppTabs.scss';
 
 interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
   onChange?: (value: string) => void;
-  rightElement?: ReactNode;
+  rightElement?: () => ReactNode;
 }
 export interface ITabs {
   name: string;
@@ -40,7 +40,12 @@ const AppTabs: FC<IAppTabs> = ({
       isLazy
     >
       <TabList>
-        <Flex justifyContent={'space-between'} alignItems="center" w="100%">
+        <Flex
+          px={'40px'}
+          justifyContent={'space-between'}
+          alignItems="center"
+          w="100%"
+        >
           <Flex>
             {tabs.map((tab: ITabs) => {
               return (
@@ -54,7 +59,7 @@ const AppTabs: FC<IAppTabs> = ({
               );
             })}
           </Flex>
-          <Box>{rightElement ? rightElement : ''}</Box>
+          <Box>{rightElement ? rightElement() : ''}</Box>
         </Flex>
       </TabList>
 

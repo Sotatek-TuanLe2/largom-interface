@@ -45,43 +45,30 @@ const PartOrderHistory = () => {
 
   const _renderHeaderOpenOrder = () => {
     return (
-      <Flex justifyContent={'space-between'} className="row-order">
-        <Box w={'14.56%'} className="header-order">
-          ORDER TIME
-        </Box>
-        <Box w={'8.82%'} className="header-order">
-          PAIR
-        </Box>
-        <Box w={'10.29%'} className="header-order">
-          NETWORK
-        </Box>
-        <Box w={'5.89%'} className="header-order">
+      <Flex
+        justifyContent={'space-between'}
+        className="row-order order-history"
+      >
+        <Box className="header-order order-history--order-time">ORDER TIME</Box>
+        <Box className="header-order order-history--pair">PAIR</Box>
+        <Box className="header-order order-history--network">NETWORK</Box>
+        <Box className="header-order order-history--type">
           <span>TYPE</span>
           <ArrowDownIcon />
         </Box>
-        <Box w={'5.89%'} className="header-order">
+        <Box className="header-order order-history--side">
           <span>SIDE</span>
           <ArrowDownIcon />
         </Box>
-        <Box w={'9.56%'} className="header-order">
-          AVERAGE
-        </Box>
-        <Box w={'8.3%'} className="header-order">
-          PRICE
-        </Box>
-        <Box w={'6.1%'} className="header-order">
-          EXECUTED
-        </Box>
-        <Box w={'5.96%'} className="header-order">
-          AMOUNT
-        </Box>
-        <Box w={'5.8%'} className="header-order">
-          TOTAL
-        </Box>
-        <Box w={'11.25%'} className="header-order">
+        <Box className="header-order order-history--average">AVERAGE</Box>
+        <Box className="header-order order-history--price">PRICE</Box>
+        <Box className="header-order order-history--excuted">EXECUTED</Box>
+        <Box className="header-order order-history--amount">AMOUNT</Box>
+        <Box className="header-order order-history--total">TOTAL</Box>
+        <Box className="header-order order-history--condition">
           TRIGGER CONDITIONS
         </Box>
-        <Box w={'7.58%'} className="header-order">
+        <Box className="header-order order-history--all">
           <span>ALL</span>
           <ArrowDownIcon />
         </Box>
@@ -94,7 +81,7 @@ const PartOrderHistory = () => {
       return <></>;
     } else
       return (
-        <>
+        <div className="rows-wrap">
           {data.map((orderHistory: IOrderHistory, id: number) => {
             return (
               <RowOrderHistoryTable
@@ -103,7 +90,7 @@ const PartOrderHistory = () => {
               />
             );
           })}
-        </>
+        </div>
       );
   };
   return (
@@ -115,11 +102,13 @@ const PartOrderHistory = () => {
           options={OPTIONS_RADIO}
         />
       </div>
-      <AppDataTable
-        renderBody={_renderContentOrderHistory}
-        renderHeader={_renderHeaderOpenOrder}
-        fetchData={getDataOpenOrders}
-      />
+      <div className="table-wrap">
+        <AppDataTable
+          renderBody={_renderContentOrderHistory}
+          renderHeader={_renderHeaderOpenOrder}
+          fetchData={getDataOpenOrders}
+        />
+      </div>
     </Box>
   );
 };
@@ -128,45 +117,46 @@ const RowOrderHistoryTable: React.FC<{ orderHistory: IOrderHistory }> = ({
   orderHistory,
 }) => {
   return (
-    <Flex justifyContent={'space-between'} className="row-order">
-      <Box w={'14.56%'} className="cell-open-order">
+    <Flex justifyContent={'space-between'} className="row-order order-history">
+      <Box className="cell-open-order order-history--order-time">
         {`${moment(+orderHistory.date).format('YYYY-MM-DD hh:mm:ss')}`}
       </Box>
-      <Box w={'8.82%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--pair">
         {orderHistory.pair}
       </Box>
-      <Box w={'10.29%'} className={`cell-open-order`}>
+      <Box className={`cell-open-order order-history--network`}>
         <div className={`${getLogoNetwork(orderHistory.networkId)}`}></div>
         {orderHistory.network}
       </Box>
-      <Box w={'5.89%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--type">
         {orderHistory.type}
       </Box>
       <Box
-        w={'5.89%'}
-        className={`cell-open-order ${getClassNameSideCell(orderHistory.side)}`}
+        className={`cell-open-order order-history--side ${getClassNameSideCell(
+          orderHistory.side,
+        )}`}
       >
         {orderHistory.side}
       </Box>
-      <Box w={'9.56%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--average">
         <span className="price">{orderHistory.avarage}</span>
       </Box>
-      <Box w={'8.3%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--price">
         <span className="amount">{orderHistory.price}</span>
       </Box>
-      <Box w={'6.1%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--excuted">
         {orderHistory.excuted || '--'}
       </Box>
-      <Box w={'5.96%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--amount">
         {orderHistory.amount}
       </Box>
-      <Box w={'5.8%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--total">
         {orderHistory.total}
       </Box>
-      <Box w={'11.25%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--condition">
         {orderHistory.conditions || '--'}
       </Box>
-      <Box w={'7.58%'} className="cell-open-order">
+      <Box className="cell-open-order order-history--all">
         {'Canceled'}
         {/* <DeleteIcon cursor={'pointer'} /> */}
       </Box>

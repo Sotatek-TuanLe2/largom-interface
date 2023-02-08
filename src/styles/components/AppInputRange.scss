@@ -42,8 +42,12 @@
 }
 
 .percent-slider {
-  font-size: 8px;
-  transform: translate(-50%, -22px);
+  font-size: 10px;
+  transform: translate(-50%, -30px);
+  width: 29px;
+  height: 16px;
+  background-color: $Border;
+  z-index: 104;
 }
 
 .slider-thumb {

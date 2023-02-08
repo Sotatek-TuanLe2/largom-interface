@@ -16,7 +16,7 @@ interface IAppInputRange {
 
 const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
   const [sliderValue, setSliderValue] = useState(50);
-
+  const [showPercentLabel, setShowPercentLabel] = useState(false);
   const labelStyles = {
     fontSize: 'sm',
     zIndex: 100,
@@ -43,8 +43,12 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
     <Box pb={2} px={2}>
       <Slider
         aria-label="slider-ex-6"
-        onChange={(val) => setSliderValue(val)}
+        onChange={(val) => {
+          setSliderValue(val);
+        }}
         height="4px"
+        onMouseEnter={() => setShowPercentLabel(true)}
+        onMouseLeave={() => setShowPercentLabel(false)}
       >
         {_.range(countDistance).map((count, index) => {
           return (
@@ -60,23 +64,25 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
         <SliderMark value={100} {...labelStyles}>
           {_renderSliderMark(100, sliderValue)}
         </SliderMark>
-        <SliderMark
-          value={sliderValue}
-          textAlign="center"
-          bg="main.100"
-          color="white"
-          w="6"
-          className="percent-slider"
-        >
-          {sliderValue}%
-        </SliderMark>
+        {showPercentLabel && (
+          <SliderMark
+            value={sliderValue}
+            textAlign="center"
+            color="white"
+            className="percent-slider"
+          >
+            {sliderValue}%
+          </SliderMark>
+        )}
         <SliderTrack background={'border.300'} overflow="visible"></SliderTrack>
         <SliderFilledTrack background={'main.100'} />
         <div
-          style={{ left: `${sliderValue}%`, position: 'absolute' }}
+          style={{
+            left: `${sliderValue}%`,
+            position: 'absolute',
+          }}
           className="slider-thumb"
         ></div>
-        {/* <SliderThumb zIndex={101} w={'14px'} h="14px"></SliderThumb> */}
       </Slider>
     </Box>
   );
