@@ -14,3 +14,4 @@ export { default as BasePage } from './layouts/BasePage';
 export { default as AppInputRange } from './AppInputRange';
 export { default as AppSelect } from './AppSelect';
 export { default as AppScrollBar } from './AppScrollBar';
+export { default as AppTableSorting } from './AppTableSorting';

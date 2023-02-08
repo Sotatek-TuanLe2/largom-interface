@@ -87,6 +87,7 @@ export enum SYMBOL_TYPE {
 }
 
 export const SORTING = {
+  NONE: '',
   ASC: 'asc',
   DESC: 'desc',
 };

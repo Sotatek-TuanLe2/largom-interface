@@ -1,17 +1,12 @@
 import 'src/styles/pages/TradingPage.scss';
-import React, { useState, FC, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { AppInput } from 'src/components';
-import {
-  SearchIcon,
-  StarIcon,
-  ChangeIcon,
-  ArrowDownIcon,
-} from 'src/assets/icons';
+import { AppInput, AppTableSorting } from 'src/components';
+import { SearchIcon, StarIcon, ChangeIcon } from 'src/assets/icons';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/store';
 import { ISymbol } from 'src/store/metadata';
-import { SORTING } from 'src/utils/constants';
+import { ISorter } from 'src/components/AppTableSorting';
 
 const CATEGORY_IDS = {
   FAVORITES: 'favorites',
@@ -45,41 +40,14 @@ const categories: ICategory[] = [
   },
 ];
 
-interface ISortTable {
-  value: string;
-  isActive: boolean;
-}
-
 interface ICategory {
   name: string;
   id: string;
 }
 
-const SortTable: FC<ISortTable> = ({ value, isActive }) => {
-  return (
-    <Flex className="filter-table">
-      <Box
-        className={`filter-table__top ${
-          isActive && value === SORTING.ASC ? 'active' : ''
-        }`}
-      >
-        <ArrowDownIcon />
-      </Box>
-      <Box
-        className={`filter-table__bottom ${
-          isActive && value === SORTING.DESC ? 'active' : ''
-        }`}
-      >
-        <ArrowDownIcon />
-      </Box>
-    </Flex>
-  );
-};
-
 const PartCurrencies = () => {
   const [search, setSearch] = useState<string>('');
-  const [sortType, setSortType] = useState<string>('');
-  const [sortBy, setSortBy] = useState<string>('');
+  const [sorter, setSorter] = useState<ISorter>({ sortBy: '', order: '' });
   const [category, setCategory] = useState<string>('');
   const [isShowVolume, setIsShowVolume] = useState<boolean>(true);
   const [favoriteTokens, setFavoriteTokens] = useState<any>([]);
@@ -115,20 +83,7 @@ const PartCurrencies = () => {
     getDataShow();
   }, [category, symbols, search]);
 
-  const onSort = () => {
-    if (sortType === SORTING.ASC) {
-      setSortType(SORTING.DESC);
-      return;
-    }
-
-    if (sortType === SORTING.DESC) {
-      setSortType('');
-      return;
-    }
-
-    setSortType(SORTING.ASC);
-    return;
-  };
+  const onSort = (sorter: ISorter) => setSorter(sorter);
 
   return (
     <Box className="currencies">
@@ -165,57 +120,35 @@ const PartCurrencies = () => {
       <Box className="table-currencies">
         <Box className="table-currencies__header">
           <Box textAlign="left">
-            <Flex>
-              <Flex
-                onClick={() => {
-                  onSort();
-                  setSortBy('pair');
-                }}
-              >
-                Pair
-                <SortTable value={sortType} isActive={sortBy === 'pair'} />
-              </Flex>
-            </Flex>
+            <AppTableSorting
+              sortBy="pair"
+              activeSort={sorter.sortBy}
+              title="Pair"
+              onSort={onSort}
+            />
           </Box>
-          <Box textAlign="right">
-            <Flex justifyContent={'flex-end'}>
-              <Flex
-                onClick={() => {
-                  onSort();
-                  setSortBy('price');
-                }}
-              >
-                Price
-                <SortTable value={sortType} isActive={sortBy === 'price'} />
-              </Flex>
-            </Flex>
-          </Box>
-          <Box textAlign="right">
-            <Flex justifyContent={'flex-end'}>
-              <Flex
-                alignItems={'center'}
-                onClick={() => {
-                  onSort();
-                  setSortBy(isShowVolume ? 'volume' : 'change');
-                }}
-              >
-                <Box>{isShowVolume ? 'Volume' : 'Change'}</Box>
-
-                <SortTable
-                  value={sortType}
-                  isActive={
-                    isShowVolume ? sortBy === 'volume' : sortBy === 'change'
-                  }
-                />
-                <Box
-                  className="icon-change"
-                  onClick={() => setIsShowVolume(!isShowVolume)}
-                >
-                  <ChangeIcon />
-                </Box>
-              </Flex>
-            </Flex>
-          </Box>
+          <Flex textAlign="right" justifyContent="flex-end">
+            <AppTableSorting
+              sortBy="price"
+              activeSort={sorter.sortBy}
+              title="Price"
+              onSort={onSort}
+            />
+          </Flex>
+          <Flex textAlign="right" alignItems="center" justifyContent="flex-end">
+            <AppTableSorting
+              sortBy={isShowVolume ? 'volume' : 'change'}
+              activeSort={sorter.sortBy}
+              title={isShowVolume ? 'Volume' : 'Change'}
+              onSort={onSort}
+            />
+            <Box
+              className="icon-change"
+              onClick={() => setIsShowVolume(!isShowVolume)}
+            >
+              <ChangeIcon />
+            </Box>
+          </Flex>
         </Box>
 
         <Box className="table-currencies__list">
