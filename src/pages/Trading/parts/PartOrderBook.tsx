@@ -11,23 +11,34 @@ import {
 import { TYPE_TRADE } from 'src/utils/constants';
 import { IOrderBook } from 'src/components/AppTableOrderBook';
 import rf from 'src/services/RequestFactory';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/store';
 
 const PartOrderBook = () => {
+  const { instrument } = useSelector(
+    (state: RootState) => state.metadata.trading,
+  );
+
   const [type, setType] = useState<string>('');
   const [buyOrderData, setBuyOrderData] = useState<IOrderBook[]>([]);
   const [sellOrderData, setSellOrderData] = useState<IOrderBook[]>([]);
 
   const fetchOrderBook = async () => {
+    if (!instrument.symbol) {
+      return;
+    }
     const result: { asks: IOrderBook[]; bids: IOrderBook[] } = await rf
       .getRequest('OrderRequest')
-      .getOrderBook();
+      .getOrderBook({
+        instrumentSymbol: instrument.symbol,
+      });
     setBuyOrderData(result.asks);
     setSellOrderData(result.bids);
   };
 
   useEffect(() => {
     fetchOrderBook();
-  }, []);
+  }, [instrument]);
 
   const _renderCurrentPrice = () => {
     return (

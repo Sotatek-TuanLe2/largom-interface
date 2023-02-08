@@ -1,5 +1,5 @@
 import { Timezone } from 'src/charting_library/charting_library.min';
-import { ICandle, ITrade } from 'src/types';
+import { ICandle, ITrade } from 'src/utils/types';
 import { roundNumberWithBase } from './format';
 
 export const DEFAULT_TRADING_VIEW_INTERVAL = '60';

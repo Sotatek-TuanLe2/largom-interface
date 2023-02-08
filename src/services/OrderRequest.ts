@@ -16,8 +16,8 @@ export default class OrderRequest extends BaseRequest {
     return this.get(url);
   }
 
-  getOrderBook() {
-    const url = '/orders/orderbook/BTCUSD';
+  getOrderBook(params: { instrumentSymbol: string }) {
+    const url = `/orders/orderbook/${params.instrumentSymbol}`;
     return this.get(url);
   }
 }

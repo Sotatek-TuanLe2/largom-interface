@@ -20,8 +20,10 @@ import {
   getResolutionString,
 } from 'src/utils/chart';
 // import { SocketEvent } from 'src/socket/SocketEvent';
-import { ICandle, IInstrument } from 'src/types';
+import { ICandle } from 'src/utils/types';
 import { SYMBOL_TYPE, THEME_MODE } from 'src/utils/constants';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/store';
 // import { roundNumberWithBase } from 'src/utils/format';
 
 interface obj {
@@ -97,47 +99,11 @@ const TradingView: React.FC<Props> = (props) => {
   const theme = 'dark';
   const tradingViewTheme = (theme.charAt(0).toUpperCase() +
     theme.slice(1)) as ThemeName;
-
-  const instrument: IInstrument = {
-    baseUnderlying: 'null',
-    contractSize: '0.00000100',
-    createdAt: '1637032860000',
-    deleverageable: true,
-    expiry: '',
-    fundingBaseIndex: '',
-    fundingInterval: 0,
-    fundingPremiumIndex: '',
-    fundingQuoteIndex: '',
-    hasLiquidity: true,
-    id: 1,
-    initMargin: '0.01000000',
-    lotSize: '100.00000000',
-    maintainMargin: '0.00500000',
-    makerFee: '0.00025000',
-    maxOrderQty: 1000,
-    maxPrice: '10000000.00000000',
-    multiplier: '1.00000000',
-    optionKoPrice: '',
-    optionStrikePrice: '',
-    quoteCurrency: 'USD',
-    rank: 1,
-    referenceIndex: '',
-    riskLimit: '100000000.00000000',
-    riskStep: '',
-    rootSymbol: 'BTC',
-    settleCurrency: '',
-    settlementFee: '0.00000000',
-    settlementIndex: '',
-    state: '',
-    symbol: 'BTCUSD',
-    takerFee: '0.00075000',
-    tickSize: '0.01000000',
-    type: 0,
-    underlyingSymbol: '',
-    updatedAt: '1637032860000',
-  };
   const interval = getResolutionInMinutes(DEFAULT_TRADING_VIEW_INTERVAL);
 
+  const { instrument } = useSelector(
+    (state: RootState) => state.metadata.trading,
+  );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [tradingViewChart, setTradingViewChart] =
     useState<IChartingLibraryWidget>();
