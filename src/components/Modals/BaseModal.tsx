@@ -6,7 +6,7 @@ import {
   Box,
   Flex,
 } from '@chakra-ui/react';
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { ModalProps, ModalHeaderProps } from '@chakra-ui/modal/src/modal';
 import 'src/styles/components/BaseModal.scss';
 import { CloseIcon } from '@chakra-ui/icons';

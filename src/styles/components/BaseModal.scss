@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 
 .modal {
-  background-color: $Card !important;
+  background-color: $Card2 !important;
   border-radius: 20px !important;
   padding: 8px;
   max-width: 500px !important;
@@ -56,31 +56,38 @@
   padding-bottom: 20px;
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   .box-wallet {
-    @include text-small-medium;
+    @include text-small-regular;
 
-    padding: 10px;
-    margin: 0 10px 10px;
+    padding: 18px 0 20px 0;
+    margin: 0 6px 12px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 120px;
+    width: 124px;
     background-color: $Border;
     border-radius: 10px;
     border: 1px solid $Border;
     cursor: pointer;
+    color: $Paragraph1;
 
     .name-wallet {
-      margin-top: 5px;
+      margin-top: 16px;
     }
 
     &.active,
     &:hover {
       border: 1px solid $Main;
+      color: $Title;
     }
   }
 }

@@ -92,12 +92,12 @@ const ModalConnectWallet: FC<IModalConnectWallet> = ({ open, onClose }) => {
     >
       <Box>
         <Box className="modal-connect-wallet__title">1. Choose Network</Box>
-        <Flex flexWrap={'wrap'}>{_renderNetworks()}</Flex>
+        <Flex className="modal-connect-wallet__list">{_renderNetworks()}</Flex>
       </Box>
 
       <Box>
         <Box className="modal-connect-wallet__title">2. Choose Wallet</Box>
-        <Flex flexWrap={'wrap'}>{_renderWallets()}</Flex>
+        <Flex  className="modal-connect-wallet__list">{_renderWallets()}</Flex>
       </Box>
     </BaseModal>
   );
