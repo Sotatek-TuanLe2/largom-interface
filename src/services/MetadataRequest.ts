@@ -10,4 +10,9 @@ export default class MetadataRequest extends BaseRequest {
     const url = '/ticker/symbols';
     return this.get(url);
   }
+
+  getInstruments() {
+    const url = '/instruments';
+    return this.get(url);
+  }
 }
