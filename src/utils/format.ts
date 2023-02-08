@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js';
 import moment from 'moment';
+import { IInstrument } from 'src/store/metadata';
 import { NOT_AVAILABLE_TEXT, TO_BE_ANNOUCED_TEXT } from './constants';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const commaNumber = require('comma-number');
@@ -25,6 +26,20 @@ export const roundNumber = (
     roundMode,
   );
   return new BigNumber(newNumber).toString();
+};
+
+export const formatTickerNumber = (
+  number: string | undefined,
+  instrument: IInstrument | undefined,
+) => {
+  const tickSize = instrument?.tickSize;
+  const precision = -Math.ceil(Math.log10(Number(tickSize)));
+  if (!number) {
+    return '-';
+  }
+  return Number(number)
+    .toFixed(precision)
+    .replace(/\d(?=(\d{3})+\.)/g, '$&,');
 };
 
 export const formatTimestamp = (

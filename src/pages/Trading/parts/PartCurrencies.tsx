@@ -5,7 +5,7 @@ import { AppInput, AppTableSorting } from 'src/components';
 import { SearchIcon, StarIcon, ChangeIcon } from 'src/assets/icons';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/store';
-import { ISymbol } from 'src/store/metadata';
+import { ICurrencyPair } from 'src/store/metadata';
 import { ISorter } from 'src/components/AppTableSorting';
 
 const CATEGORY_IDS = {
@@ -51,12 +51,14 @@ const PartCurrencies = () => {
   const [category, setCategory] = useState<string>('');
   const [isShowVolume, setIsShowVolume] = useState<boolean>(true);
   const [favoriteTokens, setFavoriteTokens] = useState<any>([]);
-  const [dataShow, setDataShow] = useState<ISymbol[]>([]);
+  const [dataShow, setDataShow] = useState<ICurrencyPair[]>([]);
 
-  const { symbols } = useSelector((state: RootState) => state.metadata);
+  const {
+    trading: { currencyPairs },
+  } = useSelector((state: RootState) => state.metadata);
 
   const getDataShow = () => {
-    let dataFilter = symbols;
+    let dataFilter = currencyPairs;
 
     if (category) {
       if (category === CATEGORY_IDS.FAVORITES) {
@@ -81,7 +83,7 @@ const PartCurrencies = () => {
 
   useEffect(() => {
     getDataShow();
-  }, [category, symbols, search]);
+  }, [category, currencyPairs, search]);
 
   const onSort = (sorter: ISorter) => setSorter(sorter);
 
@@ -153,7 +155,7 @@ const PartCurrencies = () => {
 
         <Box className="table-currencies__list">
           {!!dataShow.length &&
-            dataShow?.map((item: ISymbol, index: number) => {
+            dataShow?.map((item: ICurrencyPair, index: number) => {
               return (
                 <Box className="table-currencies__content" key={index}>
                   <Flex textAlign="left" alignItems="center">
