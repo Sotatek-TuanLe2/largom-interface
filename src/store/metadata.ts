@@ -145,7 +145,10 @@ export const getMetadataInstruments = createAsyncThunk(
   'metadata/getInstruments',
   async (_params, thunkApi) => {
     const res = await rf.getRequest('MetadataRequest').getInstruments();
-    thunkApi.dispatch(setCurrentInstrument(res[0]));
+    if (res.length > 0) {
+      const defaultInstrument = res[0];
+      thunkApi.dispatch(setCurrentInstrument(defaultInstrument));
+    }
   },
 );
 
