@@ -6,6 +6,8 @@ import { isMobile } from 'react-device-detect';
 import { AppTabs } from 'src/components';
 import { Box } from '@chakra-ui/react';
 import rf from 'src/services/RequestFactory';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/store';
 interface Props {
   theme?: ThemeName;
   containerId: string;
@@ -15,9 +17,14 @@ interface Props {
 
 const PartChart: React.FC<Props> = (props) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const { instrument } = useSelector(
+    (state: RootState) => state.metadata.trading,
+  );
 
   const fetchDataTradingView = async () => {
-    return await rf.getRequest('TradingRequest').getCandleChartData();
+    return await rf.getRequest('TradingRequest').getCandleChartData({
+      instrumentSymbol: instrument.symbol,
+    });
   };
 
   const fullScreen = (flag: boolean) => {
