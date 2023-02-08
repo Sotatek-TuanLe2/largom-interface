@@ -48,40 +48,24 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
 
   const _renderHeaderOpenOrder = () => {
     return (
-      <Flex justifyContent={'space-between'} className="row-order">
-        <Box w={'13.23%'} className="header-order">
-          DATE
-        </Box>
-        <Box w={'8.09%'} className="header-order">
-          PAIR
-        </Box>
-        <Box w={'10.29%'} className="header-order">
-          NETWORK
-        </Box>
-        <Box w={'5.89%'} className="header-order">
+      <Flex justifyContent={'space-between'} className="row-order open-order">
+        <Box className="header-order date">DATE</Box>
+        <Box className="header-order pair">PAIR</Box>
+        <Box className="header-order network">NETWORK</Box>
+        <Box className="header-order type">
           <span>TYPE</span>
           <ArrowDownIcon />
         </Box>
-        <Box w={'5.89%'} className="header-order">
+        <Box className="header-order side">
           <span>SIDE</span>
           <ArrowDownIcon />
         </Box>
-        <Box w={'9.56%'} className="header-order">
-          PRICE
-        </Box>
-        <Box w={'8.82%'} className="header-order">
-          AMOUNT
-        </Box>
-        <Box w={'5.89%'} className="header-order">
-          FILLED
-        </Box>
-        <Box w={'10.29%'} className="header-order">
-          TOTAL
-        </Box>
-        <Box w={'12.57%'} className="header-order">
-          TRIGGER CONDITIONS
-        </Box>
-        <Box w={'9.48%'} className="header-order">
+        <Box className="header-order price">PRICE</Box>
+        <Box className="header-order amount">AMOUNT</Box>
+        <Box className="header-order filled">FILLED</Box>
+        <Box className="header-order total">TOTAL</Box>
+        <Box className="header-order condition">TRIGGER CONDITIONS</Box>
+        <Box className="header-order cancel-all">
           <span>CANCEL ALL</span>
           <ArrowDownIcon />
         </Box>
@@ -94,7 +78,7 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
       return <></>;
     } else
       return (
-        <>
+        <div className="rows-wrap">
           {data.map((openOrder: IOpenOrder, id: number) => {
             return (
               <RowOpenOrderTable
@@ -103,7 +87,7 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
               />
             );
           })}
-        </>
+        </div>
       );
   };
 
@@ -114,59 +98,54 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
   }, [tableData.current]);
 
   return (
-    <AppDataTable
-      renderBody={_renderContentOpenOrder}
-      renderHeader={_renderHeaderOpenOrder}
-      fetchData={getDataOpenOrders}
-      ref={tableData}
-    />
+    <div className="table-wrap">
+      <AppDataTable
+        renderBody={_renderContentOpenOrder}
+        renderHeader={_renderHeaderOpenOrder}
+        fetchData={getDataOpenOrders}
+        ref={tableData}
+      />
+    </div>
   );
 };
 
 const RowOpenOrderTable: React.FC<ICellOpenOrder> = ({ openOrder }) => {
   return (
-    <Flex justifyContent={'space-between'} className="row-order">
-      <Box w={'13.23%'} className="cell-open-order">
+    <Flex justifyContent={'space-between'} className="row-order open-order">
+      <Box className="cell-open-order date">
         {`${moment(+openOrder.date).format('YYYY-MM-DD')}`}
       </Box>
-      <Box w={'8.09%'} className="cell-open-order">
-        {openOrder.pair}
-      </Box>
-      <Box w={'10.29%'} className={`cell-open-order`}>
+      <Box className="cell-open-order pair">{openOrder.pair}</Box>
+      <Box className={`cell-open-order network`}>
         <div className={`${getLogoNetwork(openOrder.networkId)}`}></div>
         {openOrder.network}
       </Box>
-      <Box w={'5.89%'} className="cell-open-order">
-        {openOrder.type}
-      </Box>
+      <Box className="cell-open-order type">{openOrder.type}</Box>
       <Box
-        w={'5.89%'}
-        className={`cell-open-order ${getClassNameSideCell(openOrder.side)}`}
+        className={`cell-open-order side ${getClassNameSideCell(
+          openOrder.side,
+        )}`}
       >
         {openOrder.side}
       </Box>
-      <Box w={'9.56%'} className="cell-open-order">
-        <span className="price">{openOrder.price}</span>
+      <Box className="cell-open-order price">
+        <span className="text-price">{openOrder.price}</span>
         <span>
           <EditIcon cursor={'pointer'} />
         </span>
       </Box>
-      <Box w={'8.82%'} className="cell-open-order">
-        <span className="amount">{openOrder.amount}</span>
+      <Box className="cell-open-order amount">
+        <span className="text-amount">{openOrder.amount}</span>
         <span>
           <EditIcon cursor={'pointer'} />
         </span>
       </Box>
-      <Box w={'5.89%'} className="cell-open-order">
-        {openOrder.filled}
-      </Box>
-      <Box w={'10.29%'} className="cell-open-order">
-        {openOrder.total}
-      </Box>
-      <Box w={'12.57%'} className="cell-open-order">
+      <Box className="cell-open-order filled">{openOrder.filled}</Box>
+      <Box className="cell-open-order total">{openOrder.total}</Box>
+      <Box className="cell-open-order condition">
         {openOrder.conditions || '--'}
       </Box>
-      <Box w={'9.48%'} className="cell-open-order">
+      <Box className="cell-open-order cancel-all">
         <DeleteIcon cursor={'pointer'} />
       </Box>
     </Flex>

@@ -70,7 +70,7 @@ const PartTradeHistory = () => {
       return <></>;
     } else
       return (
-        <>
+        <div className="rows-wrap">
           {data.map((orderHistory: ITradeHistory, id: number) => {
             return (
               <RowTradingHistoryTable
@@ -79,12 +79,12 @@ const PartTradeHistory = () => {
               />
             );
           })}
-        </>
+        </div>
       );
   };
 
   return (
-    <Box className="order-history-wrap">
+    <Box className="trade-history-wrap">
       <div className="search">
         <AppRadioBtn
           value={valueRadio}
@@ -92,11 +92,13 @@ const PartTradeHistory = () => {
           options={OPTIONS_RADIO}
         />
       </div>
-      <AppDataTable
-        renderBody={_renderContentTradeHistory}
-        renderHeader={_renderHeaderTradeHistory}
-        fetchData={getDataTradeHistory}
-      />
+      <div className="table-wrap">
+        <AppDataTable
+          renderBody={_renderContentTradeHistory}
+          renderHeader={_renderHeaderTradeHistory}
+          fetchData={getDataTradeHistory}
+        />
+      </div>
     </Box>
   );
 };

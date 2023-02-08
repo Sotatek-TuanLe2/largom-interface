@@ -45,15 +45,24 @@ const PartUserTradeInfo = () => {
     { id: 'Fund', name: 'Funds', content: _renderTab(<PartFunds />) },
   ];
 
-  const rightElement = () => (
-    <div className="hide-pair">
-      <AppCheckbox label="Hide   pair" />
-    </div>
-  );
-
+  const getRightElement = (currentTab: number) => {
+    if (currentTab === 0 || currentTab === 1) {
+      return (
+        <div className="hide-pair">
+          <AppCheckbox label="Hide   pair" />
+        </div>
+      );
+    } else if (currentTab === 2 || currentTab === 3) {
+      return (
+        <div className="hide-pair">
+          <AppCheckbox label="Hide low balance assets" />
+        </div>
+      );
+    }
+  };
   return (
     <Box className="order-wrap">
-      <AppTabs tabs={tabs} rightElement={rightElement()} />
+      <AppTabs tabs={tabs} rightElement={getRightElement} />
     </Box>
   );
 };
