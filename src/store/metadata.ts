@@ -16,7 +16,7 @@ export interface ITicker {
   fundingRate: string;
 }
 
-export interface ISymbol {
+export interface ICurrencyPair {
   base: string;
   delistedTime: any;
   id: string;
@@ -28,14 +28,20 @@ export interface ISymbol {
   symbol: string;
 }
 
-export type MetadataState = {
+interface IMetadataTrading {
   tickers: ITicker[];
-  symbols: ISymbol[];
+  currencyPairs: ICurrencyPair[];
+}
+
+export type MetadataState = {
+  trading: IMetadataTrading;
 };
 
 const initialState: MetadataState = {
-  tickers: [],
-  symbols: [],
+  trading: {
+    tickers: [],
+    currencyPairs: [],
+  },
 };
 
 export const getMetadataTickers = createAsyncThunk(
@@ -46,11 +52,11 @@ export const getMetadataTickers = createAsyncThunk(
   },
 );
 
-export const getMetadataSymbols = createAsyncThunk(
+export const getMetadataCurrencyPairs = createAsyncThunk(
   'metadata/getSymbols',
   async (_params, thunkApi) => {
     const res = await rf.getRequest('MetadataRequest').getSymbols();
-    thunkApi.dispatch(setSymbols(res));
+    thunkApi.dispatch(setCurrencyPairs(res));
   },
 );
 
@@ -58,7 +64,7 @@ export const initMetadata = createAsyncThunk(
   'metadata/init',
   async (_params, thunkApi) => {
     thunkApi.dispatch(getMetadataTickers());
-    thunkApi.dispatch(getMetadataSymbols());
+    thunkApi.dispatch(getMetadataCurrencyPairs());
   },
 );
 
@@ -67,14 +73,14 @@ const metadataSlice = createSlice({
   initialState,
   reducers: {
     setTickers: (state, action) => {
-      state.tickers = action.payload;
+      state.trading.tickers = action.payload;
     },
-    setSymbols: (state, action) => {
-      state.symbols = action.payload;
+    setCurrencyPairs: (state, action) => {
+      state.trading.currencyPairs = action.payload;
     },
   },
 });
 
-export const { setTickers, setSymbols } = metadataSlice.actions;
+export const { setTickers, setCurrencyPairs } = metadataSlice.actions;
 
 export default metadataSlice.reducer;
