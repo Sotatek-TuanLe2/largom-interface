@@ -188,7 +188,7 @@
     background-color: $Card;
     padding: 16px 0 16px 20px;
     margin-left: 4px;
-    height: 500px;
+    height: calc(100% - 474px);
 
     .table-trades {
       margin-top: 10px;
@@ -431,5 +431,216 @@
         }
       }
     }
+  }
+}
+
+.currencies {
+  background-color: $Card;
+  padding: 16px 0;
+  margin: 0 0 4px 4px;
+  height: 470px;
+
+  &__box-filter {
+    margin: 0 40px 0 20px;
+  }
+
+  &__categories {
+    @include text-tiny-regular;
+
+    color: $Paragraph1;
+    margin-top: 16px;
+
+    > div {
+      margin-right: 12px;
+      cursor: pointer;
+
+      &:hover {
+        color: $Title;
+      }
+    }
+
+    .active {
+      color: $Title;
+    }
+  }
+
+  input {
+    @include text-tiny-regular;
+
+    border-radius: 4px;
+
+    &::placeholder {
+      color: $Paragraph2;
+    }
+  }
+
+  .table-currencies {
+    margin-top: 14px;
+
+    &__header {
+      @include text-tiny-regular;
+
+      text-transform: capitalize;
+      color: $Paragraph2;
+      display: flex;
+      margin-bottom: 6px;
+
+      & > div {
+        flex: 1 1 0;
+
+        & > div {
+          cursor: pointer;
+        }
+
+        &:last-child {
+          padding-right: 40px;
+        }
+
+        &:first-child {
+          padding-left: 20px;
+        }
+      }
+
+      .icon-change {
+        margin-left: 4px;
+        cursor: pointer;
+
+        &:hover {
+          color: $Title;
+        }
+      }
+    }
+
+    &__list {
+      height: 330px;
+      overflow-y: auto;
+    }
+
+    &__content {
+      @include text-tiny-regular;
+
+      color: $Paragraph1;
+      display: flex;
+      padding: 4px 0;
+      margin-bottom: 3px;
+
+      &:hover {
+        background: $Card2;
+      }
+
+      .scope {
+        color: $Main;
+        padding: 0 3px;
+        background: rgba(83, 103, 254, 0.15);
+        border-radius: 2px;
+      }
+
+      .name-token {
+        color: $Title;
+      }
+
+      .change {
+        &.up {
+          color: $Green;
+        }
+
+        &.down {
+          color: $Red;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      & > div {
+        flex: 1 1 0;
+        justify-content: flex-start;
+        cursor: pointer;
+
+        &:last-child {
+          padding-right: 40px;
+        }
+
+        &:first-child {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+.filter-table {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  cursor: pointer;
+
+  &__top {
+    transform: rotate(-180deg);
+    margin-bottom: 1.5px;
+  }
+
+  .active {
+    color: $Title;
+  }
+
+  svg {
+    height: 4px;
+  }
+}
+
+.form-trade {
+  background-color: $Card;
+  padding: 16px 20px 20px;
+  margin-left: 4px;
+
+  &__current-value {
+    margin-bottom: 12px;
+    margin-top: 18px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph2;
+      margin-right: 10px;
+    }
+
+    .value {
+      @include text-tiny-regular;
+
+      color: $Title;
+    }
+  }
+
+  &__field {
+    margin-bottom: 12px;
+
+    .label {
+      @include text-tiny-regular;
+
+      color: $Paragraph1;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__currency {
+    @include text-tiny-regular;
+
+    color: $Paragraph1;
+  }
+
+  &__btn-buy,
+  &__btn-sell {
+    font-size: 14px !important;
+  }
+
+  &__btn-buy {
+    background-color: $Green !important;
+  }
+
+  &__btn-sell {
+    background-color: $Red !important;
   }
 }

@@ -1,0 +1,24 @@
+@import '../color-variables.scss';
+@import '../_mixins.scss';
+
+.table-sorting {
+  margin-left: 4px;
+  cursor: pointer;
+
+  &__title {
+    margin-right: 5px;
+  }
+
+  &__top {
+    transform: rotate(-180deg);
+    margin-bottom: 1.5px;
+  }
+
+  .active {
+    color: $Title;
+  }
+
+  svg {
+    height: 4px;
+  }
+}

@@ -8,6 +8,7 @@ import PartUserTradeInfo from './parts/PartUserTradeInfo';
 import PartChart from 'src/pages/Trading/parts/PartChart';
 import PartTrades from './parts/PartTrades';
 import PartFormTrade from './parts/PartFormTrade';
+import PartCurrencies from './parts/PartCurrencies';
 
 const TradingPage = () => {
   const _renderLeftContent = () => (
@@ -33,6 +34,7 @@ const TradingPage = () => {
 
   const _renderRightContent = () => (
     <Box className="trading-page__content-right">
+      <PartCurrencies />
       <PartTrades />
     </Box>
   );

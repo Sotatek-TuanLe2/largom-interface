@@ -85,3 +85,9 @@ export enum SYMBOL_TYPE {
   stock = 'stock',
   bitcoin = 'bitcoin',
 }
+
+export const SORTING = {
+  NONE: '',
+  ASC: 'asc',
+  DESC: 'desc',
+};
