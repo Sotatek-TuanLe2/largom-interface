@@ -20,8 +20,9 @@ import {
   getResolutionString,
 } from 'src/utils/chart';
 // import { SocketEvent } from 'src/socket/SocketEvent';
-import { ICandle, IInstrument } from 'src/types';
+import { ICandle } from 'src/utils/types';
 import { SYMBOL_TYPE, THEME_MODE } from 'src/utils/constants';
+import { IInstrument } from 'src/store/metadata';
 // import { roundNumberWithBase } from 'src/utils/format';
 
 interface obj {

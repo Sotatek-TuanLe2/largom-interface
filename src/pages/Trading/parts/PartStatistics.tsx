@@ -1,47 +1,65 @@
 import 'src/styles/pages/TradingPage.scss';
 import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/store';
+import { formatTickerNumber } from 'src/utils/format';
 
 interface IStatics {
   label: string;
-  value: number;
+  value: number | string;
 }
 
-const statics: {
-  label: string;
-  value: number;
-}[] = [
-  {
-    label: '24h High',
-    value: 2143959,
-  },
-  {
-    label: '24h Low',
-    value: 2143959,
-  },
-  {
-    label: '24h Volume(BTC)',
-    value: 2143959,
-  },
-  {
-    label: '24h Volume(USDT)',
-    value: 2143959,
-  },
-];
-
 const PartStatistics = () => {
+  const { instrument } = useSelector(
+    (state: RootState) => state.metadata.trading,
+  );
+  const ticker = useSelector((state: RootState) =>
+    state.metadata.trading.tickers.find(
+      (ticker) => ticker.symbol === instrument.symbol,
+    ),
+  );
+
+  const statics: IStatics[] = [
+    {
+      label: '24h High',
+      value: '-',
+    },
+    {
+      label: '24h Low',
+      value: '-',
+    },
+    {
+      label: `24h Volume(${instrument.rootSymbol})`,
+      value: ticker?.volume || '--',
+    },
+    {
+      label: `24h Volume(${instrument.quoteCurrency})`,
+      value: formatTickerNumber(ticker?.quoteVolume, instrument),
+    },
+  ];
+
   return (
     <Flex className="statistics">
-      <Box className="statistics__currency">BTC/USDT</Box>
+      <Box className="statistics__currency">
+        {`${instrument.rootSymbol}/${instrument.quoteCurrency}`}
+      </Box>
 
       <Flex>
         <Box className="statistics__price">
-          <Box className="price up">20,854.85</Box>
-          <Box className="value">$20,854.85</Box>
+          <Box className="price up">
+            {formatTickerNumber(ticker?.lastPrice, instrument)}
+          </Box>
+          <Box className="value">
+            ${formatTickerNumber(ticker?.lastPrice, instrument)}
+          </Box>
         </Box>
         <Box className="statistics__static change">
           <Box className="label">24h Change</Box>
-          <Box className="value up">124.34 + 0.60%</Box>
+          <Box className="value up">
+            {formatTickerNumber(ticker?.priceChange, instrument)} + (
+            {Number(ticker?.priceChangePercent || 0).toFixed(2)}%)
+          </Box>
         </Box>
 
         {statics.map((item: IStatics, index) => {
