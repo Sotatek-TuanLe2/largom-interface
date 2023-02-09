@@ -1,46 +1,89 @@
-# Getting Started with Create React App
+# Bunicorn Largom Interface Page 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Environment
+```
+Node version: v14.20.0
+```
 
-## Available Scripts
 
-In the project directory, you can run:
+## Setup
 
-### `yarn start`
+#### Step 1
+Create ``.env`` file
+```
+cp .env.dev.example .env
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Step 2
+```
+npm run install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Step 3: Run development server
+```
+npm run start
+```
 
-### `yarn test`
+#### Step 3A: Run development server with mock-api server
+```
+npm run start:mock-api
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+mock-api server is running at:
+```
+http://localhost:9000/
+```
 
-### `yarn build`
+#### Step 4
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Access:
+```
+http://localhost:8688/
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Enjoy and Finish !!!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Convention
+#### Coding convention
+Check coding convention with physic machine
+```
+make eslint
+```
+or
+```
+npm run lint && npm run format
+```
 
-### `yarn eject`
+### Branch name convention
+Format general: ``type/subject``
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Type  | Explain
+------------- | -------------
+feature  | The `feature` branch is a branch to implement a new feature/function.
+fix | The `fix` branch is a branch fix bug.
+hotfix |  The `hotfix` branch is a branch hotfix bug in the production environment.
+release | The `release` branch is a branch release following deadline delivery. The release branch gets merged into master branch and tagged with a version number
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Example: 
+- branch to fix bug (has ticket): `fix/TBL-838`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Commit convention
+Format general: ``type(scope?): subject``
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Type  | Explain
+------------- | -------------
+build  | The `build` type for changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm).
+chore | The `chore` type for other changes that don't modify src or test files
+ci | The `ci` type for changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+docs | The `docs` type for documentation only changes.
+feat | The `feat` type is the a new feature.
+fix | The `fix` type is the a bug fix.
+perf | The `perf` type for change that improves performance.
+refactor | The `refactor` type for change that neither fixes a bug nor adds a feature.
+revert | The `revert` type for reverts a previous commit
+style | The `style` type for changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+test | The `test` type for adding missing tests or correcting existing tests.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pull request convention
+When you create a pull request, you need to add a comment follow the pull request template and update the checklist
