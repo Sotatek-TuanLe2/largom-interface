@@ -309,7 +309,10 @@
     background-color: $Card;
     margin-top: 4px;
     padding: 20px 0;
-
+    .tab-list {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
     .table-wrap {
       height: 300px;
     }
