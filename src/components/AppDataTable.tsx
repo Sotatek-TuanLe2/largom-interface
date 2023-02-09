@@ -147,9 +147,14 @@ const AppDataTable = forwardRef((props: DataTableProps, ref: Ref<any>) => {
 
   const _renderLoading = () => {
     return (
-      <div style={{ marginTop: '25px', width: '100%', textAlign: 'center' }}>
+      <Flex
+        width="full"
+        height="full"
+        justifyContent="center"
+        alignItems="center"
+      >
         Loading...
-      </div>
+      </Flex>
     );
   };
 

@@ -308,8 +308,19 @@
   .order-wrap {
     background-color: $Card;
     margin-top: 4px;
-    padding: 0 40px 20px;
-    min-height: 400px;
+    padding: 20px 0;
+    .tab-list {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .table-wrap {
+      height: 300px;
+    }
+
+    .rows-wrap {
+      height: 260px;
+      overflow-y: scroll;
+    }
 
     &__content-tab {
       padding: 70px 0;
@@ -331,11 +342,174 @@
 
     .row-order {
       flex-wrap: nowrap;
-      border-bottom: 1px solid $Border;
+      padding-left: 40px;
+      padding-right: 40px;
+
       .arrow-right {
         transform: rotate(-90deg);
       }
     }
+
+    .open-order {
+      &--date {
+        width: 180px;
+      }
+
+      &--pair {
+        width: 110px;
+      }
+
+      &--network {
+        width: 140px;
+      }
+
+      &--type {
+        width: 80px;
+      }
+
+      &--side {
+        width: 80px;
+      }
+
+      &--price {
+        width: 130px;
+      }
+
+      &--amount {
+        width: 120px;
+      }
+
+      &--filled {
+        width: 80px;
+      }
+
+      &--total {
+        width: 140px;
+      }
+
+      &--condition {
+        width: 171px;
+      }
+
+      &--cancel-all {
+        flex-grow: 1;
+      }
+    }
+
+    .trade-history {
+      &--date {
+        width: 200px;
+      }
+
+      &--pair {
+        width: 150px;
+      }
+
+      &--network {
+        width: 140px;
+      }
+
+      &--side {
+        width: 100px;
+      }
+
+      &--price {
+        width: 113px;
+      }
+
+      &--executed {
+        width: 115px;
+      }
+
+      &--fee {
+        width: 230px;
+      }
+
+      &--role {
+        width: 109px;
+      }
+
+      &--total {
+        width: 203px;
+      }
+    }
+
+    .order-history {
+      &--order-time {
+        width: 198px;
+      }
+
+      &--pair {
+        width: 120px;
+      }
+
+      &--network {
+        width: 140px;
+      }
+
+      &--type {
+        width: 80px;
+      }
+
+      &--side {
+        width: 80px;
+      }
+
+      &--average {
+        width: 130px;
+      }
+
+      &--price {
+        width: 113px;
+      }
+
+      &--excuted {
+        width: 83px;
+      }
+
+      &--amount {
+        width: 81px;
+      }
+
+      &--total {
+        width: 79px;
+      }
+
+      &--condition {
+        width: 153px;
+      }
+
+      &--all {
+        flex-grow: 1;
+      }
+    }
+
+    .funds {
+      &--coin {
+        width: 200px;
+      }
+
+      &--network {
+        width: 220px;
+      }
+
+      &--total-balance {
+        width: 240px;
+      }
+
+      &--avail-balance {
+        width: 240px;
+      }
+
+      &--in-order {
+        width: 220px;
+      }
+
+      &--btc-value {
+        flex-grow: 1;
+      }
+    }
+
     .row-fund {
       &:hover {
         background-color: $Card2;
@@ -369,10 +543,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      border-bottom: 1px solid $Border;
+
       @include text-small-regular;
 
-      .price,
-      .amount {
+      .text-price,
+      .text-amount {
         max-width: 80%;
         white-space: nowrap;
         overflow: hidden;
@@ -420,10 +596,10 @@
       }
     }
 
-    .order-history-wrap {
+    .order-history-wrap,
+    .trade-history-wrap {
       .search {
-        padding-bottom: 19px;
-        padding-top: 22px;
+        padding: 22px 40px 19px;
         color: $Paragraph1;
 
         label {
@@ -531,7 +707,7 @@
       .scope {
         color: $Main;
         padding: 0 3px;
-        background: rgba(83, 103, 254, 0.15);
+        background: rgba(83, 103, 254, 15%);
         border-radius: 2px;
       }
 

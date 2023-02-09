@@ -31,34 +31,37 @@ const PartTradeHistory = () => {
 
   const _renderHeaderTradeHistory = () => {
     return (
-      <Flex justifyContent={'space-between'} className="row-order">
-        <Box w={'14.7%'} className="header-order">
+      <Flex
+        justifyContent={'space-between'}
+        className="row-order trade-history"
+      >
+        <Box w={'14.7%'} className="header-order trade-history--date">
           DATE
         </Box>
-        <Box w={'11.03%'} className="header-order">
+        <Box w={'11.03%'} className="header-order trade-history--pair">
           PAIR
         </Box>
-        <Box w={'10.29%'} className="header-order">
+        <Box w={'10.29%'} className="header-order trade-history--network">
           NETWORK
         </Box>
-        <Box w={'7.35%'} className="header-order">
+        <Box w={'7.35%'} className="header-order trade-history--side">
           <span>SIDE</span>
           <ArrowDownIcon />
         </Box>
-        <Box w={'8.3%'} className="header-order">
+        <Box w={'8.3%'} className="header-order trade-history--price">
           <span>PRICE</span>
         </Box>
-        <Box w={'8.3%'} className="header-order">
+        <Box w={'8.3%'} className="header-order trade-history--excuted">
           EXECUTED
         </Box>
-        <Box w={'16.91%'} className="header-order">
+        <Box w={'16.91%'} className="header-order trade-history--fee">
           FEE
         </Box>
-        <Box w={'8.01%'} className="header-order">
+        <Box w={'8.01%'} className="header-order trade-history--role">
           ROLE
         </Box>
 
-        <Box w={'15.11%'} className="header-order">
+        <Box w={'15.11%'} className="header-order trade-history--total">
           TOTAL
         </Box>
       </Flex>
@@ -70,7 +73,7 @@ const PartTradeHistory = () => {
       return <></>;
     } else
       return (
-        <>
+        <div className="rows-wrap">
           {data.map((orderHistory: ITradeHistory, id: number) => {
             return (
               <RowTradingHistoryTable
@@ -79,12 +82,12 @@ const PartTradeHistory = () => {
               />
             );
           })}
-        </>
+        </div>
       );
   };
 
   return (
-    <Box className="order-history-wrap">
+    <Box className="trade-history-wrap">
       <div className="search">
         <AppRadioBtn
           value={valueRadio}
@@ -92,11 +95,13 @@ const PartTradeHistory = () => {
           options={OPTIONS_RADIO}
         />
       </div>
-      <AppDataTable
-        renderBody={_renderContentTradeHistory}
-        renderHeader={_renderHeaderTradeHistory}
-        fetchData={getDataTradeHistory}
-      />
+      <div className="table-wrap">
+        <AppDataTable
+          renderBody={_renderContentTradeHistory}
+          renderHeader={_renderHeaderTradeHistory}
+          fetchData={getDataTradeHistory}
+        />
+      </div>
     </Box>
   );
 };
@@ -105,35 +110,35 @@ const RowTradingHistoryTable: React.FC<{ tradeHistory: ITradeHistory }> = ({
   tradeHistory,
 }) => {
   return (
-    <Flex justifyContent={'space-between'} className="row-order">
-      <Box w={'14.7%'} className="cell-open-order">
+    <Flex justifyContent={'space-between'} className="row-order trade-history">
+      <Box w={'14.7%'} className="cell-open-order trade-history--date">
         {`${moment(+tradeHistory.date).format('YYYY-MM-DD hh:mm:ss')}`}
       </Box>
-      <Box w={'11.03%'} className="cell-open-order">
+      <Box w={'11.03%'} className="cell-open-order trade-history--pair">
         {tradeHistory.pair}
       </Box>
-      <Box w={'10.29%'} className="cell-open-order">
+      <Box w={'10.29%'} className="cell-open-order trade-history--network">
         <div className={`${getLogoNetwork(tradeHistory.networkId)}`}></div>
         <span>{tradeHistory.network}</span>
       </Box>
-      <Box w={'7.35%'} className="cell-open-order">
+      <Box w={'7.35%'} className="cell-open-order trade-history--side">
         <span>{tradeHistory.side}</span>
         <ArrowDownIcon />
       </Box>
-      <Box w={'8.3%'} className="cell-open-order">
+      <Box w={'8.3%'} className="cell-open-order trade-history--price">
         <span>{tradeHistory.price}</span>
       </Box>
-      <Box w={'8.3%'} className="cell-open-order">
+      <Box w={'8.3%'} className="cell-open-order trade-history--excuted">
         {tradeHistory.executed}
       </Box>
-      <Box w={'16.91%'} className="cell-open-order">
+      <Box w={'16.91%'} className="cell-open-order trade-history--fee">
         {tradeHistory.fee}
       </Box>
-      <Box w={'8.01%'} className="cell-open-order">
+      <Box w={'8.01%'} className="cell-open-order trade-history--role">
         {tradeHistory.role}
       </Box>
 
-      <Box w={'15.11%'} className="cell-open-order">
+      <Box w={'15.11%'} className="cell-open-order trade-history--total">
         {tradeHistory.total}
       </Box>
     </Flex>

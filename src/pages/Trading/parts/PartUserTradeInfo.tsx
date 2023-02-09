@@ -11,6 +11,7 @@ import PartFunds from './PartFunds';
 
 const PartUserTradeInfo = () => {
   const [countOpenOrder, setCountOpenOrder] = useState(0);
+  const [currentTab, setCurrentTab] = useState<string>('OpenOrder');
   const { wallet } = useWallet();
 
   const _renderTab = (content: ReactNode) => {
@@ -26,7 +27,7 @@ const PartUserTradeInfo = () => {
 
   const tabs: ITabs[] = [
     {
-      id: 'Openorder',
+      id: 'OpenOrder',
       name: `Open order(${countOpenOrder})`,
       content: _renderTab(
         <PartOpenOrder setCountOpenOrder={setCountOpenOrder} />,
@@ -45,15 +46,28 @@ const PartUserTradeInfo = () => {
     { id: 'Fund', name: 'Funds', content: _renderTab(<PartFunds />) },
   ];
 
-  const rightElement = () => (
-    <div className="hide-pair">
-      <AppCheckbox label="Hide   pair" />
-    </div>
-  );
+  const onChange = (indexTab: string) => {
+    setCurrentTab(indexTab);
+  };
 
+  const getRightElement = () => {
+    if (currentTab === 'OpenOrder' || currentTab === 'OrderHistory') {
+      return (
+        <div className="hide-pair">
+          <AppCheckbox label="Hide   pair" />
+        </div>
+      );
+    } else if (currentTab === 'TradeHistory' || currentTab === 'Fund') {
+      return (
+        <div className="hide-pair">
+          <AppCheckbox label="Hide low balance assets" />
+        </div>
+      );
+    }
+  };
   return (
     <Box className="order-wrap">
-      <AppTabs tabs={tabs} rightElement={rightElement()} />
+      <AppTabs tabs={tabs} rightElement={getRightElement} onChange={onChange} />
     </Box>
   );
 };
