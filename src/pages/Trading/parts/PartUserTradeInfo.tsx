@@ -45,9 +45,11 @@ const PartUserTradeInfo = () => {
     },
     { id: 'Fund', name: 'Funds', content: _renderTab(<PartFunds />) },
   ];
+
   const onChange = (indexTab: string) => {
     setCurrentTab(indexTab);
   };
+
   const getRightElement = () => {
     if (currentTab === 'OpenOrder' || currentTab === 'OrderHistory') {
       return (

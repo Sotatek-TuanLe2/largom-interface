@@ -3,6 +3,7 @@
 
 .orderbook-list {
   min-height: 380px;
+  margin-left: -40px;
 
   .orderbook-progress {
     @include text-tiny-regular;
@@ -14,7 +15,7 @@
 
     .row-content {
       display: flex;
-      padding: 0 20px 0 0;
+      padding: 0 20px 0 40px;
 
       div {
         flex: 1 1 0;

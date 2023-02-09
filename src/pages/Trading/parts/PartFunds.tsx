@@ -39,14 +39,7 @@ const PartFunds = () => {
             onSort={onSort}
           />
         </Box>
-        <Box className="header-order funds--network">
-          <AppTableSorting
-            sortBy="network"
-            activeSort={sorter.sortBy}
-            title="NETWORK"
-            onSort={onSort}
-          />
-        </Box>
+        <Box className="header-order funds--network">NETWORK</Box>
         <Box className="header-order funds--total-balance">
           <AppTableSorting
             sortBy="total-balance"

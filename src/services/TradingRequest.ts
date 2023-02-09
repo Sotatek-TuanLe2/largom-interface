@@ -1,8 +1,8 @@
 import BaseRequest from './BaseRequest';
 
 export default class TradingRequest extends BaseRequest {
-  getCandleChartData() {
-    const url = '/candle/BTCUSD';
+  getCandleChartData(params: { instrumentSymbol: string }) {
+    const url = `/candle/${params.instrumentSymbol}`;
     return this.get(url);
   }
 
