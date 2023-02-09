@@ -1,3 +1,5 @@
 {
-  "welcome.title": "Xin chào {{name}}"
+  "common.language": "Tiếng Việt",
+  "welcome.title": "Xin chào {{name}}",
+  "modal.languages.title": "Ngôn ngữ và Vị trí"
 }

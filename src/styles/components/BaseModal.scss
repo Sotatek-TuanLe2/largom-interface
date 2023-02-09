@@ -91,3 +91,23 @@
     }
   }
 }
+
+.modal-languages {
+  &__language-item {
+    width: calc(100% / 3 - 20px);
+    padding: 5px 0;
+    cursor: pointer;
+
+    &--active {
+      color: $Yellow;
+    }
+
+    &:nth-child(n + 2) {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      background-color: $Line;
+    }
+  }
+}
