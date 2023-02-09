@@ -49,23 +49,25 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
   const _renderHeaderOpenOrder = () => {
     return (
       <Flex justifyContent={'space-between'} className="row-order open-order">
-        <Box className="header-order date">DATE</Box>
-        <Box className="header-order pair">PAIR</Box>
-        <Box className="header-order network">NETWORK</Box>
-        <Box className="header-order type">
+        <Box className="header-order open-order--date">DATE</Box>
+        <Box className="header-order open-order--pair">PAIR</Box>
+        <Box className="header-order open-order--network">NETWORK</Box>
+        <Box className="header-order open-order--type">
           <span>TYPE</span>
           <ArrowDownIcon />
         </Box>
-        <Box className="header-order side">
+        <Box className="header-order open-order--side">
           <span>SIDE</span>
           <ArrowDownIcon />
         </Box>
-        <Box className="header-order price">PRICE</Box>
-        <Box className="header-order amount">AMOUNT</Box>
-        <Box className="header-order filled">FILLED</Box>
-        <Box className="header-order total">TOTAL</Box>
-        <Box className="header-order condition">TRIGGER CONDITIONS</Box>
-        <Box className="header-order cancel-all">
+        <Box className="header-order open-order--price">PRICE</Box>
+        <Box className="header-order open-order--amount">AMOUNT</Box>
+        <Box className="header-order open-order--filled">FILLED</Box>
+        <Box className="header-order open-order--total">TOTAL</Box>
+        <Box className="header-order open-order--condition">
+          TRIGGER CONDITIONS
+        </Box>
+        <Box className="header-order open-order--cancel-all">
           <span>CANCEL ALL</span>
           <ArrowDownIcon />
         </Box>
@@ -112,40 +114,42 @@ const PartOpenOrder: React.FC<IPartOpenOrder> = ({ setCountOpenOrder }) => {
 const RowOpenOrderTable: React.FC<ICellOpenOrder> = ({ openOrder }) => {
   return (
     <Flex justifyContent={'space-between'} className="row-order open-order">
-      <Box className="cell-open-order date">
+      <Box className="cell-open-order open-order--date">
         {`${moment(+openOrder.date).format('YYYY-MM-DD')}`}
       </Box>
-      <Box className="cell-open-order pair">{openOrder.pair}</Box>
-      <Box className={`cell-open-order network`}>
+      <Box className="cell-open-order open-order--pair">{openOrder.pair}</Box>
+      <Box className={`cell-open-order open-order--network`}>
         <div className={`${getLogoNetwork(openOrder.networkId)}`}></div>
         {openOrder.network}
       </Box>
-      <Box className="cell-open-order type">{openOrder.type}</Box>
+      <Box className="cell-open-order open-order--type">{openOrder.type}</Box>
       <Box
-        className={`cell-open-order side ${getClassNameSideCell(
+        className={`cell-open-order open-order--side ${getClassNameSideCell(
           openOrder.side,
         )}`}
       >
         {openOrder.side}
       </Box>
-      <Box className="cell-open-order price">
+      <Box className="cell-open-order open-order--price">
         <span className="text-price">{openOrder.price}</span>
         <span>
           <EditIcon cursor={'pointer'} />
         </span>
       </Box>
-      <Box className="cell-open-order amount">
+      <Box className="cell-open-order open-order--amount">
         <span className="text-amount">{openOrder.amount}</span>
         <span>
           <EditIcon cursor={'pointer'} />
         </span>
       </Box>
-      <Box className="cell-open-order filled">{openOrder.filled}</Box>
-      <Box className="cell-open-order total">{openOrder.total}</Box>
-      <Box className="cell-open-order condition">
+      <Box className="cell-open-order open-order--filled">
+        {openOrder.filled}
+      </Box>
+      <Box className="cell-open-order open-order--total">{openOrder.total}</Box>
+      <Box className="cell-open-order open-order--condition">
         {openOrder.conditions || '--'}
       </Box>
-      <Box className="cell-open-order cancel-all">
+      <Box className="cell-open-order open-order--cancel-all">
         <DeleteIcon cursor={'pointer'} />
       </Box>
     </Flex>

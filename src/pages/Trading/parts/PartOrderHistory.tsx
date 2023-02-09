@@ -49,24 +49,26 @@ const PartOrderHistory = () => {
         justifyContent={'space-between'}
         className="row-order order-history"
       >
-        <Box className="header-order order-time">ORDER TIME</Box>
-        <Box className="header-order pair">PAIR</Box>
-        <Box className="header-order network">NETWORK</Box>
-        <Box className="header-order type">
+        <Box className="header-order order-history--order-time">ORDER TIME</Box>
+        <Box className="header-order order-history--pair">PAIR</Box>
+        <Box className="header-order order-history--network">NETWORK</Box>
+        <Box className="header-order order-history--type">
           <span>TYPE</span>
           <ArrowDownIcon />
         </Box>
-        <Box className="header-order side">
+        <Box className="header-order order-history--side">
           <span>SIDE</span>
           <ArrowDownIcon />
         </Box>
-        <Box className="header-order average">AVERAGE</Box>
-        <Box className="header-order price">PRICE</Box>
-        <Box className="header-order excuted">EXECUTED</Box>
-        <Box className="header-order amount">AMOUNT</Box>
-        <Box className="header-order total">TOTAL</Box>
-        <Box className="header-order condition">TRIGGER CONDITIONS</Box>
-        <Box className="header-order all">
+        <Box className="header-order order-history--average">AVERAGE</Box>
+        <Box className="header-order order-history--price">PRICE</Box>
+        <Box className="header-order order-history--excuted">EXECUTED</Box>
+        <Box className="header-order order-history--amount">AMOUNT</Box>
+        <Box className="header-order order-history--total">TOTAL</Box>
+        <Box className="header-order order-history--condition">
+          TRIGGER CONDITIONS
+        </Box>
+        <Box className="header-order order-history--all">
           <span>ALL</span>
           <ArrowDownIcon />
         </Box>
@@ -116,37 +118,45 @@ const RowOrderHistoryTable: React.FC<{ orderHistory: IOrderHistory }> = ({
 }) => {
   return (
     <Flex justifyContent={'space-between'} className="row-order order-history">
-      <Box className="cell-open-order order-time">
+      <Box className="cell-open-order order-history--order-time">
         {`${moment(+orderHistory.date).format('YYYY-MM-DD hh:mm:ss')}`}
       </Box>
-      <Box className="cell-open-order pair">{orderHistory.pair}</Box>
-      <Box className={`cell-open-order network`}>
+      <Box className="cell-open-order order-history--pair">
+        {orderHistory.pair}
+      </Box>
+      <Box className={`cell-open-order order-history--network`}>
         <div className={`${getLogoNetwork(orderHistory.networkId)}`}></div>
         {orderHistory.network}
       </Box>
-      <Box className="cell-open-order type">{orderHistory.type}</Box>
+      <Box className="cell-open-order order-history--type">
+        {orderHistory.type}
+      </Box>
       <Box
-        className={`cell-open-order side ${getClassNameSideCell(
+        className={`cell-open-order order-history--side ${getClassNameSideCell(
           orderHistory.side,
         )}`}
       >
         {orderHistory.side}
       </Box>
-      <Box className="cell-open-order average">
+      <Box className="cell-open-order order-history--average">
         <span className="price">{orderHistory.avarage}</span>
       </Box>
-      <Box className="cell-open-order price">
+      <Box className="cell-open-order order-history--price">
         <span className="amount">{orderHistory.price}</span>
       </Box>
-      <Box className="cell-open-order excuted">
+      <Box className="cell-open-order order-history--excuted">
         {orderHistory.excuted || '--'}
       </Box>
-      <Box className="cell-open-order amount">{orderHistory.amount}</Box>
-      <Box className="cell-open-order total">{orderHistory.total}</Box>
-      <Box className="cell-open-order condition">
+      <Box className="cell-open-order order-history--amount">
+        {orderHistory.amount}
+      </Box>
+      <Box className="cell-open-order order-history--total">
+        {orderHistory.total}
+      </Box>
+      <Box className="cell-open-order order-history--condition">
         {orderHistory.conditions || '--'}
       </Box>
-      <Box className="cell-open-order all">
+      <Box className="cell-open-order order-history--all">
         {'Canceled'}
         {/* <DeleteIcon cursor={'pointer'} /> */}
       </Box>

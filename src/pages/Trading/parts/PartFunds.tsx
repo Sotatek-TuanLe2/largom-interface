@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { ArrowDownIcon, ArrowLightIcon } from 'src/assets/icons';
+import { ArrowLightIcon } from 'src/assets/icons';
 import { AppTableSorting } from 'src/components';
 import AppDataTable from 'src/components/AppDataTable';
 import { ISorter } from 'src/components/AppTableSorting';
@@ -21,7 +21,6 @@ interface IFund {
 const PartFunds = () => {
   const [sorter, setSorter] = useState<ISorter>({ sortBy: '', order: '' });
   const onSort = (sorter: ISorter) => {
-    console.log(sorter);
     setSorter({ ...sorter });
   };
   const getDataFunds = async () => {
@@ -32,7 +31,7 @@ const PartFunds = () => {
   const _renderHeaderFunds = () => {
     return (
       <Flex justifyContent={'space-between'} className="row-order funds">
-        <Box className="header-order coin">
+        <Box className="header-order funds--coin">
           <AppTableSorting
             sortBy="coin"
             activeSort={sorter.sortBy}
@@ -40,15 +39,8 @@ const PartFunds = () => {
             onSort={onSort}
           />
         </Box>
-        <Box className="header-order network">
-          <AppTableSorting
-            sortBy="network"
-            activeSort={sorter.sortBy}
-            title="NETWORK"
-            onSort={onSort}
-          />
-        </Box>
-        <Box className="header-order total-balance">
+        <Box className="header-order funds--network">NETWORK</Box>
+        <Box className="header-order funds--total-balance">
           <AppTableSorting
             sortBy="total-balance"
             activeSort={sorter.sortBy}
@@ -56,7 +48,7 @@ const PartFunds = () => {
             onSort={onSort}
           />
         </Box>
-        <Box className="header-order avail-balance">
+        <Box className="header-order funds--avail-balance">
           <AppTableSorting
             sortBy="avail-balance"
             activeSort={sorter.sortBy}
@@ -64,7 +56,7 @@ const PartFunds = () => {
             onSort={onSort}
           />
         </Box>
-        <Box className="header-order in-order">
+        <Box className="header-order funds--in-order">
           <AppTableSorting
             sortBy="in-order"
             activeSort={sorter.sortBy}
@@ -72,7 +64,7 @@ const PartFunds = () => {
             onSort={onSort}
           />
         </Box>
-        <Box className="header-order btc-value">
+        <Box className="header-order funds--btc-value">
           <AppTableSorting
             sortBy="btc-value"
             activeSort={sorter.sortBy}
@@ -117,27 +109,27 @@ const RowFundsTable: React.FC<{ fund: IFund }> = ({ fund }) => {
         className="row-order funds"
         onClick={() => setHiddenChildren((pre) => !pre)}
       >
-        <Box className="cell-open-order coin">
+        <Box className="cell-open-order funds--coin">
           <span>{fund.coin}</span>
           <span className={hiddenChildren ? 'arrow-right' : ''}>
             <ArrowLightIcon />
           </span>
         </Box>
-        <Box className="cell-open-order network">
+        <Box className="cell-open-order funds--network">
           <div className={`${getLogoNetwork(fund.networkId)}`}></div>
           <span>{fund.network}</span>
         </Box>
-        <Box className="cell-open-order total-balance">
+        <Box className="cell-open-order funds--total-balance">
           {fund.total_balance}
         </Box>
-        <Box className="cell-open-order avail-balance">
+        <Box className="cell-open-order funds--avail-balance">
           <span>{fund.available_balance}</span>
           {/* <ArrowDownIcon /> */}
         </Box>
-        <Box className="cell-open-order in-order">
+        <Box className="cell-open-order funds--in-order">
           <span>{fund.in_order}</span>
         </Box>
-        <Box className="cell-open-order btc-value">{fund.btc_value}</Box>
+        <Box className="cell-open-order funds--btc-value">{fund.btc_value}</Box>
       </Flex>
       <Flex direction={'column'} display={hiddenChildren ? 'none' : 'flex'}>
         {!!fund?.child &&
@@ -149,22 +141,22 @@ const RowFundsTable: React.FC<{ fund: IFund }> = ({ fund }) => {
                 w={'100%'}
                 key={id}
               >
-                <Box className="cell-open-order coin"></Box>
-                <Box className="cell-open-order network">
+                <Box className="cell-open-order funds--coin"></Box>
+                <Box className="cell-open-order funds--network">
                   <div className={`${getLogoNetwork(child.networkId)}`}></div>
                   <span>{child.network}</span>
                 </Box>
-                <Box className="cell-open-order total-balance">
+                <Box className="cell-open-order funds--total-balance">
                   {child.total_balance}
                 </Box>
-                <Box className="cell-open-order avail-balance">
+                <Box className="cell-open-order funds--avail-balance">
                   <span>{child.available_balance}</span>
                   {/* <ArrowDownIcon /> */}
                 </Box>
-                <Box className="cell-open-order  in-order">
+                <Box className="cell-open-order  funds--in-order">
                   <span>{child.in_order}</span>
                 </Box>
-                <Box className="cell-open-order btc-value">
+                <Box className="cell-open-order funds--btc-value">
                   {child.btc_value}
                 </Box>
               </Flex>

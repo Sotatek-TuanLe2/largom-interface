@@ -14,7 +14,7 @@ interface IAppTabs {
   defaultTab?: number;
   tabs: ITabs[];
   onChange?: (value: string) => void;
-  rightElement?: (index: number) => ReactNode;
+  rightElement?: () => ReactNode;
 }
 export interface ITabs {
   name: string;
@@ -28,7 +28,6 @@ const AppTabs: FC<IAppTabs> = ({
   onChange,
   rightElement,
 }) => {
-  const [currentTab, setCurrentTab] = useState<number>(0);
   return (
     <Tabs
       h={'full'}
@@ -38,9 +37,6 @@ const AppTabs: FC<IAppTabs> = ({
       colorScheme="transparent"
       defaultIndex={defaultTab}
       className="app-tab"
-      onChange={(index: number) => {
-        setCurrentTab(index);
-      }}
       isLazy
     >
       <TabList>
@@ -63,7 +59,7 @@ const AppTabs: FC<IAppTabs> = ({
               );
             })}
           </Flex>
-          <Box>{rightElement ? rightElement(currentTab) : ''}</Box>
+          <Box>{rightElement ? rightElement() : ''}</Box>
         </Flex>
       </TabList>
 
