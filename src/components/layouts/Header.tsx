@@ -5,9 +5,10 @@ import {
   LanguageIcon,
   ArrowDownIcon,
 } from 'src/assets/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import 'src/styles/components/Header.scss';
 import AppConnectWalletButton from '../AppConnectWalletButton';
+import ModalLanguages from '../Modals/ModalLanguages';
 
 const menus: {
   name: string;
@@ -49,6 +50,11 @@ const menus: {
 ];
 
 const Header = () => {
+  const [openModalLanguage, setOpenModalLanguage] = useState<boolean>(false);
+
+  const onToggleOpenModalLanguages = () =>
+    setOpenModalLanguage((prevState) => !prevState);
+
   return (
     <Flex className="header">
       <Flex className="header__content">
@@ -72,10 +78,16 @@ const Header = () => {
             <DownloadIcon />
           </Box>
           <Box className="header__icon-language">
-            <LanguageIcon />
+            <Box onClick={onToggleOpenModalLanguages}>
+              <LanguageIcon />
+            </Box>
           </Box>
         </Flex>
       </Flex>
+      <ModalLanguages
+        open={openModalLanguage}
+        onClose={onToggleOpenModalLanguages}
+      />
     </Flex>
   );
 };

@@ -1,3 +1,5 @@
 {
-  "welcome.title": "Welcome {{name}}"
+  "common.language": "English",
+  "welcome.title": "Welcome {{name}}",
+  "modal.languages.title": "Language and Region"
 }

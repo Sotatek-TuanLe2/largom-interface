@@ -4,6 +4,8 @@ export { default as ModalConnectWallet } from './Modals/ModalConnectWallet';
 export { default as ModalFinishTransaction } from './Modals/ModalFinishTransaction';
 export { default as ModalSignatureRequired } from './Modals/ModalSignatureRequired';
 export { default as ModalSubmittingTransaction } from './Modals/ModalSubmittingTransaction';
+export { default as ModalLanguages } from './Modals/ModalLanguages';
+export { default as ModalLinkWallet } from './Modals/ModalLinkWallet';
 export { default as AppButton } from './AppButton';
 export { default as AppInput } from './AppInput';
 export { default as AppTableOrderBook } from './AppTableOrderBook';
