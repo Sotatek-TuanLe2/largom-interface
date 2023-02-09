@@ -64,17 +64,16 @@ const AppInputRange: React.FC<IAppInputRange> = ({ countDistance = 4 }) => {
         <SliderMark value={100} {...labelStyles}>
           {_renderSliderMark(100, sliderValue)}
         </SliderMark>
-        {showPercentLabel && (
+        {
           <SliderMark
             value={sliderValue}
             textAlign="center"
-            bg="main.100"
             color="white"
             className="percent-slider"
           >
             {sliderValue}%
           </SliderMark>
-        )}
+        }
         <SliderTrack background={'border.300'} overflow="visible"></SliderTrack>
         <SliderFilledTrack background={'main.100'} />
         <div
