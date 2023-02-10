@@ -2,7 +2,7 @@
   {
     "coin": "BUSD",
     "network": "Ethereum",
-    "networkId": "GOERLI_TESTNET",
+    "networkIds": ["GOERLI_TESTNET", "BSC_TESTNET", "AVAX_TESTNET", "POLYGON_TESTNET", "SOLANA_DEVNET"],
     "total_balance": 42639.8599,
     "available_balance": 42639.8599,
     "in_order": 0,
@@ -10,7 +10,7 @@
     "child": [
       {
         "network": "Ethereum",
-        "networkId": "GOERLI_TESTNET",
+        "networkIds": ["GOERLI_TESTNET"],
         "total_balance": 42639.8599,
         "available_balance": 42639.8599,
         "in_order": 0,
@@ -19,7 +19,7 @@
       {
         "coin": "BUSD",
         "network": "Ethereum",
-        "networkId": "GOERLI_TESTNET",
+        "networkIds": ["GOERLI_TESTNET"],
         "total_balance": 42639.8599,
         "available_balance": 42639.8599,
         "in_order": 0,
@@ -30,7 +30,7 @@
   {
     "coin": "ADA",
     "network": "BSC",
-    "networkId": "BSC_TESTNET",
+    "networkIds": ["GOERLI_TESTNET", "BSC_TESTNET", "AVAX_TESTNET", "POLYGON_TESTNET", "SOLANA_DEVNET"],
     "total_balance": 8638.38179205,
     "available_balance": 8638.38179205,
     "in_order": 0,
@@ -39,7 +39,7 @@
   {
     "coin": "HIVE",
     "network": "Avalance",
-    "networkId": "AVAX_TESTNET",
+    "networkIds": ["GOERLI_TESTNET", "BSC_TESTNET", "AVAX_TESTNET", "POLYGON_TESTNET", "SOLANA_DEVNET"],
     "total_balance": 7451.59,
     "available_balance": 7451.59,
     "in_order": 0,
@@ -48,7 +48,7 @@
   {
     "coin": "XRP",
     "network": "Solana",
-    "networkId": "SOLANA_DEVNET",
+    "networkIds": ["GOERLI_TESTNET", "BSC_TESTNET", "AVAX_TESTNET", "POLYGON_TESTNET", "SOLANA_DEVNET"],
     "total_balance": 3940.948905,
     "available_balance": 3940.948905,
     "in_order": 0,
@@ -57,7 +57,7 @@
   {
     "coin": "VITE",
     "network": "Polygon",
-    "networkId": "POLYGON_TESTNET",
+    "networkIds": ["GOERLI_TESTNET", "BSC_TESTNET", "AVAX_TESTNET", "POLYGON_TESTNET", "SOLANA_DEVNET"],
     "total_balance": 66325.38179205,
     "available_balance": 66325.38179205,
     "in_order": 0,

@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { ArrowLightIcon } from 'src/assets/icons';
-import { AppTableSorting } from 'src/components';
+import { AppNetworkIcons, AppTableSorting } from 'src/components';
 import AppDataTable from 'src/components/AppDataTable';
 import { ISorter } from 'src/components/AppTableSorting';
 import rf from 'src/services/RequestFactory';
@@ -10,7 +10,7 @@ import { getLogoNetwork } from 'src/utils/network';
 interface IFund {
   coin: string;
   network: string;
-  networkId: string;
+  networkIds: string[];
   total_balance: number;
   available_balance: number;
   in_order: number;
@@ -116,8 +116,7 @@ const RowFundsTable: React.FC<{ fund: IFund }> = ({ fund }) => {
           </span>
         </Box>
         <Box className="cell-open-order funds--network">
-          <div className={`${getLogoNetwork(fund.networkId)}`}></div>
-          <span>{fund.network}</span>
+          <AppNetworkIcons networkIds={fund.networkIds} />
         </Box>
         <Box className="cell-open-order funds--total-balance">
           {fund.total_balance}
@@ -143,8 +142,7 @@ const RowFundsTable: React.FC<{ fund: IFund }> = ({ fund }) => {
               >
                 <Box className="cell-open-order funds--coin"></Box>
                 <Box className="cell-open-order funds--network">
-                  <div className={`${getLogoNetwork(child.networkId)}`}></div>
-                  <span>{child.network}</span>
+                  <AppNetworkIcons networkIds={child.networkIds} />
                 </Box>
                 <Box className="cell-open-order funds--total-balance">
                   {child.total_balance}
