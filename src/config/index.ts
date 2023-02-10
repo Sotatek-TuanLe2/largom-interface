@@ -45,6 +45,7 @@ export interface Network {
   addresses?: any;
   connectors: { [key: string]: Connector };
   icon?: string;
+  iconURL?: string;
   disableIcon?: string;
   currency?: string;
   nativeCurrency?: any;

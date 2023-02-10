@@ -1,7 +1,7 @@
 import 'src/styles/pages/TradingPage.scss';
 import React, { FC, useEffect, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { AppTabs } from 'src/components';
+import { AppNetworkIcons, AppTabs } from 'src/components';
 import { formatTimestamp } from 'src/utils/format';
 import rf from 'src/services/RequestFactory';
 
@@ -9,6 +9,7 @@ interface IDataTrades {
   price: number;
   amount: number;
   time: number;
+  networks: string[];
 }
 
 interface ITableTrades {
@@ -30,11 +31,20 @@ const TableTrades: FC<ITableTrades> = ({ data, isLoading }) => {
     return data.map((item: IDataTrades, index: number) => {
       return (
         <Box className="table-trades__content" key={index}>
-          <Box textAlign="left" className="price up">
-            {item.price}
+          <Box className="table-trades__content__item">
+            <span className="trade-price trade-price--up">
+              {Number(item.price).toFixed(2)}
+            </span>
           </Box>
-          <Box textAlign="right">{item.amount}</Box>
-          <Box textAlign="right">{formatTimestamp(item.time, 'HH:mm:ss')}</Box>
+          <Box className="table-trades__content__item">
+            {Number(item.amount).toFixed(5)}
+          </Box>
+          <Box className="table-trades__content__item">
+            {formatTimestamp(item.time, 'HH:mm:ss')}
+          </Box>
+          <Box className="table-trades__content__item">
+            <AppNetworkIcons networkIds={item.networks} showNumber={2} />
+          </Box>
         </Box>
       );
     });
@@ -43,9 +53,10 @@ const TableTrades: FC<ITableTrades> = ({ data, isLoading }) => {
   return (
     <Box className="table-trades">
       <Box className="table-trades__header">
-        <Box textAlign="left">Price(USDT)</Box>
-        <Box textAlign="right">Amount(BTC)</Box>
-        <Box textAlign="right">Time</Box>
+        <Box className="table-trades__header__item">Price(USDT)</Box>
+        <Box className="table-trades__header__item">Amount(BTC)</Box>
+        <Box className="table-trades__header__item">Time</Box>
+        <Box className="table-trades__header__item">Network</Box>
       </Box>
 
       <Box className="table-trades__list">{_renderContent()}</Box>
@@ -74,6 +85,7 @@ const PartTrades = () => {
       amount: item.quantity,
       price: item.price,
       time: item.createdAt,
+      networks: item.networks,
     }));
     setMarketTradeData(newMarketTradeData);
   };
@@ -86,6 +98,7 @@ const PartTrades = () => {
       amount: item.quantity,
       price: item.price,
       time: item.createdAt,
+      networks: item.networks,
     }));
     setMyTradeData(newMyTradeData);
   };

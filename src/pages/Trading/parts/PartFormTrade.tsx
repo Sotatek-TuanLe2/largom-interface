@@ -7,6 +7,7 @@ import {
   AppSelect,
   AppInputRange,
   AppButton,
+  AppNetworkIcons,
 } from 'src/components';
 import { TYPE_TRADE, TRADE_OPTIONS } from 'src/utils/constants';
 import useWallet from 'src/hooks/useWallet';
@@ -223,9 +224,13 @@ const PartFormTrade = () => {
     return (
       <Flex direction={'row'} justifyContent="space-between" wrap={'wrap'}>
         <Box width="49%">
-          <Flex className={'trading-page__form__current-value'}>
+          <Flex
+            className={'trading-page__form__current-value'}
+            alignItems="center"
+          >
             <Box className="label">Avbl</Box>
             <Box className="value">-- {tokenIn.symbol}</Box>
+            <AppNetworkIcons networkIds={['GOERLI_TESTNET', 'AVAX_TESTNET']} />
           </Flex>
           <FromTrade
             type={TYPE_TRADE.BUY}
@@ -236,9 +241,20 @@ const PartFormTrade = () => {
         </Box>
 
         <Box width="49%">
-          <Flex className={'trading-page__form__current-value'}>
+          <Flex
+            className={'trading-page__form__current-value'}
+            alignItems="center"
+          >
             <Box className="label">Avbl</Box>
             <Box className="value">-- {tokenOut.symbol}</Box>
+            <AppNetworkIcons
+              networkIds={[
+                'GOERLI_TESTNET',
+                'BSC_TESTNET',
+                'POLYGON_TESTNET',
+                'AVAX_TESTNET',
+              ]}
+            />
           </Flex>
           <FromTrade
             type={TYPE_TRADE.SELL}

@@ -4,699 +4,703 @@
     "price": "17467.43000000",
     "quantity": "0.00370000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17495.08000000",
     "quantity": "0.01080000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17495.08000000",
     "quantity": "0.00970000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17512.56000000",
     "quantity": "0.00770000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.10000000",
     "quantity": "0.00130000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.10000000",
     "quantity": "0.01410000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17550.37000000",
     "quantity": "0.01120000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.10000000",
     "quantity": "0.00390000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17549.84000000",
     "quantity": "0.01650000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17549.84000000",
     "quantity": "0.00850000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.10000000",
     "quantity": "0.00110000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17572.55000000",
     "quantity": "0.01220000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17579.10000000",
     "quantity": "0.00280000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17579.10000000",
     "quantity": "0.01020000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17579.10000000",
     "quantity": "0.00200000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17579.10000000",
     "quantity": "0.00330000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17579.10000000",
     "quantity": "0.00310000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17467.43000000",
     "quantity": "0.00310000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17511.80000000",
     "quantity": "0.00540000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17467.43000000",
     "quantity": "0.00310000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17487.98000000",
     "quantity": "0.00050000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17487.98000000",
     "quantity": "0.01530000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.15000000",
     "quantity": "0.00100000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17522.15000000",
     "quantity": "0.01970000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17487.98000000",
     "quantity": "0.00490000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17487.98000000",
     "quantity": "0.00050000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17541.93000000",
     "quantity": "0.00310000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17435.25000000",
     "quantity": "0.01420000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17475.62000000",
     "quantity": "0.00150000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17482.94000000",
     "quantity": "0.00030000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17482.94000000",
     "quantity": "0.00660000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17482.94000000",
     "quantity": "0.00130000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17490.66000000",
     "quantity": "0.00130000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17519.21000000",
     "quantity": "0.01000000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17490.66000000",
     "quantity": "0.01230000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17411.52000000",
     "quantity": "0.00990000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17380.09000000",
     "quantity": "0.00310000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17368.83000000",
     "quantity": "0.00910000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17368.83000000",
     "quantity": "0.00030000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17357.63000000",
     "quantity": "0.02040000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17348.75000000",
     "quantity": "0.00470000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17348.75000000",
-    "quantity": "0.00530000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17348.75000000",
-    "quantity": "0.00250000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17256.37000000",
     "quantity": "0.00390000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
     "price": "17368.83000000",
     "quantity": "0.01150000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17363.20000000",
+    "price": "17467.43000000",
+    "quantity": "0.00370000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17495.08000000",
+    "quantity": "0.01080000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17495.08000000",
     "quantity": "0.00970000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17354.43000000",
-    "quantity": "0.00070000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "price": "17512.56000000",
+    "quantity": "0.00770000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17354.43000000",
-    "quantity": "0.02370000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "price": "17522.10000000",
+    "quantity": "0.00130000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17354.43000000",
-    "quantity": "0.00010000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "price": "17522.10000000",
+    "quantity": "0.01410000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17345.61000000",
+    "price": "17550.37000000",
+    "quantity": "0.01120000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17522.10000000",
+    "quantity": "0.00390000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17549.84000000",
+    "quantity": "0.01650000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17549.84000000",
+    "quantity": "0.00850000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17522.10000000",
+    "quantity": "0.00110000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17572.55000000",
+    "quantity": "0.01220000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17579.10000000",
+    "quantity": "0.00280000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17579.10000000",
+    "quantity": "0.01020000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17579.10000000",
+    "quantity": "0.00200000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17579.10000000",
+    "quantity": "0.00330000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17579.10000000",
+    "quantity": "0.00310000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17467.43000000",
+    "quantity": "0.00310000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17511.80000000",
+    "quantity": "0.00540000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17467.43000000",
+    "quantity": "0.00310000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17487.98000000",
+    "quantity": "0.00050000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17487.98000000",
+    "quantity": "0.01530000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17522.15000000",
     "quantity": "0.00100000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17322.08000000",
-    "quantity": "0.00300000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17274.41000000",
-    "quantity": "0.01730000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17274.41000000",
-    "quantity": "0.00250000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17274.41000000",
-    "quantity": "0.00380000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17320.91000000",
-    "quantity": "0.01280000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17267.63000000",
-    "quantity": "0.00700000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17267.63000000",
-    "quantity": "0.01050000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17322.08000000",
-    "quantity": "0.00180000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17484.79000000",
-    "quantity": "0.00700000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17549.14000000",
-    "quantity": "0.00430000",
+    "price": "17522.15000000",
+    "quantity": "0.01970000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17549.14000000",
-    "quantity": "0.01890000",
+    "price": "17487.98000000",
+    "quantity": "0.00490000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17484.79000000",
-    "quantity": "0.00500000",
+    "price": "17487.98000000",
+    "quantity": "0.00050000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17555.40000000",
-    "quantity": "0.01070000",
+    "price": "17541.93000000",
+    "quantity": "0.00310000",
     "buyerIsTaker": false,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17380.11000000",
-    "quantity": "0.00820000",
+    "price": "17435.25000000",
+    "quantity": "0.01420000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17475.62000000",
+    "quantity": "0.00150000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17482.94000000",
+    "quantity": "0.00030000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17482.94000000",
+    "quantity": "0.00660000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17482.94000000",
+    "quantity": "0.00130000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17490.66000000",
+    "quantity": "0.00130000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17519.21000000",
+    "quantity": "0.01000000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17490.66000000",
+    "quantity": "0.01230000",
+    "buyerIsTaker": false,
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
+  },
+  {
+    "instrumentSymbol": "BTCUSD",
+    "price": "17411.52000000",
+    "quantity": "0.00990000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17380.11000000",
-    "quantity": "0.00300000",
+    "price": "17380.09000000",
+    "quantity": "0.00310000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17374.20000000",
-    "quantity": "0.00800000",
+    "price": "17368.83000000",
+    "quantity": "0.00910000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17374.20000000",
-    "quantity": "0.00350000",
+    "price": "17368.83000000",
+    "quantity": "0.00030000",
     "buyerIsTaker": true,
-    "createdAt": 1673835809000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "17275.82000000",
-    "quantity": "0.00240000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17275.82000000",
-    "quantity": "0.00210000",
-    "buyerIsTaker": true,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17457.66000000",
-    "quantity": "0.01030000",
-    "buyerIsTaker": false,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17501.97000000",
-    "quantity": "0.00520000",
-    "buyerIsTaker": false,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "17501.97000000",
-    "quantity": "0.01940000",
-    "buyerIsTaker": false,
-    "createdAt": 1673835809000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19348.00000000",
-    "quantity": "0.00920000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640506000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19323.33000000",
-    "quantity": "0.00970000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640506000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19386.01000000",
-    "quantity": "0.02110000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640505000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19364.73000000",
+    "price": "17357.63000000",
     "quantity": "0.02040000",
     "buyerIsTaker": true,
-    "createdAt": 1673640505000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "19332.00000000",
-    "quantity": "0.02070000",
+    "price": "17348.75000000",
+    "quantity": "0.00470000",
     "buyerIsTaker": true,
-    "createdAt": 1673640504000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "19442.19000000",
-    "quantity": "0.01560000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640504000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19412.83000000",
-    "quantity": "0.00180000",
+    "price": "17348.75000000",
+    "quantity": "0.00530000",
     "buyerIsTaker": true,
-    "createdAt": 1673640504000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "19337.00000000",
-    "quantity": "0.01980000",
+    "price": "17348.75000000",
+    "quantity": "0.00250000",
     "buyerIsTaker": true,
-    "createdAt": 1673640503000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "19324.55000000",
-    "quantity": "0.00200000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640503000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19315.00000000",
-    "quantity": "0.00880000",
+    "price": "17256.37000000",
+    "quantity": "0.00390000",
     "buyerIsTaker": true,
-    "createdAt": 1673640502000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   },
   {
     "instrumentSymbol": "BTCUSD",
-    "price": "19273.00000000",
-    "quantity": "0.00340000",
+    "price": "17368.83000000",
+    "quantity": "0.01150000",
     "buyerIsTaker": true,
-    "createdAt": 1673640502000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19385.03000000",
-    "quantity": "0.00180000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640502000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19412.83000000",
-    "quantity": "0.01940000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640501000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19385.33000000",
-    "quantity": "0.00180000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640501000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19385.66000000",
-    "quantity": "0.01100000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640501000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19385.66000000",
-    "quantity": "0.00180000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640501000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19439.50000000",
-    "quantity": "0.01120000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640500000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19321.00000000",
-    "quantity": "0.01210000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640499000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19283.43000000",
-    "quantity": "0.00590000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640499000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19403.61000000",
-    "quantity": "0.00290000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640498000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19415.50000000",
-    "quantity": "0.02010000",
-    "buyerIsTaker": false,
-    "createdAt": 1673640498000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19430.89000000",
-    "quantity": "0.00650000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640497000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19440.04000000",
-    "quantity": "0.01410000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640497000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19425.24000000",
-    "quantity": "0.00200000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640497000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19277.00000000",
-    "quantity": "0.01550000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640496000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19417.10000000",
-    "quantity": "0.01720000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640491000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19407.30000000",
-    "quantity": "0.01100000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640491000
-  },
-  {
-    "instrumentSymbol": "BTCUSD",
-    "price": "19361.39000000",
-    "quantity": "0.00050000",
-    "buyerIsTaker": true,
-    "createdAt": 1673640490000
+    "createdAt": 1673835809000,
+    "networks": ["GOERLI_TESTNET", "BSC_TESTNET", "POLYGON_TESTNET"]
   }
 ]
