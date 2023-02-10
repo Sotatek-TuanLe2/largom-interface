@@ -84,6 +84,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack-env": "^1.18.0",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.51.0",
     "branchlint": "0.0.2",
     "connect-api-mocker": "^1.10.0",
     "cors": "^2.8.5",
