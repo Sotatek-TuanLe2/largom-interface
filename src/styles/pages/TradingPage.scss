@@ -201,13 +201,9 @@
         display: flex;
         margin-bottom: 6px;
 
-        div {
+        &__item {
           flex: 1 1 0;
           justify-content: flex-start;
-
-          &:last-child {
-            padding-right: 40px;
-          }
         }
       }
 
@@ -224,27 +220,32 @@
         display: flex;
         margin-bottom: 3px;
 
-        .price {
-          &.up {
-            color: $Green;
-          }
-
-          &.down {
-            color: $Red;
-          }
-        }
-
         &:last-child {
           margin-bottom: 0;
         }
 
-        div {
+        &__item {
           flex: 1 1 0;
           justify-content: flex-start;
           cursor: pointer;
 
-          &:last-child {
-            padding-right: 40px;
+          .trade-price {
+            &--up {
+              color: $Green;
+            }
+
+            &--down {
+              color: $Red;
+            }
+          }
+
+          .network-icons {
+            .network-icons__item {
+              .network-image {
+                height: 16px;
+                width: 16px;
+              }
+            }
           }
         }
       }
@@ -271,6 +272,10 @@
         @include text-tiny-regular;
 
         color: $Title;
+      }
+
+      .network-icons {
+        margin-left: auto;
       }
     }
 

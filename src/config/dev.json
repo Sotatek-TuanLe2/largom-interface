@@ -72,6 +72,7 @@
         "auctionVault": "0x351A93E819f29897b964c82370e86138E86f0f10"
       },
       "icon": "icon-rounded-ethereum",
+      "iconURL": "icons/EthereumIcon.svg",
       "disableIcon": "icon-rounded-ethereum",
       "currency": "ETH",
       "connectors": {
@@ -182,6 +183,7 @@
         "auctionVault": "0x6c6031B1359042a5d1272F90B497248637E4Fd12"
       },
       "icon": "icon-rounded-bsc",
+      "iconURL": "icons/BNBIcon.svg",
       "disableIcon": "icon-rounded-bsc",
       "currency": "BNB",
       "connectors": {
@@ -257,6 +259,7 @@
         "auctionVault": "0x41095a849Aa05F416C4295bDd5Fc748A17eDAA67"
       },
       "icon": "icon-rounded-polygon",
+      "iconURL": "icons/PolygonIcon.svg",
       "disableIcon": "icon-rounded-polygon",
       "currency": "MATIC",
       "nativeCurrency": {
@@ -357,6 +360,7 @@
         "auctionVault": "0x6Be870871442C460AED70e51d43DF2e5C8C12e40"
       },
       "icon": "icon-rounded-avax",
+      "iconURL": "icons/AvaxIcon.svg",
       "disableIcon": "icon-rounded-avax",
       "currency": "AVAX",
       "nativeCurrency": {
@@ -435,6 +439,7 @@
         "url": "https://explorer.solana.com/"
       },
       "icon": "icon-rounded-solana",
+      "iconURL": "icons/SolanaIcon.svg",
       "disableIcon": "icon-rounded-solana",
       "currency": "SOL",
       "nativeCurrency": {
